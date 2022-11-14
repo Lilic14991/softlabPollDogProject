@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "FruitsPoll\WebAPI.csproj", "{B7621E97-24C8-4062-A79E-3FE0A08A00EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PollDog.API", "FruitsPoll\PollDog.API.csproj", "{B7621E97-24C8-4062-A79E-3FE0A08A00EE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{325D936F-ABC8-4C20-9A64-9CFE8166E0BF}"
 EndProject
@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{8F00B204-5CE6-41B1-9FB7-E6796F30C38E}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "WebAPI.Database", "WebAPI.Database\WebAPI.Database.sqlproj", "{AFC38C99-6B09-4520-8C0B-71AF67326BD4}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "PollDog.Database", "WebAPI.Database\PollDog.Database.sqlproj", "{AFC38C99-6B09-4520-8C0B-71AF67326BD4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

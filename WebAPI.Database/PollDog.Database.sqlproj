@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>WebAPI.Database</Name>
+    <Name>PollDog.Database</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{afc38c99-6b09-4520-8c0b-71af67326bd4}</ProjectGuid>
@@ -67,5 +67,6 @@
     <Build Include="Views\vSurveyResult.sql" />
     <Build Include="Tables\Brand.sql" />
     <Build Include="Tables\SurveyResult.sql" />
+    <Build Include="Schemas\SurveyResult.sql" />
   </ItemGroup>
 </Project>

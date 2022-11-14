@@ -1,9 +1,9 @@
-﻿CREATE VIEW [Product].[vAverageProduct]
-	AS SELECT 
-	[Name] as ProductName, [Name] as BrandName, AVG(CAST(sr.[Rating]) as float) as Average
-		FROM [dbo].[SurveyResult] as sr
-		JOIN [Product].[Product] as p 
-		ON p.[id] = sr.ProductId
-		JOIN [Brand].[Brand] as b 
-		ON b.[id] = sr.[BrandId]
-		GROUP BY p.[Id], p.[Name], b.Id, b.[Name]
+﻿CREATE VIEW [SurveyResult].[vSurveyResult]
+AS 
+SELECT P.[Name] AS ProductName, 
+       B.[Name] AS BrandName, 
+	   AVG(CAST(SR.[Rating] AS Float)) AS Average
+FROM [SurveyResult].[SurveyResult] AS SR
+JOIN [Product].[Product] AS P ON P.[Id] = SR.ProductId
+JOIN [Brand].[Brand]     AS B ON B.[Id] = SR.[BrandId]
+GROUP BY P.[Id], P.[Name], B.Id, B.[Name]
