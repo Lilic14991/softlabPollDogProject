@@ -62,11 +62,10 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Product.sql" />
-    <Build Include="Schemas\Brand.sql" />
-    <Build Include="Schemas\Product.sql" />
     <Build Include="Views\vSurveyResult.sql" />
     <Build Include="Tables\Brand.sql" />
     <Build Include="Tables\SurveyResult.sql" />
-    <Build Include="Schemas\SurveyResult.sql" />
+    <Build Include="Schemas\Portfolio.sql" />
+    <Build Include="Schemas\Survey.sql" />
   </ItemGroup>
 </Project>

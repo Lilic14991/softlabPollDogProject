@@ -1,4 +1,4 @@
-﻿CREATE TABLE [Brand].[Brand]
+﻿CREATE TABLE [Portfolio].[Brand]
 (
 	[Id]   UNIQUEIDENTIFIER NOT NULL CONSTRAINT [DF_Brand_Id] DEFAULT NEWID(),
 	[Name] NCHAR(20)        NULL,

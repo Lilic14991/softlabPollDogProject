@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FruitsPoll.Controllers
 {
+    /// <summary>test</summary>
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -11,13 +12,24 @@ namespace FruitsPoll.Controllers
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
+        /// <summary>
+        /// The logger
+        /// </summary>
         private readonly ILogger<WeatherForecastController> _logger;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WeatherForecastController"/> class.
+        /// </summary>
+        /// <param name="logger">The logger.</param>
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
         }
 
+        /// <summary>
+        /// Gets this instance.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
