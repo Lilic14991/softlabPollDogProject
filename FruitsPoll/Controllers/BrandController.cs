@@ -24,7 +24,7 @@ namespace PollDog.API.Controllers
 
         #endregion
 
-        #region GetMethods
+        #region Public Methods
 
         /// <summary>Gets the brands.</summary>
         /// <returns>The list of brands. </returns>

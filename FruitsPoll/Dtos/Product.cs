@@ -8,8 +8,6 @@ namespace PollDog.API.Dtos
     /// <summary> <see cref="Product"/> class DTO</summary>
     public class Product
     {
-        #region Properties
-
         /// <summary>Gets or sets the identifier.</summary>
         /// <value>The identifier.</value>
         public string Id { get; set; }
@@ -21,7 +19,5 @@ namespace PollDog.API.Dtos
         /// <summary>Gets or sets the brands.</summary>
         /// <value> <see cref="List{T}"/> List of Brands </value> 
         public List<Brand> Brands { get; set; } = new List<Brand>();
-
-        #endregion
     }
 }

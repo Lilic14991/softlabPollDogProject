@@ -13,7 +13,18 @@ namespace PollDog.API.Controllers.Base
         #region Fields
 
         /// <summary>The service provider</summary>
-        protected IServiceProvider serviceProvider;
+        protected readonly IServiceProvider serviceProvider;
+
+        #endregion
+
+        #region Constructors
+
+        /// <summary>Initializes a new instance of the <see cref="ControllerBase" /> class.</summary>
+        /// <param name="serviceProvider">The service provider.</param>
+        public ControllerBase(IServiceProvider serviceProvider)
+        {
+            this.serviceProvider = serviceProvider;
+        }
 
         #endregion
     }

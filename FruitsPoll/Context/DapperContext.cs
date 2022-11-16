@@ -11,7 +11,7 @@ namespace PollDog.API.Context
     /// <summary> ApplicationDBContext for Dapper </summary>
     public class DapperContext
     {
-        #region Private Fields
+        #region Fields
 
         /// <summary>The configuration</summary>
         private readonly IConfiguration configuration;
@@ -21,7 +21,7 @@ namespace PollDog.API.Context
 
         #endregion
 
-        #region Constructor
+        #region Constructors
 
         /// <summary> Initializes a new instance of the <see cref="DapperContext" /> class.</summary>
         /// <param name="configuration">The configuration.</param>
@@ -33,7 +33,7 @@ namespace PollDog.API.Context
 
         #endregion
 
-        #region Connection Methods
+        #region Public methods
 
         /// <summary> Creates the connection.</summary>
         /// <returns> Connection string </returns>

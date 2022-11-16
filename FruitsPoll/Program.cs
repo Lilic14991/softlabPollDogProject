@@ -1,4 +1,3 @@
-using System.Reflection;
 using PollDog.API.Context;
 using PollDog.API.Contracts;
 using PollDog.API.Repositories;

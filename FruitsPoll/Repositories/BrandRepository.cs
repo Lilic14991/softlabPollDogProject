@@ -13,7 +13,7 @@ namespace PollDog.API.Repositories
     /// <summary>Brand Repository</summary>
     public class BrandRepository : IBrandRepository
     {
-        #region Context
+        #region Fields
 
         /// <summary>The context</summary>
         private readonly DapperContext context;
@@ -31,7 +31,7 @@ namespace PollDog.API.Repositories
 
         #endregion
 
-        #region GetMethods
+        #region Public methods
 
         /// <summary>Gets the brands.</summary>
         /// <returns>List of brands</returns>

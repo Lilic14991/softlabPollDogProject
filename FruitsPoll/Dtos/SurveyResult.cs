@@ -9,8 +9,6 @@ namespace PollDog.API.Dtos
     /// <summary>SurveyResult DTO</summary>
     public class SurveyResult
     {
-        #region Properties
-
         /// <summary>Gets or sets the identifier.</summary>
         /// <value>The identifier.</value>
         public string Id { get; set; }
@@ -26,7 +24,5 @@ namespace PollDog.API.Dtos
         /// <summary>Gets or sets the products.</summary>
         /// <value>The products.</value>
         public List<Product> Products { get; set; } = new List<Product>();
-
-        #endregion
     }
 }
