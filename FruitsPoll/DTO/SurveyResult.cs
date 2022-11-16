@@ -4,7 +4,7 @@
 // </copyright>
 //-------------------------------------------------------------------------------
 
-namespace PollDog.API.Dtos
+namespace PollDog.API.DTO
 {
     /// <summary>SurveyResult DTO</summary>
     public class SurveyResult

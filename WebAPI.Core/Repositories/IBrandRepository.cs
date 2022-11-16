@@ -3,9 +3,11 @@
 //     Copyright (c) www.softlab.rs. All rights reserved.
 // </copyright>
 //-------------------------------------------------------------------------------
-namespace PollDog.API.Contracts
+
+
+namespace WebAPI.Core.Repositories
 {
-    using PollDog.API.Dtos;
+    using WebAPI.Core.Models;
 
     /// <summary>Interface repository for Brand </summary>
     public interface IBrandRepository

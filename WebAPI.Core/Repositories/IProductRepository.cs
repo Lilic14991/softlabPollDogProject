@@ -3,10 +3,11 @@
 //     Copyright (c) www.softlab.rs. All rights reserved.
 // </copyright>
 //-------------------------------------------------------------------------------
-namespace PollDog.API.Contracts
-{
-    using PollDog.API.Dtos;
 
+namespace WebAPI.Core.Repositories
+{
+    using WebAPI.Core.Models;
+    
     /// <summary>Product Repository Interface</summary>
     public interface IProductRepository
     {

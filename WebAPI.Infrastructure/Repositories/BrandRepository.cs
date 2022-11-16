@@ -3,12 +3,12 @@
 //     Copyright (c) www.softlab.rs. All rights reserved.
 // </copyright>
 //-------------------------------------------------------------------------------
-namespace PollDog.API.Repositories
+namespace WebAPI.Infrastructure.Repositories
 {
     using Dapper;
     using PollDog.API.Context;
-    using PollDog.API.Contracts;
-    using PollDog.API.Dtos;
+    using WebAPI.Core.Models;
+    using WebAPI.Core.Repositories;
 
     /// <summary>Brand Repository</summary>
     public class BrandRepository : IBrandRepository

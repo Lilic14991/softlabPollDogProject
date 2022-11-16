@@ -6,7 +6,7 @@
 namespace PollDog.API.Controllers.Base
 {
     using Microsoft.AspNetCore.Mvc;
-    using PollDog.API.Dtos;
+    using PollDog.API.DTO;
     using Swashbuckle.AspNetCore.Annotations;
 
     /// <summary> BaseController for Brand </summary>

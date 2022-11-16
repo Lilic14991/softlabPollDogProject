@@ -6,8 +6,8 @@
 namespace PollDog.API.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
-    using PollDog.API.Contracts;
     using PollDog.API.Controllers.Base;
+    using WebAPI.Core.Services;
 
     /// <summary>
     ///   <para>Brand Controller</para>
@@ -32,7 +32,7 @@ namespace PollDog.API.Controllers
         {
             try
             {
-                var brandsService = this.serviceProvider.GetRequiredService<IBrandRepository>();
+                var brandsService = this.serviceProvider.GetRequiredService<IBrandService>();
                 var brands = await brandsService.GetBrands();
 
                 if (brands == null)

@@ -3,7 +3,7 @@
 //     Copyright (c) www.softlab.rs. All rights reserved.
 // </copyright>
 //-------------------------------------------------------------------------------
-namespace PollDog.API.Dtos
+namespace PollDog.API.DTO
 {
     /// <summary> <see cref="Product"/> class DTO</summary>
     public class Product
@@ -17,7 +17,7 @@ namespace PollDog.API.Dtos
         public string Name { get; set; }
 
         /// <summary>Gets or sets the brands.</summary>
-        /// <value> <see cref="List{T}"/> List of Brands </value> 
+        /// <value>  List of Brands </value> 
         public List<Brand> Brands { get; set; } = new List<Brand>();
     }
 }
