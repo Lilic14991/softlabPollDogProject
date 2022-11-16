@@ -8,13 +8,19 @@ namespace PollDog.API.Context
     using Microsoft.Data.SqlClient;
     using System.Data;
 
-    /// <summary>ApplicationDbContext for dapper</summary>
+    /// <summary> ApplicationDbContext for Dapper </summary>
     public class DapperContext
     {
+        #region Private Fields
+
         private readonly IConfiguration _configuration;
         private readonly string _connectionString;
 
-        /// <summary>Initializes a new instance of the <see cref="DapperContext" /> class.</summary>
+        #endregion
+
+        #region Constructor
+
+        /// <summary> Initializes a new instance of the <see cref="DapperContext" /> class.</summary>
         /// <param name="configuration">The configuration.</param>
         public DapperContext(IConfiguration configuration)
         {
@@ -22,9 +28,14 @@ namespace PollDog.API.Context
             _connectionString = _configuration.GetConnectionString("DefaultConnection");
         }
 
-        /// <summary>Creates the connection.</summary>
-        /// <returns>connection string</returns>
+        #endregion
+
+        #region Connection Methods
+
+        /// <summary> Creates the connection.</summary>
+        /// <returns> Connection string </returns>
         public IDbConnection CreateConnection() => new SqlConnection(_connectionString);
-        
+
+        #endregion
     }
 }

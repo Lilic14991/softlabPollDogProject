@@ -1,9 +1,7 @@
-using Microsoft.OpenApi.Models;
 using PollDog.API.Context;
 using PollDog.API.Contracts;
 using PollDog.API.Repositories;
 using System.Reflection;
-using System.Security.Cryptography.Xml;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,17 +15,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
     options.EnableAnnotations();
-
-    //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-    //options.IncludeXmlComments(xmlPath);
-
 });
-
-
-
-
-
 
 var app = builder.Build();
 

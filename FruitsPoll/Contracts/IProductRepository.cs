@@ -5,7 +5,7 @@
 //-------------------------------------------------------------------------------
 namespace PollDog.API.Contracts
 {
-    using PollDog.API.Entities;
+    using PollDog.API.Dtos;
     public interface IProductRepository
     {
         Task<IEnumerable<Product>> GetProducts();

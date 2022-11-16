@@ -1,8 +1,16 @@
-﻿namespace PollDog.API.Entities
+﻿//-------------------------------------------------------------------------------
+// <copyright file="SurveyResult.cs" company="SoftLab R&D">
+//     Copyright (c) www.softlab.rs. All rights reserved.
+// </copyright>
+//-------------------------------------------------------------------------------
+
+namespace PollDog.API.Dtos
 {
     /// <summary>SurveyResult Dto</summary>
     public class SurveyResult
     {
+        #region Properties
+
         /// <summary>Gets or sets the identifier.</summary>
         /// <value>The identifier.</value>
         public string Id { get; set; }
@@ -15,5 +23,7 @@
         /// <summary>Gets or sets the products.</summary>
         /// <value>The products.</value>
         public List<Product> Products { get; set; } = new List<Product>();
+
+        #endregion
     }
 }
