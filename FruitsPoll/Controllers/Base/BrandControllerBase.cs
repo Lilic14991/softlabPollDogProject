@@ -10,7 +10,7 @@ namespace PollDog.API.Controllers.Base
     using Swashbuckle.AspNetCore.Annotations;
 
     /// <summary> BaseController for Brand </summary>
-    [Route("api/brand")]
+    [Route("api/[controller]")]
     [ApiController]
     public abstract class BrandControllerBase : ControllerBase
     {
@@ -27,13 +27,13 @@ namespace PollDog.API.Controllers.Base
 
         #region Methods
 
-        /// <summary>
-        /// Gets the brands.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary>Gets the brands.</summary>
+        /// <returns>
+        ///   <br />
+        /// </returns>
         [HttpGet]
         [SwaggerOperation(OperationId = "GetBrands", Summary = "Gets the list of brands.")]
-        [SwaggerResponse(statusCode: 200, description: "Success",type: typeof(List<Brand>))]
+        [SwaggerResponse(statusCode: 200, description: "Success", type: typeof(List<Brand>))]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]

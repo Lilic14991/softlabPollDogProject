@@ -6,6 +6,7 @@
 namespace PollDog.API.Controllers.Base
 {
     using Microsoft.AspNetCore.Mvc;
+
     /// <summary> The Base Controller</summary>
     public class ControllerBase : Controller
     {
@@ -16,5 +17,4 @@ namespace PollDog.API.Controllers.Base
 
         #endregion
     }
-
 }

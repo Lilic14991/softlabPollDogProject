@@ -5,16 +5,19 @@
 //-------------------------------------------------------------------------------
 namespace PollDog.API.Context
 {
-    using Microsoft.Data.SqlClient;
     using System.Data;
+    using Microsoft.Data.SqlClient;
 
-    /// <summary> ApplicationDbContext for Dapper </summary>
+    /// <summary> ApplicationDBContext for Dapper </summary>
     public class DapperContext
     {
         #region Private Fields
 
-        private readonly IConfiguration _configuration;
-        private readonly string _connectionString;
+        /// <summary>The configuration</summary>
+        private readonly IConfiguration configuration;
+
+        /// <summary>The connection string</summary>
+        private readonly string connectionString;
 
         #endregion
 
@@ -24,8 +27,8 @@ namespace PollDog.API.Context
         /// <param name="configuration">The configuration.</param>
         public DapperContext(IConfiguration configuration)
         {
-            _configuration = configuration;
-            _connectionString = _configuration.GetConnectionString("DefaultConnection");
+            this.configuration = configuration;
+            this.connectionString = configuration.GetConnectionString("DefaultConnection");
         }
 
         #endregion
@@ -34,7 +37,7 @@ namespace PollDog.API.Context
 
         /// <summary> Creates the connection.</summary>
         /// <returns> Connection string </returns>
-        public IDbConnection CreateConnection() => new SqlConnection(_connectionString);
+        public IDbConnection CreateConnection() => new SqlConnection(this.connectionString);
 
         #endregion
     }

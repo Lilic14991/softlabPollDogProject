@@ -1,4 +1,9 @@
-﻿namespace PollDog.API.Repositories
+﻿//-------------------------------------------------------------------------------
+// <copyright file="BrandRepository.cs" company="SoftLab R&D">
+//     Copyright (c) www.softlab.rs. All rights reserved.
+// </copyright>
+//-------------------------------------------------------------------------------
+namespace PollDog.API.Repositories
 {
     using Dapper;
     using PollDog.API.Context;
@@ -11,7 +16,7 @@
         #region Context
 
         /// <summary>The context</summary>
-        private readonly DapperContext _context;
+        private readonly DapperContext context;
 
         #endregion
 
@@ -21,7 +26,7 @@
         /// <param name="context">The context.</param>
         public BrandRepository(DapperContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
         #endregion
@@ -34,7 +39,7 @@
         {
             var query = "SELECT * FROM [Portfolio].[Brand]";
 
-            using (var connection = _context.CreateConnection())
+            using (var connection = this.context.CreateConnection())
             {
                 var brands = await connection.QueryAsync<Brand>(query);
                 return brands.ToList();

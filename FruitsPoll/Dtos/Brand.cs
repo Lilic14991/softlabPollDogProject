@@ -5,7 +5,7 @@
 //-------------------------------------------------------------------------------
 namespace PollDog.API.Dtos
 {
-    /// <summary> <see cref="Brand"/> class Dto</summary>
+    /// <summary> <see cref="Brand"/> class DTO</summary>
     public class Brand
     {
         #region Properties

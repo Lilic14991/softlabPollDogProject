@@ -14,14 +14,12 @@ namespace PollDog.API.Controllers
     /// </summary>
     public class BrandController : BrandControllerBase
     {
-
         #region Constructors
 
         /// <summary>Initializes a new instance of the <see cref="BrandController" /> class.</summary>
         /// <param name="serviceProvider">The service provider.</param>
         public BrandController(IServiceProvider serviceProvider) : base(serviceProvider)
         {
-
         }
 
         #endregion
@@ -39,10 +37,10 @@ namespace PollDog.API.Controllers
 
                 if (brands == null)
                 {
-                    return NotFound(brands);
+                    return this.NotFound(brands);
                 }
 
-                return Ok(brands);
+                return this.Ok(brands);
             }
             catch (Exception ex)
             {
@@ -51,6 +49,5 @@ namespace PollDog.API.Controllers
         }
 
         #endregion
-
     }
 }
