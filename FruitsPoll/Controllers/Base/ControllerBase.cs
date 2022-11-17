@@ -13,7 +13,7 @@ namespace PollDog.API.Controllers.Base
         #region Fields
 
         /// <summary>The service provider</summary>
-        protected readonly IServiceProvider serviceProvider;
+        protected readonly IServiceProvider ServiceProvider;
 
         #endregion
 
@@ -23,7 +23,7 @@ namespace PollDog.API.Controllers.Base
         /// <param name="serviceProvider">The service provider.</param>
         public ControllerBase(IServiceProvider serviceProvider)
         {
-            this.serviceProvider = serviceProvider;
+            this.ServiceProvider = serviceProvider;
         }
 
         #endregion

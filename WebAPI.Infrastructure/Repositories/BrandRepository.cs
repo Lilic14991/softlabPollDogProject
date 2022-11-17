@@ -5,10 +5,15 @@
 //-------------------------------------------------------------------------------
 namespace WebAPI.Infrastructure.Repositories
 {
+    using System.Security.Cryptography.Xml;
     using Dapper;
-    using PollDog.API.Context;
-    using WebAPI.Core.Models;
+    using Microsoft.Data.SqlClient;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
     using WebAPI.Core.Repositories;
+    using WebAPI.Infrastructure.Mapper;
+    using Entities = WebAPI.Infrastructure.DbModels;
+    using Models = WebAPI.Core.Models;
 
     /// <summary>Brand Repository</summary>
     public class BrandRepository : IBrandRepository
@@ -16,17 +21,37 @@ namespace WebAPI.Infrastructure.Repositories
         #region Fields
 
         /// <summary>The context</summary>
-        private readonly DapperContext context;
+        private readonly IServiceProvider serviceProvider;
+
+        /// <summary>The connection string</summary>
+        private readonly string connectionString; 
 
         #endregion
 
         #region Constructors
 
         /// <summary>Initializes a new instance of the <see cref="BrandRepository" /> class.</summary>
-        /// <param name="context">The context.</param>
-        public BrandRepository(DapperContext context)
+        /// <param name="serviceProvider">The context.</param>
+        public BrandRepository(IServiceProvider serviceProvider)
         {
-            this.context = context;
+            this.serviceProvider = serviceProvider;
+            var configuration = this.serviceProvider.GetService<IConfiguration>();
+            this.connectionString = configuration["ConnectionStrings:DefaultConnection"];
+        }
+
+        #endregion
+
+        #region Public properties
+
+        /// <summary>Gets the connection.</summary>
+        /// <value>The connection.</value>
+        public SqlConnection Connection
+        {
+            get
+            {
+                var connection = new SqlConnection(this.connectionString);
+                return connection;
+            }
         }
 
         #endregion
@@ -35,17 +60,27 @@ namespace WebAPI.Infrastructure.Repositories
 
         /// <summary>Gets the brands.</summary>
         /// <returns>List of brands</returns>
-        public async Task<IEnumerable<Brand>> GetBrands()
+        public async Task<IEnumerable<Models.Brand>> GetBrands()
         {
-            var query = "SELECT * FROM [Portfolio].[Brand]";
-
-            using (var connection = this.context.CreateConnection())
+            using (var connection = this.Connection)
             {
-                var brands = await connection.QueryAsync<Brand>(query);
-                return brands.ToList();
+                await connection.OpenAsync();
+
+                var query = "SELECT * FROM [Portfolio].[Brand]";
+
+                var brands = await connection.QueryAsync<Entities.Brand>(query);
+                var mappedBrands = new List<Models.Brand>();
+
+                foreach (var brand in brands)
+                {
+                    var modelBrand = brand.DatabaseBrandToModelBrand();
+                    mappedBrands.Add(modelBrand);
+                }
+
+                return mappedBrands;
             }
         }
 
-        #endregion
+        #endregion 
     }
 }

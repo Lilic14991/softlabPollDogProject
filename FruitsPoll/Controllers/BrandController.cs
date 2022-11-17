@@ -19,7 +19,7 @@ namespace PollDog.API.Controllers
         /// <summary>Initializes a new instance of the <see cref="BrandController" /> class.</summary>
         /// <param name="serviceProvider">The service provider.</param>
         public BrandController(IServiceProvider serviceProvider) : base(serviceProvider)
-        {
+        {      
         }
 
         #endregion
@@ -32,7 +32,7 @@ namespace PollDog.API.Controllers
         {
             try
             {
-                var brandsService = this.serviceProvider.GetRequiredService<IBrandService>();
+                var brandsService = this.ServiceProvider.GetRequiredService<IBrandService>();
                 var brands = await brandsService.GetBrands();
 
                 if (brands == null)
