@@ -11,6 +11,7 @@ namespace WebAPI.Core.Models
     using System.Text;
     using System.Threading.Tasks;
 
+    /// <summary>class SurveyResult</summary>
     public class SurveyResult
     {
         /// <summary>Gets or sets the identifier.</summary>

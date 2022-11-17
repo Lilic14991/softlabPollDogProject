@@ -11,6 +11,7 @@ namespace WebAPI.Core.Models
     using System.Text;
     using System.Threading.Tasks;
 
+    /// <summary>Product class</summary>
     public class Product
     {
         /// <summary>Gets or sets the identifier.</summary>

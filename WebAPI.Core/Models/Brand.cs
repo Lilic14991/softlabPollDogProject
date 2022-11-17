@@ -11,6 +11,7 @@ namespace WebAPI.Core.Models
     using System.Text;
     using System.Threading.Tasks;
 
+    /// <summary>Brand class</summary>
     public class Brand
     {
         /// <summary>Gets or sets the identifier.</summary>

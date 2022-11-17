@@ -3,8 +3,6 @@
 //     Copyright (c) www.softlab.rs. All rights reserved.
 // </copyright>
 //-------------------------------------------------------------------------------
-
-
 namespace WebAPI.Core.Repositories
 {
     using WebAPI.Core.Models;
