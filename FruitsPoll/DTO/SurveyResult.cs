@@ -6,7 +6,7 @@
 
 namespace PollDog.API.DTO
 {
-    /// <summary>SurveyResult DTO</summary>
+    /// <summary>SurveyResult DTO.</summary>
     public class SurveyResult
     {
         /// <summary>Gets or sets the identifier.</summary>

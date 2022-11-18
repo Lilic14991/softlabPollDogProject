@@ -1,8 +1,8 @@
-﻿//-------------------------------------------------------------------------------
-// <copyright file="Brand.cs" company="SoftLab R&D">
-//     Copyright (c) www.softlab.rs. All rights reserved.
+﻿// -------------------------------------------------------------------------------
+// <copyright file="Brand.cs" company="SoftLab">
+// Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
-//-------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------
 namespace WebAPI.Infrastructure.DbModels
 {
     using System;
@@ -11,7 +11,7 @@ namespace WebAPI.Infrastructure.DbModels
     using System.Text;
     using System.Threading.Tasks;
 
-    /// <summary>class Entity Brand</summary>
+    /// <summary>class Entity Brand.</summary>
     public class Brand
     {
         /// <summary>Gets or sets the identifier.</summary>

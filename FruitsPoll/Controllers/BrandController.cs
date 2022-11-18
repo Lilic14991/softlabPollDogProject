@@ -1,8 +1,8 @@
-﻿//-------------------------------------------------------------------------------
-// <copyright file="BrandController.cs" company="SoftLab R&D">
-//     Copyright (c) www.softlab.rs. All rights reserved.
+﻿// -------------------------------------------------------------------------------
+// <copyright file="BrandController.cs" company="SoftLab">
+// Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
-//-------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------
 namespace PollDog.API.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
@@ -10,7 +10,7 @@ namespace PollDog.API.Controllers
     using WebAPI.Core.Services;
 
     /// <summary>
-    ///   <para>Brand Controller</para>
+    ///   <para>Brand Controller.</para>
     /// </summary>
     public class BrandController : BrandControllerBase
     {
@@ -18,8 +18,9 @@ namespace PollDog.API.Controllers
 
         /// <summary>Initializes a new instance of the <see cref="BrandController" /> class.</summary>
         /// <param name="serviceProvider">The service provider.</param>
-        public BrandController(IServiceProvider serviceProvider) : base(serviceProvider)
-        {      
+        public BrandController(IServiceProvider serviceProvider)
+            : base(serviceProvider)
+        {
         }
 
         #endregion

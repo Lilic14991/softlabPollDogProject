@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------
-// <copyright file="BrandMapper.cs" company="SoftLab">
+// <copyright file="ProductMapper.cs" company="SoftLab">
 // Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
 // -------------------------------------------------------------------------------
@@ -13,27 +13,29 @@ namespace WebAPI.Infrastructure.Mapper
     using Entities = WebAPI.Infrastructure.DbModels;
     using Models = WebAPI.Core.Models;
 
-    /// <summary>Static class Brand mapper.</summary>
-    public static class BrandMapper
+    /// <summary>Product mapper class.</summary>
+    public static class ProductMapper
     {
-        #region Public methods
+        #region Extension methods
 
-        /// <summary>Databases the brand to model brand.</summary>
-        /// <param name="brand">The brand.</param>
+        /// <summary>Databases the product to model product.</summary>
+        /// <param name="product">The product.</param>
         /// <returns>
         ///   <br />
         /// </returns>
-        public static Models.Brand DatabaseBrandToModelBrand(this Entities.Brand brand)
+        public static Models.Product DatabaseProductToModelProduct(this Entities.Product product)
         {
-            if (brand == null)
+            if (product == null)
             {
                 return null;
             }
 
-            return new Models.Brand
+            return new Models.Product
             {
-                Id = brand.Id,
-                BrandName = brand.BrandName,
+                Id = product.Id,
+                ProductName = product.Name,
+                Brands = product.Brands
+                .Select(p => new Models.Brand() { Id = p.Id, BrandName = p.BrandName }).ToList(),
             };
         }
 

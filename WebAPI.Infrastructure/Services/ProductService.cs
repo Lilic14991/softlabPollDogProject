@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------
-// <copyright file="BrandService.cs" company="SoftLab">
+// <copyright file="ProductService.cs" company="SoftLab">
 // Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
 // -------------------------------------------------------------------------------
@@ -15,10 +15,10 @@ namespace WebAPI.Infrastructure.Services
     using WebAPI.Core.Repositories;
     using WebAPI.Core.Services;
 
-    /// <summary>Brand service class.</summary>
-    public class BrandService : IBrandService
+    /// <summary>Product service class.</summary>
+    public class ProductService : IProductService
     {
-        #region Private fields
+        #region Fields
 
         /// <summary>The service provider.</summary>
         private readonly IServiceProvider serviceProvider;
@@ -27,9 +27,9 @@ namespace WebAPI.Infrastructure.Services
 
         #region Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="BrandService" /> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="ProductService" /> class.</summary>
         /// <param name="serviceProvider">The service provider.</param>
-        public BrandService(IServiceProvider serviceProvider)
+        public ProductService(IServiceProvider serviceProvider)
         {
             this.serviceProvider = serviceProvider;
         }
@@ -38,16 +38,14 @@ namespace WebAPI.Infrastructure.Services
 
         #region Public methods
 
-        /// <summary>Gets the brands.</summary>
-        /// <returns>
-        ///   <br />
-        /// </returns>
-        public async Task<IEnumerable<Brand>> GetBrands()
+        /// <summary>Gets the products.</summary>
+        /// <returns>List of products.</returns>
+        public async Task<IEnumerable<Product>> GetProducts()
         {
-            var brandsService = this.serviceProvider.GetRequiredService<IBrandRepository>();
-            var brands = await brandsService.GetBrands();
+            var productsService = this.serviceProvider.GetRequiredService<IProductRepository>();
+            var products = await productsService.GetProducts();
 
-            return brands;
+            return products;
         }
 
         #endregion

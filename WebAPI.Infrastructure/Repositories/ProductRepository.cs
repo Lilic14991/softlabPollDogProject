@@ -1,26 +1,31 @@
 ﻿// -------------------------------------------------------------------------------
-// <copyright file="BrandRepository.cs" company="SoftLab">
+// <copyright file="ProductRepository.cs" company="SoftLab">
 // Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
 // -------------------------------------------------------------------------------
 namespace WebAPI.Infrastructure.Repositories
 {
-    using System.Security.Cryptography.Xml;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
     using Dapper;
     using Microsoft.Data.SqlClient;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
+    using WebAPI.Core.Models;
     using WebAPI.Core.Repositories;
     using WebAPI.Infrastructure.Mapper;
     using Entities = WebAPI.Infrastructure.DbModels;
     using Models = WebAPI.Core.Models;
 
-    /// <summary>Brand Repository.</summary>
-    public class BrandRepository : IBrandRepository
+    /// <summary>Product repository class.</summary>
+    public class ProductRepository : IProductRepository
     {
-        #region Fields
+        #region Private fields
 
-        /// <summary>The context.</summary>
+        /// <summary>The service provider.</summary>
         private readonly IServiceProvider serviceProvider;
 
         /// <summary>The connection string.</summary>
@@ -30,9 +35,9 @@ namespace WebAPI.Infrastructure.Repositories
 
         #region Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="BrandRepository" /> class.</summary>
-        /// <param name="serviceProvider">The context.</param>
-        public BrandRepository(IServiceProvider serviceProvider)
+        /// <summary>Initializes a new instance of the <see cref="ProductRepository" /> class.</summary>
+        /// <param name="serviceProvider">The service provider.</param>
+        public ProductRepository(IServiceProvider serviceProvider)
         {
             this.serviceProvider = serviceProvider;
             var configuration = this.serviceProvider.GetService<IConfiguration>();
@@ -58,26 +63,26 @@ namespace WebAPI.Infrastructure.Repositories
 
         #region Public methods
 
-        /// <summary>Gets the brands.</summary>
-        /// <returns>List of brands.</returns>
-        public async Task<IEnumerable<Models.Brand>> GetBrands()
+        /// <summary>Gets the products.</summary>
+        /// <returns>List of products.<br /></returns>
+        public async Task<IEnumerable<Product>> GetProducts()
         {
             using (var connection = this.Connection)
             {
                 await connection.OpenAsync();
 
-                var query = "SELECT * FROM [Portfolio].[Brand]";
+                var query = "SELECT * FROM [Portfolio].[Product]";
 
-                var brands = await connection.QueryAsync<Entities.Brand>(query);
-                var mappedBrands = new List<Models.Brand>();
+                var products = await connection.QueryAsync<Entities.Product>(query);
+                var mappedProducts = new List<Models.Product>();
 
-                foreach (var brand in brands)
+                foreach (var product in products)
                 {
-                    var modelBrand = brand.DatabaseBrandToModelBrand();
-                    mappedBrands.Add(modelBrand);
+                    var modelProduct = product.DatabaseProductToModelProduct();
+                    mappedProducts.Add(modelProduct);
                 }
 
-                return mappedBrands;
+                return mappedProducts;
             }
         }
 

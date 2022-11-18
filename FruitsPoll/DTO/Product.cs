@@ -1,11 +1,11 @@
-﻿//-------------------------------------------------------------------------------
-// <copyright file="Product.cs" company="SoftLab R&D">
-//     Copyright (c) www.softlab.rs. All rights reserved.
+﻿// -------------------------------------------------------------------------------
+// <copyright file="Product.cs" company="SoftLab">
+// Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
-//-------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------
 namespace PollDog.API.DTO
 {
-    /// <summary> <see cref="Product"/> class DTO</summary>
+    /// <summary> <see cref="Product"/> class DTO.</summary>
     public class Product
     {
         /// <summary>Gets or sets the identifier.</summary>
@@ -17,7 +17,7 @@ namespace PollDog.API.DTO
         public string Name { get; set; }
 
         /// <summary>Gets or sets the brands.</summary>
-        /// <value>  List of Brands </value> 
+        /// <value>  List of Brands.</value>
         public List<Brand> Brands { get; set; } = new List<Brand>();
     }
 }
