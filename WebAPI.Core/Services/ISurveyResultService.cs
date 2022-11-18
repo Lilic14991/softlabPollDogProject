@@ -10,6 +10,6 @@ namespace WebAPI.Core.Services
 
     public interface ISurveyResultService
     {
-        
+        Task Create(SurveyResult surveyResult);
     }
 }

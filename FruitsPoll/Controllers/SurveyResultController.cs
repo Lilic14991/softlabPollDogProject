@@ -20,14 +20,14 @@
             try
             {
                 var surveyResultService = this.ServiceProvider.GetRequiredService<ISurveyResultService>();
-               // var data = await surveyResultService.CreateSurveyResult(surveyResult);
+                var data = await surveyResultService.Create(surveyResult);
 
-               // if (data == null)
+                if (data == null)
                 {
                     return this.NotFound();
                 }
 
-             //   return this.Ok(data);
+                return this.Ok(data);
             }
             catch (Exception ex)
             {
