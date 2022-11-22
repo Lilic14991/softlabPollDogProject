@@ -1,4 +1,8 @@
-﻿
+﻿// -------------------------------------------------------------------------------
+// <copyright file="ISurveyResultService.cs" company="SoftLab">
+// Copyright (c) www.SoftLab.rs. All rights reserved.
+// </copyright>
+// -------------------------------------------------------------------------------
 namespace WebAPI.Core.Services
 {
     using System;
@@ -6,10 +10,21 @@ namespace WebAPI.Core.Services
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    using WebAPI.Core.Models;
+    using Models = WebAPI.Core.Models;
 
+    /// <summary>Interface SurveyResultService.</summary>
     public interface ISurveyResultService
     {
-        Task Create(SurveyResult surveyResult);
+        /// <summary>Creates the specified survey result.</summary>
+        /// <param name="surveyResult">The survey result.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        Task Create(Models.SurveyResult surveyResult);
+        /// <summary>Gets the product with average rating.</summary>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        Task<IEnumerable<Models.ProductAverageRatings>> GetProductWithAverageRating();
     }
 }
