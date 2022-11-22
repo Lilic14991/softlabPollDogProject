@@ -16,10 +16,10 @@ namespace WebAPI.Infrastructure.DbModels
     {
         /// <summary>Gets or sets the identifier.</summary>
         /// <value>The identifier.</value>
-        public string Id { get; set; }
+        public Guid Id { get; set; }
 
         /// <summary>Gets or sets the name of the brand.</summary>
         /// <value>The name of the brand.</value>
-        public string BrandName { get; set; }
+        public string Name { get; set; }
     }
 }

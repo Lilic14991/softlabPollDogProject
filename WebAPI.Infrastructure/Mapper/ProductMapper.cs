@@ -35,7 +35,7 @@ namespace WebAPI.Infrastructure.Mapper
                 Id = product.Id,
                 ProductName = product.Name,
                 Brands = product.Brands
-                .Select(p => new Models.Brand() { Id = p.Id, BrandName = p.BrandName }).ToList(),
+                .Select(p => new Models.Brand() { Id = p.Id, Name = p.Name }).ToList(),
             };
         }
 

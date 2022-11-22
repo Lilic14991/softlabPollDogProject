@@ -68,7 +68,7 @@ namespace WebAPI.Infrastructure.Repositories
             {
                 await connection.OpenAsync();
                 var averageRating = connection.QueryAsync<Models.ProductAverageRatings>(
-                    "SELECT * FROM [Survey].[vSurveyResult]");
+                "SELECT * FROM [Survey].[vSurveyResult]");
                 var mappedProductAverageRating = new List<Models.ProductAverageRatings>();
                 return mappedProductAverageRating;
             }

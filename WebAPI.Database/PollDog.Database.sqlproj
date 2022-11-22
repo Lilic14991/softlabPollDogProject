@@ -68,4 +68,7 @@
     <Build Include="Schemas\Portfolio.sql" />
     <Build Include="Schemas\Survey.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="PollDog.Database.publish.xml" />
+  </ItemGroup>
 </Project>
