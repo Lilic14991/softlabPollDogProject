@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [Portfolio].[Brand]
 (
 	[Id]   UNIQUEIDENTIFIER NOT NULL CONSTRAINT [DF_Brand_Id] DEFAULT NEWID(),
-	[Name] NCHAR(20)        NULL,
+	[Name] NVARCHAR(MAX)    NOT NULL,
 
 	CONSTRAINT [PK_Brand] PRIMARY KEY ([Id])
 );
