@@ -79,6 +79,21 @@ namespace WebAPI.Infrastructure.Repositories
             return mappedBrands;
         }
 
+        /// <summary>Creates the specified name.</summary>
+        /// <param name="name">The name.</param>
+        public async Task Create(string name)
+        {
+            using var connection = this.Connection;
+            await connection.OpenAsync();
+
+            var parameters = new { name };
+
+            var sql = @"INSERT INTO [Portfolio].[Brand]
+             ([Name]) VALUES(@Name)";
+
+            await connection.QueryAsync(sql, parameters);
+        }
+
         #endregion
     }
 }

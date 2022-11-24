@@ -13,5 +13,12 @@ namespace WebAPI.Core.Repositories
         /// <summary>Gets the brands.</summary>
         /// <returns>List of brands.</returns>
         Task<IEnumerable<Brand>> GetBrands();
+
+        /// <summary>Creates the specified name.</summary>
+        /// <param name="name">The name.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        Task Create(string name);
     }
 }

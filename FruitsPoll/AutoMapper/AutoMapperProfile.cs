@@ -22,6 +22,7 @@ namespace PollDog.API.AutoMapper
             this.CreateMap<Models.ProductAverageRatings, DTO.ProductAverageRatings>();
             this.CreateMap<DTO.CreateProduct, Models.CreateProduct>();
             this.CreateMap<DTO.Brand, Models.Brand>();
+            this.CreateMap<DTO.CreateBrand, Models.Brand>();
         }
     }
 }

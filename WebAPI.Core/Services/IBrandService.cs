@@ -20,5 +20,12 @@ namespace WebAPI.Core.Services
         ///   <br />
         /// </returns>
         Task<IEnumerable<Brand>> GetBrands();
+
+        /// <summary>Creates the specified brand.</summary>
+        /// <param name="brand">The brand.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        Task Create(Models.Brand brand);
     }
 }

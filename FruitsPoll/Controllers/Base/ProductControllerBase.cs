@@ -47,7 +47,7 @@ namespace PollDog.API.Controllers.Base
         ///   <br />
         /// </returns>
         [HttpPost]
-        [SwaggerOperation(OperationId = "CreateProducts", Summary = "create product")]
+        [SwaggerOperation(OperationId = "CreateProducts", Summary = "create a product")]
         [SwaggerResponse(statusCode: 200, description: "Success", type: typeof(CreateProduct))]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]

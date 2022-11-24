@@ -5,7 +5,7 @@
 // -------------------------------------------------------------------------------
 namespace PollDog.API.DTO
 {
-    /// <summary>Create product dto class</summary>
+    /// <summary>Create product DTO class.</summary>
     public class CreateProduct
     {
         /// <summary>Gets or sets the name of the product.</summary>

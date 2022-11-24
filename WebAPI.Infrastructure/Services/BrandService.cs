@@ -11,9 +11,9 @@ namespace WebAPI.Infrastructure.Services
     using System.Text;
     using System.Threading.Tasks;
     using Microsoft.Extensions.DependencyInjection;
-    using WebAPI.Core.Models;
     using WebAPI.Core.Repositories;
     using WebAPI.Core.Services;
+    using Models = WebAPI.Core.Models;
 
     /// <summary>Brand service class.</summary>
     public class BrandService : IBrandService
@@ -42,12 +42,20 @@ namespace WebAPI.Infrastructure.Services
         /// <returns>
         ///   <br />
         /// </returns>
-        public async Task<IEnumerable<Brand>> GetBrands()
+        public async Task<IEnumerable<Models.Brand>> GetBrands()
         {
             var brandsService = this.serviceProvider.GetRequiredService<IBrandRepository>();
             var brands = await brandsService.GetBrands();
 
             return brands;
+        }
+
+        /// <summary>Creates the specified brand.</summary>
+        /// <param name="brand">The brand.</param>
+        public async Task Create(Models.Brand brand)
+        {
+            var brandService = this.serviceProvider.GetRequiredService<IBrandRepository>();
+            await brandService.Create(brand.Name);
         }
 
         #endregion
