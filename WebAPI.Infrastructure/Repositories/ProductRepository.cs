@@ -17,7 +17,7 @@ namespace WebAPI.Infrastructure.Repositories
     using WebAPI.Core.Models;
     using WebAPI.Core.Repositories;
     using WebAPI.Infrastructure.Mapper;
-    using Entities = WebAPI.Infrastructure.DbModels;
+    using DbModels = WebAPI.Infrastructure.DbModels;
     using Models = WebAPI.Core.Models;
 
     /// <summary>Product repository class.</summary>
@@ -59,31 +59,43 @@ namespace WebAPI.Infrastructure.Repositories
             }
         }
 
+        public async Task Create(Guid brandId, string name)
+        {
+            using var connection = this.Connection;
+            await connection.OpenAsync();
+
+            var parameters = new { brandId, name };
+
+            var sql = @"INSERT INTO [Portfolio].[Product]
+            ([Name], [BrandId])
+            VALUES(@Name, @BrandId)";
+
+            await connection.ExecuteAsync(sql, parameters);
+        }
+
         #endregion
 
         #region Public methods
 
         /// <summary>Gets the products.</summary>
         /// <returns>List of products.<br /></returns>
-        public async Task<IEnumerable<Product>> GetProducts()
+        public async Task<IEnumerable<Models.Product>> GetProducts()
         {
-            using (var connection = this.Connection)
+            using var connection = this.Connection;
+            await connection.OpenAsync();
+
+            var query = "SELECT * FROM [Portfolio].[Product]";
+
+            var products = await connection.QueryAsync<DbModels.Product>(query);
+            var mappedProducts = new List<Models.Product>();
+
+            foreach (var product in products)
             {
-                await connection.OpenAsync();
-
-                var query = "SELECT * FROM [Portfolio].[Product]";
-
-                var products = await connection.QueryAsync<Entities.Product>(query);
-                var mappedProducts = new List<Models.Product>();
-
-                foreach (var product in products)
-                {
-                    var modelProduct = product.DatabaseProductToModelProduct();
-                    mappedProducts.Add(modelProduct);
-                }
-
-                return mappedProducts;
+                var modelProduct = product.DatabaseProductToModelProduct();
+                mappedProducts.Add(modelProduct);
             }
+
+            return mappedProducts;
         }
 
         #endregion

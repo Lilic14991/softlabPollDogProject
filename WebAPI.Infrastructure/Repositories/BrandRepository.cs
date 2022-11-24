@@ -12,7 +12,7 @@ namespace WebAPI.Infrastructure.Repositories
     using Microsoft.Extensions.DependencyInjection;
     using WebAPI.Core.Repositories;
     using WebAPI.Infrastructure.Mapper;
-    using Entities = WebAPI.Infrastructure.DbModels;
+    using DbModels = WebAPI.Infrastructure.DbModels;
     using Models = WebAPI.Core.Models;
 
     /// <summary>Brand Repository.</summary>
@@ -62,23 +62,21 @@ namespace WebAPI.Infrastructure.Repositories
         /// <returns>List of brands.</returns>
         public async Task<IEnumerable<Models.Brand>> GetBrands()
         {
-            using (var connection = this.Connection)
+            using var connection = this.Connection;
+            await connection.OpenAsync();
+
+            var query = "SELECT * FROM [Portfolio].[Brand]";
+
+            var brands = await connection.QueryAsync<DbModels.Brand>(query);
+            var mappedBrands = new List<Models.Brand>();
+
+            foreach (var brand in brands)
             {
-                await connection.OpenAsync();
-
-                var query = "SELECT * FROM [Portfolio].[Brand]";
-
-                var brands = await connection.QueryAsync<Entities.Brand>(query);
-                var mappedBrands = new List<Models.Brand>();
-
-                foreach (var brand in brands)
-                {
-                    var modelBrand = brand.DatabaseBrandToModelBrand();
-                    mappedBrands.Add(modelBrand);
-                }
-
-                return mappedBrands;
+                var modelBrand = brand.DatabaseBrandToModelBrand();
+                mappedBrands.Add(modelBrand);
             }
+
+            return mappedBrands;
         }
 
         #endregion

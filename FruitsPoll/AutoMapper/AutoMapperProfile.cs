@@ -20,6 +20,8 @@ namespace PollDog.API.AutoMapper
                 .ForMember(dest => dest.Stars, opt => opt.MapFrom(src => src.Rating)).ReverseMap();
             this.CreateMap<DTO.Product, Models.Product>();
             this.CreateMap<Models.ProductAverageRatings, DTO.ProductAverageRatings>();
+            this.CreateMap<DTO.CreateProduct, Models.CreateProduct>();
+            this.CreateMap<DTO.Brand, Models.Brand>();
         }
     }
 }

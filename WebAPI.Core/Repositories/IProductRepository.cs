@@ -15,5 +15,13 @@ namespace WebAPI.Core.Repositories
         ///   <br />
         /// </returns>
         Task<IEnumerable<Product>> GetProducts();
+
+        /// <summary>Creates the product.</summary>
+        /// <param name="brandId">Brand Id Guid parameter.</param>
+        /// <param name="name"> string parameter for name of product.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        Task Create(Guid brandId, string name);
     }
 }

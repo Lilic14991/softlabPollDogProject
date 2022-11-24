@@ -5,10 +5,13 @@
 // -------------------------------------------------------------------------------
 namespace PollDog.API.Controllers
 {
+    using global::AutoMapper;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.ModelBinding;
     using PollDog.API.Controllers.Base;
     using WebAPI.Core.Services;
+    using Models = WebAPI.Core.Models;
 
     /// <summary>Product controller.</summary>
     [Route("api/[controller]")]
@@ -43,6 +46,28 @@ namespace PollDog.API.Controllers
                 }
 
                 return this.Ok(products);
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(500, ex.Message);
+            }
+        }
+
+        /// <summary>Creates the products.</summary>
+        /// <param name="product">product object.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        public async override Task<IActionResult> Create([FromBody] DTO.CreateProduct product)
+        {
+            try
+            {
+                var productService = this.ServiceProvider.GetRequiredService<IProductService>();
+                var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
+                var mappedResult = mapper.Map<DTO.CreateProduct, Models.CreateProduct>(product);
+                await productService.Create(mappedResult);
+
+                return this.Ok();
             }
             catch (Exception ex)
             {

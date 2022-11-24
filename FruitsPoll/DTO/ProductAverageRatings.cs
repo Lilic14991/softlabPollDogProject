@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------
-// <copyright file="GetProductAverageRatingsResponse.cs" company="SoftLab">
+// <copyright file="ProductAverageRatings.cs" company="SoftLab">
 // Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
 // -------------------------------------------------------------------------------

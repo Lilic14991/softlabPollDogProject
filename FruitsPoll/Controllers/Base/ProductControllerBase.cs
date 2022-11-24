@@ -7,6 +7,7 @@ namespace PollDog.API.Controllers.Base
 {
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Identity.Client;
     using PollDog.API.DTO;
     using Swashbuckle.AspNetCore.Annotations;
 
@@ -33,13 +34,25 @@ namespace PollDog.API.Controllers.Base
         ///   <br />
         /// </returns>
         [HttpGet]
-        [SwaggerOperation(OperationId = "GetProducts", Summary = "Gets list of products")]
+        [SwaggerOperation(OperationId = "GetProducts", Summary = "gets list of products")]
         [SwaggerResponse(statusCode: 200, description: "Success", type: typeof(List<Product>))]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]
         public abstract Task<IActionResult> GetProducts();
 
+        /// <summary>Creates the products.</summary>
+        /// <param name="product"> product object.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        [HttpPost]
+        [SwaggerOperation(OperationId = "CreateProducts", Summary = "create product")]
+        [SwaggerResponse(statusCode: 200, description: "Success", type: typeof(CreateProduct))]
+        [SwaggerResponse(statusCode: 400, description: "Bad Request")]
+        [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
+        [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]
+        public abstract Task<IActionResult> Create(DTO.CreateProduct product);
         #endregion
     }
 }

@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------
-// <copyright file="SurveyResult.cs" company="SoftLab">
+// <copyright file="CreateSurveyResult.cs" company="SoftLab">
 // Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
 // -------------------------------------------------------------------------------
@@ -8,10 +8,6 @@ namespace PollDog.API.DTO
     /// <summary>SurveyResult DTO.</summary>
     public class CreateSurveyResult
     {
-        /// <summary>Gets or sets the identifier.</summary>
-        /// <value>The identifier.</value>
-        // public string Id { get; set; }
-
         /// <summary>Gets or sets the rating.</summary>
         /// <value>The rating.</value>
         public float Rating { get; set; }

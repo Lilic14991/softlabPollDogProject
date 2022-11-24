@@ -12,9 +12,8 @@ namespace WebAPI.Infrastructure.Repositories
     using Microsoft.Data.SqlClient;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
-    using WebAPI.Core.Models;
     using WebAPI.Core.Repositories;
-    using WebAPI.Infrastructure.DbModels;
+    using DbModels = WebAPI.Infrastructure.DbModels;
     using Models = WebAPI.Core.Models;
 
     /// <summary>SurveyResult repository class.</summary>
@@ -47,24 +46,22 @@ namespace WebAPI.Infrastructure.Repositories
         }
 
         /// <summary>Creates the specified survey result.</summary>
-        /// <param name="productId">guid parameter for ProductId</param>
-        /// <param name="rating">int parameter for Rating</param>
-        /// <param name="comment">string parameter for Comment</param>
+        /// <param name="productId">guid parameter for ProductId.</param>
+        /// <param name="rating">int parameter for Rating.</param>
+        /// <param name="comment">string parameter for Comment.</param>
         /// <returns>representing the asynchronous operation.</returns>
         public async Task Create(Guid productId, int rating, string comment)
         {
-            using (var connection = this.Connection)
-            {
-                await connection.OpenAsync();
+            using var connection = this.Connection;
+            await connection.OpenAsync();
 
-                var parameters = new { productId, rating, comment };
+            var parameters = new { productId, rating, comment };
 
-                var sql = @"INSERT INTO [Survey].[SurveyResult] 
+            var sql = @"INSERT INTO [Survey].[SurveyResult] 
                 ([ProductId],[Rating],[Comment]) 
                 VALUES (@ProductId, @Rating, @Comment)";
 
-                await connection.ExecuteAsync(sql, parameters);
-            }
+            await connection.ExecuteAsync(sql, parameters);
         }
 
         /// <summary>Gets the survey result average rating.</summary>
@@ -73,22 +70,20 @@ namespace WebAPI.Infrastructure.Repositories
         /// </returns>
         public async Task<IEnumerable<Models.ProductAverageRatings>> GetSurveyResultAverageRating()
         {
-            using (var connection = this.Connection)
+            using var connection = this.Connection;
+            await connection.OpenAsync();
+
+            var view = "SELECT * FROM [Survey].[vSurveyResult]";
+
+            var averageRatings = await connection.QueryAsync<Models.ProductAverageRatings>(view);
+            var mappedProductAverageRatings = new List<Models.ProductAverageRatings>();
+
+            foreach (var rating in averageRatings)
             {
-                await connection.OpenAsync();
-
-                var view = "SELECT * FROM [Survey].[vSurveyResult]";
-
-                var averageRatings = await connection.QueryAsync<Models.ProductAverageRatings>(view);
-                var mappedProductAverageRatings = new List<Models.ProductAverageRatings>();
-
-                foreach (var rating in averageRatings)
-                {
-                    mappedProductAverageRatings.Add(rating);
-                }
-
-                return mappedProductAverageRatings;
+                mappedProductAverageRatings.Add(rating);
             }
+
+            return mappedProductAverageRatings;
         }
     }
 }

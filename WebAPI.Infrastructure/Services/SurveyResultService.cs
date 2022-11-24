@@ -34,7 +34,11 @@ namespace WebAPI.Infrastructure.Services
         public async Task Create(Models.SurveyResult surveyResult)
         {
             var surveyResultService = this.serviceProvider.GetRequiredService<ISurveyResultRepository>();
-            await surveyResultService.Create(surveyResult.Products.Select(x => x.Id).FirstOrDefault(), (int)surveyResult.Stars, surveyResult.Comment);
+            await surveyResultService.Create(
+                surveyResult.Products
+                .Select(x => x.Id).FirstOrDefault(),
+                (int)surveyResult.Stars,
+                surveyResult.Comment);
         }
 
         /// <summary>Gets the product with average rating.</summary>
