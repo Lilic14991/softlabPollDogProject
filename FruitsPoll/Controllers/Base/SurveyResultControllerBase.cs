@@ -27,7 +27,7 @@ namespace PollDog.API.Controllers.Base
         ///   <br />
         /// </returns>
         [HttpGet]
-        [SwaggerOperation(OperationId= "GetProductAverageRatings", Summary="get products by avarage rating")]
+        [SwaggerOperation(OperationId= "GetProductAverageRatings", Summary="Get products by avarage rating")]
         [SwaggerResponse(statusCode: 200, description: "Success", type: typeof(ProductAverageRatings))]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
@@ -40,7 +40,7 @@ namespace PollDog.API.Controllers.Base
         ///   <br />
         /// </returns>
         [HttpPost]
-        [SwaggerOperation(OperationId="CreateSurveyResult", Summary="create a survey result")]
+        [SwaggerOperation(OperationId="CreateSurveyResult", Summary="Create a survey result")]
         [SwaggerResponse(statusCode: 200, description: "Success", type: typeof(CreateSurveyResult))]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
