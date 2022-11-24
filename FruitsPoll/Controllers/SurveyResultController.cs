@@ -59,9 +59,10 @@ namespace PollDog.API.Controllers
             {
                 var surveyResultService = this.ServiceProvider.GetRequiredService<ISurveyResultService>();
                 var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
-                await surveyResultService.GetProductWithAverageRating();
+                var averageRatings = await surveyResultService.GetProductWithAverageRating();
+                var mappedAverageResult = mapper.Map<IEnumerable<Models.ProductAverageRatings>, IEnumerable<DTO.ProductAverageRatings>>(averageRatings);
 
-                return this.Ok();
+                return this.Ok(mappedAverageResult);
             }
             catch (Exception ex)
             {
