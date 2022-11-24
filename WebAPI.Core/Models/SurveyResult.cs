@@ -16,7 +16,7 @@ namespace WebAPI.Core.Models
     {
         /// <summary>Gets or sets the identifier.</summary>
         /// <value>The identifier.</value>
-        public string Id { get; set; }
+        public Guid Id { get; set; }
 
         /// <summary>Gets or sets the stars.</summary>
         /// <value>The stars.</value>

@@ -35,7 +35,7 @@ namespace WebAPI.Infrastructure.Mapper
                 Stars = surveyResult.Stars,
                 Comment = surveyResult.Comment,
                 Products = surveyResult.Products
-                .Select(p => new Models.Product() { Id = p.Id, ProductName = p.Name }).ToList(),
+                .Select(p => new Models.Product() { Id = p.Id, Name = p.Name }).ToList(),
             };
         }
 

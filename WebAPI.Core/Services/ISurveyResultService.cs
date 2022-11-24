@@ -21,6 +21,7 @@ namespace WebAPI.Core.Services
         ///   <br />
         /// </returns>
         Task Create(Models.SurveyResult surveyResult);
+
         /// <summary>Gets the product with average rating.</summary>
         /// <returns>
         ///   <br />

@@ -20,12 +20,21 @@ namespace WebAPI.Core.Repositories
         /// <returns>
         ///   <br />
         /// </returns>
-        Task Create(Models.SurveyResult surveyResult);
+       // Task Create(Models.SurveyResult surveyResult);
 
         /// <summary>Gets the survey result average rating.</summary>
         /// <returns>
         ///   <br />
         /// </returns>
         Task<IEnumerable<Models.ProductAverageRatings>> GetSurveyResultAverageRating();
+
+        /// <summary>Creates the specified product identifier.</summary>
+        /// <param name="productId">The product identifier.</param>
+        /// <param name="rating">The rating.</param>
+        /// <param name="comment">The comment.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        Task Create(Guid productId, int rating, string comment);
     }
 }

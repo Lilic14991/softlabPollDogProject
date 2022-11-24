@@ -11,7 +11,6 @@ namespace PollDog.API.Controllers
     using Microsoft.AspNetCore.Mvc.ModelBinding;
     using PollDog.API.AutoMapper;
     using PollDog.API.Controllers.Base;
-    using WebAPI.Core.Models;
     using WebAPI.Core.Services;
     using DTO = PollDog.API.DTO;
     using Models = WebAPI.Core.Models;
@@ -33,13 +32,13 @@ namespace PollDog.API.Controllers
         /// <returns>
         ///   <br />
         /// </returns>
-        public async override Task<IActionResult> CreateSurveyResult([FromBody] DTO.SurveyResult surveyResult)
+        public async override Task<IActionResult> CreateSurveyResult([FromBody] DTO.CreateSurveyResult surveyResult)
         {
             try
             {
                 var surveyResultService = this.ServiceProvider.GetRequiredService<ISurveyResultService>();
                 var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
-                var mappedResult = mapper.Map<DTO.SurveyResult, Models.SurveyResult>(surveyResult);
+                var mappedResult = mapper.Map<DTO.CreateSurveyResult, Models.SurveyResult>(surveyResult);
                 await surveyResultService.Create(mappedResult);
 
                 return this.Ok();
@@ -59,6 +58,7 @@ namespace PollDog.API.Controllers
             try
             {
                 var surveyResultService = this.ServiceProvider.GetRequiredService<ISurveyResultService>();
+                var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
                 await surveyResultService.GetProductWithAverageRating();
 
                 return this.Ok();

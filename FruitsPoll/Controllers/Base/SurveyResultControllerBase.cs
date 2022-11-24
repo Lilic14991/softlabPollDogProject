@@ -28,7 +28,7 @@ namespace PollDog.API.Controllers.Base
         /// </returns>
         [HttpGet]
         [SwaggerOperation(OperationId= "GetProductAverageRatings", Summary="get products by avarage rating")]
-        [SwaggerResponse(statusCode: 200, description: "Success", type: typeof(SurveyResult))]
+        [SwaggerResponse(statusCode: 200, description: "Success", type: typeof(CreateSurveyResult))]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]
@@ -41,10 +41,10 @@ namespace PollDog.API.Controllers.Base
         /// </returns>
         [HttpPost]
         [SwaggerOperation(OperationId="CreateSurveyResult", Summary="create a survey result")]
-        [SwaggerResponse(statusCode: 200, description: "Success", type: typeof(SurveyResult))]
+        [SwaggerResponse(statusCode: 200, description: "Success", type: typeof(CreateSurveyResult))]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]
-        public abstract Task<IActionResult> CreateSurveyResult(SurveyResult surveyResult);
+        public abstract Task<IActionResult> CreateSurveyResult(CreateSurveyResult surveyResult);
     }
 }
