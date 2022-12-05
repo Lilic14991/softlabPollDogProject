@@ -5,11 +5,6 @@
 // -------------------------------------------------------------------------------
 namespace WebAPI.Infrastructure.Mapper
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using Entities = WebAPI.Infrastructure.DbModels;
     using Models = WebAPI.Core.Models;
 
@@ -21,7 +16,7 @@ namespace WebAPI.Infrastructure.Mapper
         /// <summary>Databases the product to model product.</summary>
         /// <param name="product">The product.</param>
         /// <returns>
-        ///   <br />
+        ///   Return new instance of Product model.
         /// </returns>
         public static Models.Product DatabaseProductToModelProduct(this Entities.Product product)
         {

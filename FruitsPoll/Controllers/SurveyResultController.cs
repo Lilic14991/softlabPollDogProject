@@ -6,10 +6,7 @@
 namespace PollDog.API.Controllers
 {
     using global::AutoMapper;
-    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Mvc.ModelBinding;
-    using PollDog.API.AutoMapper;
     using PollDog.API.Controllers.Base;
     using WebAPI.Core.Services;
     using DTO = PollDog.API.DTO;
@@ -30,9 +27,9 @@ namespace PollDog.API.Controllers
         /// <summary>Creates the survey result.</summary>
         /// <param name="surveyResult">The survey result.</param>
         /// <returns>
-        ///   <br />
+        ///   Return Task of IActionResult.
         /// </returns>
-        public async override Task<IActionResult> CreateSurveyResult([FromBody] DTO.CreateSurveyResult surveyResult)
+        public async override Task<IActionResult> Create([FromBody] DTO.CreateSurveyResult surveyResult)
         {
             try
             {
@@ -51,7 +48,7 @@ namespace PollDog.API.Controllers
 
         /// <summary>Gets the product average ratings.</summary>
         /// <returns>
-        ///   <br />
+        ///   Return task of IActionResult.
         /// </returns>
         public async override Task<IActionResult> GetProductAverageRatings()
         {

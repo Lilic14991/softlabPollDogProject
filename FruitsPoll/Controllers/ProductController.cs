@@ -6,9 +6,7 @@
 namespace PollDog.API.Controllers
 {
     using global::AutoMapper;
-    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Mvc.ModelBinding;
     using PollDog.API.Controllers.Base;
     using WebAPI.Core.Services;
     using Models = WebAPI.Core.Models;
@@ -18,7 +16,7 @@ namespace PollDog.API.Controllers
     [ApiController]
     public class ProductController : ProductControllerBase
     {
-        #region Constructor
+        #region Constructors
 
         /// <summary>Initializes a new instance of the <see cref="ProductController" /> class.</summary>
         /// <param name="serviceProvider">The service provider.</param>
@@ -32,12 +30,13 @@ namespace PollDog.API.Controllers
         #region Public methods
 
         /// <summary>Gets the products.</summary>
-        /// <returns>status code 200 Ok.<br /></returns>
+        /// <returns>Returns task of IActionResult.<br /></returns>
         public async override Task<IActionResult> GetProducts()
         {
             try
             {
                 var productsService = this.ServiceProvider.GetRequiredService<IProductService>();
+
                 var products = await productsService.GetProducts();
 
                 if (products == null)
@@ -56,7 +55,7 @@ namespace PollDog.API.Controllers
         /// <summary>Creates the products.</summary>
         /// <param name="product">product object.</param>
         /// <returns>
-        ///   <br />
+        ///   Returns task of IActionResult.
         /// </returns>
         public async override Task<IActionResult> Create([FromBody] DTO.CreateProduct product)
         {
@@ -64,7 +63,7 @@ namespace PollDog.API.Controllers
             {
                 var productService = this.ServiceProvider.GetRequiredService<IProductService>();
                 var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
-                var mappedResult = mapper.Map<DTO.CreateProduct, Models.CreateProduct>(product);
+                var mappedResult = mapper.Map<DTO.CreateProduct, Models.Product>(product);
                 await productService.Create(mappedResult);
 
                 return this.Ok();

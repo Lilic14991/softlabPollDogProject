@@ -7,24 +7,15 @@ namespace WebAPI.Core.Repositories
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
     using Models = WebAPI.Core.Models;
 
     /// <summary>Interface SurveyResult Repository.</summary>
     public interface ISurveyResultRepository
     {
-        /// <summary>Creates the specified survey result.</summary>
-        /// <param name="surveyResult">The survey result.</param>
-        /// <returns>
-        ///   <br />
-        /// </returns>
-       // Task Create(Models.SurveyResult surveyResult);
-
         /// <summary>Gets the survey result average rating.</summary>
         /// <returns>
-        ///   <br />
+        ///   Return list of ProductAverageRatings.
         /// </returns>
         Task<IEnumerable<Models.ProductAverageRatings>> GetSurveyResultAverageRating();
 
@@ -33,7 +24,7 @@ namespace WebAPI.Core.Repositories
         /// <param name="rating">The rating.</param>
         /// <param name="comment">The comment.</param>
         /// <returns>
-        ///   <br />
+        ///   Return Task.
         /// </returns>
         Task Create(Guid productId, int rating, string comment);
     }

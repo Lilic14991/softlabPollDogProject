@@ -5,12 +5,6 @@
 // -------------------------------------------------------------------------------
 namespace WebAPI.Infrastructure.DbModels
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
     /// <summary>Product Averrage ratings class.</summary>
     public class ProductAverageRatings
     {

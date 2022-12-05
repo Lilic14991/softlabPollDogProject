@@ -5,10 +5,7 @@
 // -------------------------------------------------------------------------------
 namespace WebAPI.Core.Services
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
     using Models = WebAPI.Core.Models;
 
@@ -18,13 +15,13 @@ namespace WebAPI.Core.Services
         /// <summary>Creates the specified survey result.</summary>
         /// <param name="surveyResult">The survey result.</param>
         /// <returns>
-        ///   <br />
+        ///   Returns task.
         /// </returns>
         Task Create(Models.SurveyResult surveyResult);
 
         /// <summary>Gets the product with average rating.</summary>
         /// <returns>
-        ///   <br />
+        ///   Returns list of ProductAverageRatings.
         /// </returns>
         Task<IEnumerable<Models.ProductAverageRatings>> GetProductWithAverageRating();
     }

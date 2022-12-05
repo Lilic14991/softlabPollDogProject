@@ -5,10 +5,7 @@
 // -------------------------------------------------------------------------------
 namespace WebAPI.Core.Services
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
     using WebAPI.Core.Models;
 
@@ -17,14 +14,14 @@ namespace WebAPI.Core.Services
     {
         /// <summary>Gets the brands.</summary>
         /// <returns>
-        ///   <br />
+        ///   Returns list of Brands.
         /// </returns>
         Task<IEnumerable<Brand>> GetBrands();
 
         /// <summary>Creates the specified brand.</summary>
         /// <param name="brand">The brand.</param>
         /// <returns>
-        ///   <br />
+        ///   Returns task.
         /// </returns>
         Task Create(Models.Brand brand);
     }

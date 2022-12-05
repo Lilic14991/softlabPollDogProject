@@ -6,10 +6,6 @@
 namespace WebAPI.Core.Models
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>Product class.</summary>
     public class Product
@@ -21,5 +17,9 @@ namespace WebAPI.Core.Models
         /// <summary>Gets or sets the name of the product.</summary>
         /// <value>The name of the product.</value>
         public string Name { get; set; }
+
+        /// <summary>Gets or sets the brand.</summary>
+        /// <value>The brand.</value>
+        public Brand Brand { get; set; }
     }
 }

@@ -30,21 +30,23 @@ namespace WebAPI.Infrastructure.Services
 
         /// <summary>Creates the specified survey result.</summary>
         /// <param name="surveyResult">The survey result.</param>
-        /// <returns>Created surveyResult object.</returns>
+        /// <returns>Return Task.</returns>
         public async Task Create(Models.SurveyResult surveyResult)
         {
+            // resolve services
             var surveyResultService = this.serviceProvider.GetRequiredService<ISurveyResultRepository>();
             await surveyResultService.Create(
                 surveyResult.Products
                 .Select(x => x.Id).FirstOrDefault(),
-                (int)surveyResult.Stars,
+                surveyResult.Stars,
                 surveyResult.Comment);
         }
 
         /// <summary>Gets the product with average rating.</summary>
-        /// <returns>representing the asynchronous operation.</returns>
+        /// <returns>List of products with average ratings.</returns>
         public async Task<IEnumerable<Models.ProductAverageRatings>> GetProductWithAverageRating()
         {
+            // resolve services
             var surveyResultService = this.serviceProvider.GetRequiredService<ISurveyResultRepository>();
             var productsWithAverageRating = await surveyResultService.GetSurveyResultAverageRating();
 

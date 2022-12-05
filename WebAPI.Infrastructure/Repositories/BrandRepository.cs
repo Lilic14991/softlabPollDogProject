@@ -5,12 +5,11 @@
 // -------------------------------------------------------------------------------
 namespace WebAPI.Infrastructure.Repositories
 {
-    using System.Security.Cryptography.Xml;
+    using System.Linq;
     using Dapper;
-    using Microsoft.Data.SqlClient;
-    using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using WebAPI.Core.Repositories;
+    using WebAPI.Core.Services;
     using WebAPI.Infrastructure.Mapper;
     using DbModels = WebAPI.Infrastructure.DbModels;
     using Models = WebAPI.Core.Models;
@@ -23,35 +22,15 @@ namespace WebAPI.Infrastructure.Repositories
         /// <summary>The context.</summary>
         private readonly IServiceProvider serviceProvider;
 
-        /// <summary>The connection string.</summary>
-        private readonly string connectionString;
-
         #endregion
 
         #region Constructors
 
         /// <summary>Initializes a new instance of the <see cref="BrandRepository" /> class.</summary>
         /// <param name="serviceProvider">The context.</param>
+        /// resolve services
         public BrandRepository(IServiceProvider serviceProvider)
         {
-            this.serviceProvider = serviceProvider;
-            var configuration = this.serviceProvider.GetService<IConfiguration>();
-            this.connectionString = configuration["ConnectionStrings:DefaultConnection"];
-        }
-
-        #endregion
-
-        #region Public properties
-
-        /// <summary>Gets the connection.</summary>
-        /// <value>The connection.</value>
-        public SqlConnection Connection
-        {
-            get
-            {
-                var connection = new SqlConnection(this.connectionString);
-                return connection;
-            }
         }
 
         #endregion
@@ -59,39 +38,42 @@ namespace WebAPI.Infrastructure.Repositories
         #region Public methods
 
         /// <summary>Gets the brands.</summary>
-        /// <returns>List of brands.</returns>
+        /// <returns>Returns list of brands.</returns>
         public async Task<IEnumerable<Models.Brand>> GetBrands()
         {
-            using var connection = this.Connection;
-            await connection.OpenAsync();
+            var configService = this.serviceProvider.GetRequiredService<IConfigService>();
 
-            var query = "SELECT * FROM [Portfolio].[Brand]";
-
-            var brands = await connection.QueryAsync<DbModels.Brand>(query);
-            var mappedBrands = new List<Models.Brand>();
-
-            foreach (var brand in brands)
+            using (var connection = configService.Connection)
             {
-                var modelBrand = brand.DatabaseBrandToModelBrand();
-                mappedBrands.Add(modelBrand);
-            }
+                await connection.OpenAsync();
 
-            return mappedBrands;
+                var query = "SELECT * FROM [Portfolio].[Brand]";
+
+                var brands = await connection.QueryAsync<DbModels.Brand>(query);
+                var mappedBrands = brands.Select(b => b.DatabaseBrandToModelBrand()).ToList();
+
+                return mappedBrands;
+            }
         }
 
         /// <summary>Creates the specified name.</summary>
         /// <param name="name">The name.</param>
+        /// <returns>Returns task.</returns>
         public async Task Create(string name)
         {
-            using var connection = this.Connection;
-            await connection.OpenAsync();
+            var configService = this.serviceProvider.GetRequiredService<IConfigService>();
 
-            var parameters = new { name };
+            using (var connection = configService.Connection)
+            {
+                await connection.OpenAsync();
 
-            var sql = @"INSERT INTO [Portfolio].[Brand]
-             ([Name]) VALUES(@Name)";
+                var parameters = new { name };
 
-            await connection.QueryAsync(sql, parameters);
+                var sql = @"INSERT INTO [Portfolio].[Brand] ([Name]) 
+                            VALUES(@Name)";
+
+                await connection.QueryAsync(sql, parameters);
+            }
         }
 
         #endregion

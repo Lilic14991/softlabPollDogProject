@@ -7,8 +7,6 @@ namespace WebAPI.Infrastructure.Services
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
     using Microsoft.Extensions.DependencyInjection;
     using WebAPI.Core.Repositories;
@@ -39,9 +37,10 @@ namespace WebAPI.Infrastructure.Services
         #region Public methods
 
         /// <summary>Gets the products.</summary>
-        /// <returns>List of products.</returns>
+        /// <returns>Return list of products.</returns>
         public async Task<IEnumerable<Models.Product>> GetProducts()
         {
+            // resolve services
             var productsService = this.serviceProvider.GetRequiredService<IProductRepository>();
             var products = await productsService.GetProducts();
 
@@ -50,11 +49,12 @@ namespace WebAPI.Infrastructure.Services
 
         /// <summary>Creates the specified product.</summary>
         /// <param name="product">The product.</param>
-        /// <returns>representing the asynchronous operation.</returns>
-        public async Task Create(Models.CreateProduct product)
+        /// <returns>Return Task.</returns>
+        public async Task Create(Models.Product product)
         {
+            // resolve services
             var productService = this.serviceProvider.GetRequiredService<IProductRepository>();
-            await productService.Create(product.Brands.Select(x => x.Id).FirstOrDefault(), product.Name);
+            await productService.Create(product.Brand.Id, product.Name);
         }
 
         #endregion

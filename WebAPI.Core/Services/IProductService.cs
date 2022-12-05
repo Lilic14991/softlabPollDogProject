@@ -5,10 +5,7 @@
 // -------------------------------------------------------------------------------
 namespace WebAPI.Core.Services
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
     using Models = WebAPI.Core.Models;
 
@@ -22,8 +19,8 @@ namespace WebAPI.Core.Services
         /// <summary>Creates the specified product.</summary>
         /// <param name="product">The product.</param>
         /// <returns>
-        ///   <br />
+        ///   Returns task.
         /// </returns>
-        Task Create(Models.CreateProduct product);
+        Task Create(Models.Product product);
     }
 }

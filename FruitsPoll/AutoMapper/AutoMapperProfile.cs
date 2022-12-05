@@ -6,7 +6,6 @@
 namespace PollDog.API.AutoMapper
 {
     using global::AutoMapper;
-    using Microsoft.AspNetCore.Mvc.ModelBinding;
     using DTO = PollDog.API.DTO;
     using Models = WebAPI.Core.Models;
 
@@ -20,7 +19,7 @@ namespace PollDog.API.AutoMapper
                 .ForMember(dest => dest.Stars, opt => opt.MapFrom(src => src.Rating)).ReverseMap();
             this.CreateMap<DTO.Product, Models.Product>();
             this.CreateMap<Models.ProductAverageRatings, DTO.ProductAverageRatings>();
-            this.CreateMap<DTO.CreateProduct, Models.CreateProduct>();
+            this.CreateMap<DTO.CreateProduct, Models.Product>();
             this.CreateMap<DTO.Brand, Models.Brand>();
             this.CreateMap<DTO.CreateBrand, Models.Brand>();
         }

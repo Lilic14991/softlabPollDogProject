@@ -5,23 +5,18 @@
 // -------------------------------------------------------------------------------
 namespace WebAPI.Infrastructure.Mapper
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using Entities = WebAPI.Infrastructure.DbModels;
     using Models = WebAPI.Core.Models;
 
     /// <summary>Static class Brand mapper.</summary>
     public static class BrandMapper
     {
-        #region Public methods
+        #region Extension methods
 
-        /// <summary>Databases the brand to model brand.</summary>
+        /// <summary>Maps databases the brand to model brand.</summary>
         /// <param name="brand">The brand.</param>
         /// <returns>
-        ///   <br />
+        ///   Return new instance of Brand model.
         /// </returns>
         public static Models.Brand DatabaseBrandToModelBrand(this Entities.Brand brand)
         {

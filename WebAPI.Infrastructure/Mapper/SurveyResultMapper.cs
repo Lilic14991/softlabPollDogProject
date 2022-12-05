@@ -5,22 +5,19 @@
 // -------------------------------------------------------------------------------
 namespace WebAPI.Infrastructure.Mapper
 {
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using WebAPI.Core.Models;
     using Entities = WebAPI.Infrastructure.DbModels;
     using Models = WebAPI.Core.Models;
 
     /// <summary>SurveyResult mapper static class.</summary>
     public static class SurveyResultMapper
     {
+        #region Extension Methods
+
         /// <summary>Databases the survey result to model survey result.</summary>
         /// <param name="surveyResult">The survey result.</param>
         /// <returns>
-        ///   new object <see cref="Models.SurveyResult"/>.
+        ///   Return new instance of SurveyResult model.
         /// </returns>
         public static Models.SurveyResult DatabaseSurveyResultToModelSurveyResult(this Entities.SurveyResult surveyResult)
         {
@@ -42,7 +39,7 @@ namespace WebAPI.Infrastructure.Mapper
         /// <summary>Databases the product average rating to model.</summary>
         /// <param name="productAverageRating">The product average rating.</param>
         /// <returns>
-        ///   <br />
+        ///   Returns new instance of ProductAverageRatings model.
         /// </returns>
         public static Models.ProductAverageRatings DatabaseProductAverageRatingToModel(this Entities.ProductAverageRatings productAverageRating)
         {
@@ -58,5 +55,7 @@ namespace WebAPI.Infrastructure.Mapper
                 Average = productAverageRating.Average,
             };
         }
+
+        #endregion
     }
 }

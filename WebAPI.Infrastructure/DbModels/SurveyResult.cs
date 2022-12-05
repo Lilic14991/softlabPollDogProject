@@ -7,9 +7,6 @@ namespace WebAPI.Infrastructure.DbModels
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>class SurveyResult.</summary>
     public class SurveyResult
@@ -20,7 +17,7 @@ namespace WebAPI.Infrastructure.DbModels
 
         /// <summary>Gets or sets the stars.</summary>
         /// <value>The stars.</value>
-        public float Stars { get; set; }
+        public int Stars { get; set; }
 
         /// <summary>Gets or sets the comment.</summary>
         /// <value>The comment.</value>

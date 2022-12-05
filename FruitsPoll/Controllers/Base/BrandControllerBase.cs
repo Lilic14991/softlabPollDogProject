@@ -9,7 +9,7 @@ namespace PollDog.API.Controllers.Base
     using PollDog.API.DTO;
     using Swashbuckle.AspNetCore.Annotations;
 
-    /// <summary> BaseController for Brand.</summary>
+    /// <summary>Controlelr base class for brand controller</summary>
     [Route("api/[controller]")]
     [ApiController]
     public abstract class BrandControllerBase : ControllerBase
@@ -29,11 +29,11 @@ namespace PollDog.API.Controllers.Base
 
         /// <summary>Gets the brands.</summary>
         /// <returns>
-        ///   <br />
+        ///   Returns task of IActionResult.
         /// </returns>
         [HttpGet]
         [SwaggerOperation(OperationId = "GetBrands", Summary = "Gets the list of brands.")]
-        [SwaggerResponse(statusCode: 200, description: "Success", type: typeof(List<Brand>))]
+        [SwaggerResponse(statusCode: 200, type: typeof(List<Brand>), description: "Success")]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]
@@ -42,11 +42,11 @@ namespace PollDog.API.Controllers.Base
         /// <summary>Creates the specified brand.</summary>
         /// <param name="brand">The brand.</param>
         /// <returns>
-        ///   <br />
+        ///   Returns task of IActionResult.
         /// </returns>
         [HttpPost]
         [SwaggerOperation(OperationId = "CreateBrand", Summary = "Create a new brand.")]
-        [SwaggerResponse(statusCode: 200, description: "Success", type: typeof(CreateBrand))]
+        [SwaggerResponse(statusCode: 200, type: typeof(CreateBrand), description: "Success")]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]

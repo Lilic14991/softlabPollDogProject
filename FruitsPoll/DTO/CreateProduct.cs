@@ -14,6 +14,6 @@ namespace PollDog.API.DTO
 
         /// <summary>Gets or sets the brands.</summary>
         /// <value>The brands.</value>
-        public List<Brand> Brands { get; set; } = new List<Brand>();
+        public Brand Brand { get; set; }
     }
 }

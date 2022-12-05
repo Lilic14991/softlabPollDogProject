@@ -5,7 +5,6 @@
 // -------------------------------------------------------------------------------
 namespace PollDog.API.Controllers.Base
 {
-    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using PollDog.API.DTO;
     using Swashbuckle.AspNetCore.Annotations;
@@ -24,11 +23,11 @@ namespace PollDog.API.Controllers.Base
 
         /// <summary>Gets the product average ratings.</summary>
         /// <returns>
-        ///   <br />
+        ///   Return task of IActionResult.
         /// </returns>
         [HttpGet]
         [SwaggerOperation(OperationId= "GetProductAverageRatings", Summary="Get products by avarage rating")]
-        [SwaggerResponse(statusCode: 200, description: "Success", type: typeof(ProductAverageRatings))]
+        [SwaggerResponse(statusCode: 200, type: typeof(ProductAverageRatings), description: "Success")]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]
@@ -37,14 +36,14 @@ namespace PollDog.API.Controllers.Base
         /// <summary>Creates the survey result.</summary>
         /// <param name="surveyResult">The survey result.</param>
         /// <returns>
-        ///   <br />
+        ///   Returns task of IActionResult.
         /// </returns>
         [HttpPost]
         [SwaggerOperation(OperationId="CreateSurveyResult", Summary="Create a survey result")]
-        [SwaggerResponse(statusCode: 200, description: "Success", type: typeof(CreateSurveyResult))]
+        [SwaggerResponse(statusCode: 200, type: typeof(CreateSurveyResult), description: "Success")]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]
-        public abstract Task<IActionResult> CreateSurveyResult(CreateSurveyResult surveyResult);
+        public abstract Task<IActionResult> Create(CreateSurveyResult surveyResult);
     }
 }
