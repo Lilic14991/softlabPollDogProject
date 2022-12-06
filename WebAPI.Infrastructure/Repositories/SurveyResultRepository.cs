@@ -78,8 +78,8 @@ namespace WebAPI.Infrastructure.Repositories
 
                 var view = "SELECT * FROM [Survey].[vSurveyResult]";
 
-                var averageRatings = await connection.QueryAsync<DbModels.ProductAverageRating>(view);
-                var mappedProductAverageRatings = averageRatings.Select(ar => ar.DatabaseProductAverageRatingToModel());
+                var averageRating = await connection.QueryAsync<DbModels.ProductAverageRating>(view);
+                var mappedProductAverageRatings = averageRating.Select(ar => ar.DatabaseProductAverageRatingToModel());
 
                 return mappedProductAverageRatings;
             }

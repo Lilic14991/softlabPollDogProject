@@ -60,7 +60,7 @@ namespace PollDog.API.Controllers
         /// <returns>
         ///   Returns task.
         /// </returns>
-        public override async Task<IActionResult> Create([FromBody] DTO.CreateBrand brand)
+        public override async Task<IActionResult> Create([FromBody] DTO.BrandCreate brand)
         {
             try
             {
@@ -70,7 +70,7 @@ namespace PollDog.API.Controllers
                 // resolve services
                 var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
 
-                var mappedResult = mapper.Map<DTO.CreateBrand, Models.Brand>(brand);
+                var mappedResult = mapper.Map<DTO.BrandCreate, Models.Brand>(brand);
                 await brandService.Create(mappedResult);
 
                 return this.Ok();

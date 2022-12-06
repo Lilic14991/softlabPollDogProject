@@ -38,12 +38,12 @@ namespace WebAPI.Infrastructure.Services
 
         /// <summary>Gets the products.</summary>
         /// <returns>The list of products.</returns>
-        public async Task<IEnumerable<Models.Product>> GetProducts()
+        public async Task<List<Models.Product>> GetProducts(Guid brandId)
         {
             // resolve services
             var productRepository = this.serviceProvider.GetRequiredService<IProductRepository>();
 
-            var products = await productRepository.GetProducts();
+            var products = await productRepository.GetProducts(brandId);
 
             return products;
         }

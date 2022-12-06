@@ -31,13 +31,13 @@ namespace PollDog.API.Controllers.Base
         /// <returns>
         ///   Returns the list of products.
         /// </returns>
-        [HttpGet]
+        [HttpGet("{brandId}")]
         [SwaggerOperation(OperationId = "GetProducts", Summary = "Gets list of products")]
         [SwaggerResponse(statusCode: 200, type: typeof(List<Product>), description: "Success")]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]
-        public abstract Task<IActionResult> GetProducts();
+        public abstract Task<IActionResult> GetProducts([FromRoute] Guid brandId);
 
         /// <summary>Creates the products.</summary>
         /// <param name="product"> product object.</param>
@@ -46,11 +46,11 @@ namespace PollDog.API.Controllers.Base
         /// </returns>
         [HttpPost]
         [SwaggerOperation(OperationId = "CreateProducts", Summary = "Create a product")]
-        [SwaggerResponse(statusCode: 200, type: typeof(CreateProduct), description: "Success")]
+        [SwaggerResponse(statusCode: 200, type: typeof(ProductCreate), description: "Success")]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]
-        public abstract Task<IActionResult> Create(DTO.CreateProduct product);
+        public abstract Task<IActionResult> Create(DTO.ProductCreate product);
         #endregion
     }
 }

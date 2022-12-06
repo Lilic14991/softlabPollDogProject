@@ -18,8 +18,8 @@ namespace WebAPI.Infrastructure.DbModels
         /// <value>The name.</value>
         public string Name { get; set; }
 
-        /// <summary>Gets or sets the brand.</summary>
-        /// <value>The brand.</value>
-        public Brand Brand { get; set; }
+        /// <summary>Gets or sets the brand identifier.</summary>
+        /// <value>The brand identifier.</value>
+        public Guid BrandId { get; set; }
     }
 }

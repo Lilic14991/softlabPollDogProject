@@ -14,7 +14,7 @@ namespace WebAPI.Core.Services
     {
         /// <summary>Gets the products.</summary>
         /// <returns>The list of products.</returns>
-        Task<IEnumerable<Models.Product>> GetProducts();
+        Task<List<Models.Product>> GetProducts(Guid brandId);
 
         /// <summary>Creates the specified product.</summary>
         /// <param name="product">The product.</param>

@@ -6,6 +6,7 @@
 namespace PollDog.API.AutoMapper
 {
     using global::AutoMapper;
+    using Microsoft.AspNetCore.Routing.Constraints;
     using DTO = PollDog.API.DTO;
     using Models = WebAPI.Core.Models;
 
@@ -17,13 +18,13 @@ namespace PollDog.API.AutoMapper
         /// <summary>Initializes a new instance of the <see cref="AutoMapperProfile" /> class.</summary>
         public AutoMapperProfile()
         {
-            this.CreateMap<DTO.CreateSurveyResult, Models.SurveyResult>()
+            this.CreateMap<DTO.SurveyResultCreate, Models.SurveyResult>()
                 .ForMember(dest => dest.Stars, opt => opt.MapFrom(src => src.Rating)).ReverseMap();
-            this.CreateMap<DTO.Product, Models.Product>();
+            this.CreateMap<Models.Product, DTO.Product>();
             this.CreateMap<Models.ProductAverageRating, DTO.ProductAverageRating>();
-            this.CreateMap<DTO.CreateProduct, Models.Product>();
+            this.CreateMap<DTO.ProductCreate, Models.Product>();
             this.CreateMap<DTO.Brand, Models.Brand>();
-            this.CreateMap<DTO.CreateBrand, Models.Brand>();
+            this.CreateMap<DTO.BrandCreate, Models.Brand>();
         }
 
         #endregion

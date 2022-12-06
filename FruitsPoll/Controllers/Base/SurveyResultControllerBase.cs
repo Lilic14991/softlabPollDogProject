@@ -40,10 +40,10 @@ namespace PollDog.API.Controllers.Base
         /// </returns>
         [HttpPost]
         [SwaggerOperation(OperationId="CreateSurveyResult", Summary="Create a survey result")]
-        [SwaggerResponse(statusCode: 200, type: typeof(CreateSurveyResult), description: "Success")]
+        [SwaggerResponse(statusCode: 200, type: typeof(SurveyResultCreate), description: "Success")]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]
-        public abstract Task<IActionResult> Create(CreateSurveyResult surveyResult);
+        public abstract Task<IActionResult> Create(SurveyResultCreate surveyResult);
     }
 }

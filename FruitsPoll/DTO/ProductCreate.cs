@@ -1,12 +1,12 @@
 ﻿// -------------------------------------------------------------------------------
-// <copyright file="CreateProduct.cs" company="SoftLab">
+// <copyright file="ProductCreate.cs" company="SoftLab">
 // Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
 // -------------------------------------------------------------------------------
 namespace PollDog.API.DTO
 {
     /// <summary>Create product DTO class.</summary>
-    public class CreateProduct
+    public class ProductCreate
     {
         /// <summary>Gets or sets the name of the product.</summary>
         /// <value>The name of the product.</value>

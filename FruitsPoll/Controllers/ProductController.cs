@@ -37,21 +37,23 @@ namespace PollDog.API.Controllers
 
         /// <summary>Gets the products.</summary>
         /// <returns>Returns 200 status code.</returns>
-        public async override Task<IActionResult> GetProducts()
+        public async override Task<IActionResult> GetProducts([FromRoute] Guid brandId)
         {
             try
             {
                 // resolve services
                 var productService = this.ServiceProvider.GetRequiredService<IProductService>();
+                var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
 
-                var products = await productService.GetProducts();
+                var products = await productService.GetProducts(brandId);
 
                 if (products == null)
                 {
                     return this.NotFound();
                 }
+                var mappedResult = mapper.Map<List<Models.Product>, List<DTO.Product>>(products.ToList());
 
-                return this.Ok(products);
+                return this.Ok(mappedResult);
             }
             catch (Exception ex)
             {
@@ -64,7 +66,7 @@ namespace PollDog.API.Controllers
         /// <returns>
         ///   Returns task.
         /// </returns>
-        public async override Task<IActionResult> Create([FromBody] DTO.CreateProduct product)
+        public async override Task<IActionResult> Create([FromBody] DTO.ProductCreate product)
         {
             try
             {
@@ -74,7 +76,7 @@ namespace PollDog.API.Controllers
                 // resolve services
                 var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
 
-                var mappedResult = mapper.Map<DTO.CreateProduct, Models.Product>(product);
+                var mappedResult = mapper.Map<DTO.ProductCreate, Models.Product>(product);
                 await productService.Create(mappedResult);
 
                 return this.Ok();

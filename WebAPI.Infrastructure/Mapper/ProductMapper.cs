@@ -29,7 +29,7 @@ namespace WebAPI.Infrastructure.Mapper
             {
                 Id = product.Id,
                 Name = product.Name,
-                BrandName = product.Brand.Name,
+                Brand = new Models.Brand() { Id = product.BrandId },
             };
         }
 

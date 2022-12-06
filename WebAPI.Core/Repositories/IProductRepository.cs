@@ -14,7 +14,7 @@ namespace WebAPI.Core.Repositories
         /// <returns>
         ///   The list of Products.
         /// </returns>
-        Task<IEnumerable<Product>> GetProducts();
+        Task<List<Product>> GetProducts(Guid brandId);
 
         /// <summary>Creates the product.</summary>
         /// <param name="brandId">Brand Id Guid parameter.</param>

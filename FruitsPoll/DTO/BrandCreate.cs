@@ -1,12 +1,12 @@
 ﻿// -------------------------------------------------------------------------------
-// <copyright file="CreateBrand.cs" company="SoftLab">
+// <copyright file="BrandCreate.cs" company="SoftLab">
 // Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
 // -------------------------------------------------------------------------------
 namespace PollDog.API.DTO
 {
     /// <summary>Create brand model class</summary>
-    public class CreateBrand
+    public class BrandCreate
     {
         /// <summary>Gets or sets the name of the brand.</summary>
         /// <value>The name of the brand.</value>

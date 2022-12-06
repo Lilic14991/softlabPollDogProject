@@ -57,7 +57,7 @@ namespace WebAPI.Infrastructure.Repositories
                 var parameters = new { brandId, name };
 
                 var sql = @"INSERT INTO [Portfolio].[Product] ([Name], [BrandId])
-                VALUES(@Name, @BrandId)";
+                            VALUES(@Name, @BrandId)";
 
                 await connection.ExecuteAsync(sql, parameters);
             }
@@ -67,7 +67,7 @@ namespace WebAPI.Infrastructure.Repositories
         /// <returns>
         ///     The list of products.
         /// </returns>
-        public async Task<IEnumerable<Models.Product>> GetProducts()
+        public async Task<List<Models.Product>> GetProducts(Guid brandId)
         {
             // resolve services
             var configService = this.serviceProvider.GetRequiredService<IConfigService>();
@@ -76,9 +76,12 @@ namespace WebAPI.Infrastructure.Repositories
             {
                 await connection.OpenAsync();
 
-                var query = "SELECT * FROM [Portfolio].[Product]";
+                var parameters = new { brandId };
 
-                var products = await connection.QueryAsync<DbModels.Product>(query);
+                var query = @"SELECT * FROM [Portfolio].[Product]
+                              WHERE [BrandId] = @BrandId";
+
+                var products = await connection.QueryAsync<DbModels.Product>(query, parameters);
                 var mappedProducts = products.Select(p => p.DatabaseProductToModelProduct()).ToList();
 
                 return mappedProducts;

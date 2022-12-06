@@ -39,7 +39,7 @@ namespace PollDog.API.Controllers
         /// <returns>
         ///   Returns task.
         /// </returns>
-        public async override Task<IActionResult> Create([FromBody] DTO.CreateSurveyResult surveyResult)
+        public async override Task<IActionResult> Create([FromBody] DTO.SurveyResultCreate surveyResult)
         {
             try
             {
@@ -49,7 +49,7 @@ namespace PollDog.API.Controllers
                 // resolve services
                 var mapper = this.serviceProvider.GetRequiredService<IMapper>();
 
-                var mappedResult = mapper.Map<DTO.CreateSurveyResult, Models.SurveyResult>(surveyResult);
+                var mappedResult = mapper.Map<DTO.SurveyResultCreate, Models.SurveyResult>(surveyResult);
                 await surveyResultService.Create(mappedResult);
 
                 return this.Ok();

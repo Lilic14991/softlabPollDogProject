@@ -46,11 +46,11 @@ namespace PollDog.API.Controllers.Base
         /// </returns>
         [HttpPost]
         [SwaggerOperation(OperationId = "CreateBrand", Summary = "Create a new brand.")]
-        [SwaggerResponse(statusCode: 200, type: typeof(CreateBrand), description: "Success")]
+        [SwaggerResponse(statusCode: 200, type: typeof(BrandCreate), description: "Success")]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]
-        public abstract Task<IActionResult> Create(CreateBrand brand);
+        public abstract Task<IActionResult> Create(BrandCreate brand);
 
         #endregion
     }
