@@ -15,8 +15,6 @@ namespace PollDog.API.Controllers
     /// <summary>
     ///   <para>Brand Controller.</para>
     /// </summary>
-    [Route("api/[controller]")]
-    [ApiController]
     public class BrandController : BrandControllerBase
     {
         #region Constructors
@@ -34,14 +32,15 @@ namespace PollDog.API.Controllers
         #region Public Methods
 
         /// <summary>Gets the brands.</summary>
-        /// <returns>Returns the list of brands. </returns>
+        /// <returns>Returns 200 status code.</returns>
         public async override Task<IActionResult> GetBrands()
         {
             try
             {
                 // resolve services
-                var brandsService = this.ServiceProvider.GetRequiredService<IBrandService>();
-                var brands = await brandsService.GetBrands();
+                var brandService = this.ServiceProvider.GetRequiredService<IBrandService>();
+
+                var brands = await brandService.GetBrands();
 
                 if (brands == null)
                 {
@@ -70,6 +69,7 @@ namespace PollDog.API.Controllers
 
                 // resolve services
                 var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
+
                 var mappedResult = mapper.Map<DTO.CreateBrand, Models.Brand>(brand);
                 await brandService.Create(mappedResult);
 

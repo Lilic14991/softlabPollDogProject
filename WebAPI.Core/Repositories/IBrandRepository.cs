@@ -11,13 +11,15 @@ namespace WebAPI.Core.Repositories
     public interface IBrandRepository
     {
         /// <summary>Gets the brands.</summary>
-        /// <returns>Return list of Brands.</returns>
+        /// <returns>
+        ///     The list of Brands.
+        /// </returns>
         Task<IEnumerable<Brand>> GetBrands();
 
         /// <summary>Creates the specified name.</summary>
         /// <param name="name">The name.</param>
         /// <returns>
-        ///   Return Task.
+        ///   Returns task.
         /// </returns>
         Task Create(string name);
     }

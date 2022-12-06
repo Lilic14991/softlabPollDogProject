@@ -5,7 +5,7 @@
 // -------------------------------------------------------------------------------
 namespace WebAPI.Infrastructure.Mapper
 {
-    using Entities = WebAPI.Infrastructure.DbModels;
+    using DbModels = WebAPI.Infrastructure.DbModels;
     using Models = WebAPI.Core.Models;
 
     /// <summary>Product mapper class.</summary>
@@ -16,9 +16,9 @@ namespace WebAPI.Infrastructure.Mapper
         /// <summary>Databases the product to model product.</summary>
         /// <param name="product">The product.</param>
         /// <returns>
-        ///   Return new instance of Product model.
+        ///   The new instance of Product model.
         /// </returns>
-        public static Models.Product DatabaseProductToModelProduct(this Entities.Product product)
+        public static Models.Product DatabaseProductToModelProduct(this DbModels.Product product)
         {
             if (product == null)
             {
@@ -29,6 +29,7 @@ namespace WebAPI.Infrastructure.Mapper
             {
                 Id = product.Id,
                 Name = product.Name,
+                BrandName = product.Brand.Name,
             };
         }
 

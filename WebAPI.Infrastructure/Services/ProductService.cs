@@ -37,24 +37,26 @@ namespace WebAPI.Infrastructure.Services
         #region Public methods
 
         /// <summary>Gets the products.</summary>
-        /// <returns>Return list of products.</returns>
+        /// <returns>The list of products.</returns>
         public async Task<IEnumerable<Models.Product>> GetProducts()
         {
             // resolve services
-            var productsService = this.serviceProvider.GetRequiredService<IProductRepository>();
-            var products = await productsService.GetProducts();
+            var productRepository = this.serviceProvider.GetRequiredService<IProductRepository>();
+
+            var products = await productRepository.GetProducts();
 
             return products;
         }
 
         /// <summary>Creates the specified product.</summary>
         /// <param name="product">The product.</param>
-        /// <returns>Return Task.</returns>
+        /// <returns>Returns task.</returns>
         public async Task Create(Models.Product product)
         {
             // resolve services
-            var productService = this.serviceProvider.GetRequiredService<IProductRepository>();
-            await productService.Create(product.Brand.Id, product.Name);
+            var productRepository = this.serviceProvider.GetRequiredService<IProductRepository>();
+
+            await productRepository.Create(product.Brand.Id, product.Name);
         }
 
         #endregion

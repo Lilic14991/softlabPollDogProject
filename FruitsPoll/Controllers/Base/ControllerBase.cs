@@ -31,22 +31,26 @@ namespace PollDog.API.Controllers.Base
 
         #endregion
 
+        #region Public methods
+
         /// <summary>Bads the request.</summary>
         /// <returns>
         ///   Returns error message.
         /// </returns>
-        public string BadRequest()
-        {
-            return "BAD_REQUEST";
-        }
+        //public string BadRequest()
+        //{
+        //    return "BAD_REQUEST";
+        //}
 
         /// <summary>Internals the server error.</summary>
         /// <returns>
         ///   Returns error message.
         /// </returns>
-        public string InternalServerError()
-        {
-            return "INTERNAL_SERVER_ERROR";
-        }
+        //public string InternalServerError()
+        //{
+        //    return "INTERNAL_SERVER_ERROR";
+        //}
+
+        #endregion
     }
 }

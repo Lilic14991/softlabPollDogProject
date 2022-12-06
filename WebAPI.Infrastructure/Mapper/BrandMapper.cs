@@ -5,7 +5,7 @@
 // -------------------------------------------------------------------------------
 namespace WebAPI.Infrastructure.Mapper
 {
-    using Entities = WebAPI.Infrastructure.DbModels;
+    using DbModels = WebAPI.Infrastructure.DbModels;
     using Models = WebAPI.Core.Models;
 
     /// <summary>Static class Brand mapper.</summary>
@@ -16,9 +16,9 @@ namespace WebAPI.Infrastructure.Mapper
         /// <summary>Maps databases the brand to model brand.</summary>
         /// <param name="brand">The brand.</param>
         /// <returns>
-        ///   Return new instance of Brand model.
+        ///   The new instance of Brand model.
         /// </returns>
-        public static Models.Brand DatabaseBrandToModelBrand(this Entities.Brand brand)
+        public static Models.Brand DatabaseBrandToModelBrand(this DbModels.Brand brand)
         {
             if (brand == null)
             {

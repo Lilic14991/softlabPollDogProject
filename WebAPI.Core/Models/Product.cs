@@ -21,5 +21,9 @@ namespace WebAPI.Core.Models
         /// <summary>Gets or sets the brand.</summary>
         /// <value>The brand.</value>
         public Brand Brand { get; set; }
+
+        /// <summary>Gets or sets the name of the brand.</summary>
+        /// <value>The name of the brand.</value>
+        public string? BrandName { get; set; }
     }
 }

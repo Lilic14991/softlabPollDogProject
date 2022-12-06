@@ -15,5 +15,9 @@ namespace WebAPI.Core.Services
         /// <summary>Gets the connection.</summary>
         /// <value>The connection.</value>
         SqlConnection Connection { get; }
+
+        /// <summary>Gets the connection string.</summary>
+        /// <value>The connection string.</value>
+        string ConnectionString { get; }
     }
 }

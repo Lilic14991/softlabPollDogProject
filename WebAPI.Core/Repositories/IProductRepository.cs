@@ -12,7 +12,7 @@ namespace WebAPI.Core.Repositories
     {
         /// <summary>Gets the products.</summary>
         /// <returns>
-        ///   Return list of Products.
+        ///   The list of Products.
         /// </returns>
         Task<IEnumerable<Product>> GetProducts();
 
@@ -20,7 +20,7 @@ namespace WebAPI.Core.Repositories
         /// <param name="brandId">Brand Id Guid parameter.</param>
         /// <param name="name"> string parameter for name of product.</param>
         /// <returns>
-        ///   Return Task.
+        ///   Returns task.
         /// </returns>
         Task Create(Guid brandId, string name);
     }

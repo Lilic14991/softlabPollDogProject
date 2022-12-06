@@ -13,7 +13,7 @@ namespace WebAPI.Core.Services
     public interface IProductService
     {
         /// <summary>Gets the products.</summary>
-        /// <returns>List of products.</returns>
+        /// <returns>The list of products.</returns>
         Task<IEnumerable<Models.Product>> GetProducts();
 
         /// <summary>Creates the specified product.</summary>

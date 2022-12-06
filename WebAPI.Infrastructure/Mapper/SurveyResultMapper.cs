@@ -6,7 +6,7 @@
 namespace WebAPI.Infrastructure.Mapper
 {
     using System.Linq;
-    using Entities = WebAPI.Infrastructure.DbModels;
+    using DbModels = WebAPI.Infrastructure.DbModels;
     using Models = WebAPI.Core.Models;
 
     /// <summary>SurveyResult mapper static class.</summary>
@@ -17,9 +17,9 @@ namespace WebAPI.Infrastructure.Mapper
         /// <summary>Databases the survey result to model survey result.</summary>
         /// <param name="surveyResult">The survey result.</param>
         /// <returns>
-        ///   Return new instance of SurveyResult model.
+        ///   The new instance of SurveyResult model.
         /// </returns>
-        public static Models.SurveyResult DatabaseSurveyResultToModelSurveyResult(this Entities.SurveyResult surveyResult)
+        public static Models.SurveyResult DatabaseSurveyResultToModelSurveyResult(this DbModels.SurveyResult surveyResult)
         {
             if (surveyResult == null)
             {
@@ -39,16 +39,16 @@ namespace WebAPI.Infrastructure.Mapper
         /// <summary>Databases the product average rating to model.</summary>
         /// <param name="productAverageRating">The product average rating.</param>
         /// <returns>
-        ///   Returns new instance of ProductAverageRatings model.
+        ///   The new instance of ProductAverageRating model.
         /// </returns>
-        public static Models.ProductAverageRatings DatabaseProductAverageRatingToModel(this Entities.ProductAverageRatings productAverageRating)
+        public static Models.ProductAverageRating DatabaseProductAverageRatingToModel(this DbModels.ProductAverageRating productAverageRating)
         {
             if (productAverageRating == null)
             {
                 return null;
             }
 
-            return new Models.ProductAverageRatings
+            return new Models.ProductAverageRating
             {
                 ProductName = productAverageRating.ProductName,
                 BrandName = productAverageRating.BrandName,

@@ -15,5 +15,9 @@ namespace PollDog.API.DTO
         /// <summary>Gets or sets the name.</summary>
         /// <value>The name.</value>
         public string Name { get; set; }
+
+        /// <summary>Gets or sets the name of the brand.</summary>
+        /// <value>The name of the brand.</value>
+        public string BrandName { get; set; }
     }
 }

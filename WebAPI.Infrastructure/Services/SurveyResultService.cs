@@ -18,8 +18,14 @@ namespace WebAPI.Infrastructure.Services
     /// <seealso cref="WebAPI.Core.Services.ISurveyResultService" />
     public class SurveyResultService : ISurveyResultService
     {
+        #region Fields
+
         /// <summary>The service provider.</summary>
         private readonly IServiceProvider serviceProvider;
+
+        #endregion
+
+        #region Constructors
 
         /// <summary>Initializes a new instance of the <see cref="SurveyResultService" /> class.</summary>
         /// <param name="serviceProvider">The service provider.</param>
@@ -28,14 +34,19 @@ namespace WebAPI.Infrastructure.Services
             this.serviceProvider = serviceProvider;
         }
 
+        #endregion
+
+        #region Public methods
+
         /// <summary>Creates the specified survey result.</summary>
         /// <param name="surveyResult">The survey result.</param>
-        /// <returns>Return Task.</returns>
+        /// <returns>Return task.</returns>
         public async Task Create(Models.SurveyResult surveyResult)
         {
             // resolve services
-            var surveyResultService = this.serviceProvider.GetRequiredService<ISurveyResultRepository>();
-            await surveyResultService.Create(
+            var surveyResultRepository = this.serviceProvider.GetRequiredService<ISurveyResultRepository>();
+
+            await surveyResultRepository.Create(
                 surveyResult.Products
                 .Select(x => x.Id).FirstOrDefault(),
                 surveyResult.Stars,
@@ -43,14 +54,17 @@ namespace WebAPI.Infrastructure.Services
         }
 
         /// <summary>Gets the product with average rating.</summary>
-        /// <returns>List of products with average ratings.</returns>
-        public async Task<IEnumerable<Models.ProductAverageRatings>> GetProductWithAverageRating()
+        /// <returns>The list of products with average rating.</returns>
+        public async Task<IEnumerable<Models.ProductAverageRating>> GetProductWithAverageRating()
         {
             // resolve services
-            var surveyResultService = this.serviceProvider.GetRequiredService<ISurveyResultRepository>();
-            var productsWithAverageRating = await surveyResultService.GetSurveyResultAverageRating();
+            var surveyResultRepository = this.serviceProvider.GetRequiredService<ISurveyResultRepository>();
+
+            var productsWithAverageRating = await surveyResultRepository.GetSurveyResultAverageRating();
 
             return productsWithAverageRating;
         }
+
+        #endregion
     }
 }

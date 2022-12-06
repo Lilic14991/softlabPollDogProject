@@ -3,16 +3,10 @@
 // Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
 // -------------------------------------------------------------------------------
-namespace WebAPI.Core.Models
+namespace WebAPI.Infrastructure.DbModels
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
-    /// <summary>ProductAverageRating response class.</summary>
-    public class ProductAverageRatings
+    /// <summary>Product Average rating class.</summary>
+    public class ProductAverageRating
     {
         /// <summary>Gets or sets the name of the brand.</summary>
         /// <value>The name of the brand.</value>

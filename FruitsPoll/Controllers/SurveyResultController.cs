@@ -13,28 +13,42 @@ namespace PollDog.API.Controllers
     using Models = WebAPI.Core.Models;
 
     /// <summary>SurveyResult Controller class.</summary>
-    [Route("api/[controller]")]
-    [ApiController]
     public class SurveyResultController : SurveyResultControllerBase
     {
+        #region Fields
+
+        /// <summary>The service provider</summary>
+        private readonly IServiceProvider serviceProvider;
+
+        #endregion
+
+        #region Constructors
+
         /// <summary>Initializes a new instance of the <see cref="SurveyResultController" /> class.</summary>
         /// <param name="serviceProvider">The service provider.</param>
         public SurveyResultController(IServiceProvider serviceProvider)
             : base(serviceProvider)
         {
+            this.serviceProvider = serviceProvider;
         }
+
+        #endregion
 
         /// <summary>Creates the survey result.</summary>
         /// <param name="surveyResult">The survey result.</param>
         /// <returns>
-        ///   Return Task of IActionResult.
+        ///   Returns task.
         /// </returns>
         public async override Task<IActionResult> Create([FromBody] DTO.CreateSurveyResult surveyResult)
         {
             try
             {
-                var surveyResultService = this.ServiceProvider.GetRequiredService<ISurveyResultService>();
-                var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
+                // resolve services
+                var surveyResultService = this.serviceProvider.GetRequiredService<ISurveyResultService>();
+
+                // resolve services
+                var mapper = this.serviceProvider.GetRequiredService<IMapper>();
+
                 var mappedResult = mapper.Map<DTO.CreateSurveyResult, Models.SurveyResult>(surveyResult);
                 await surveyResultService.Create(mappedResult);
 
@@ -48,16 +62,21 @@ namespace PollDog.API.Controllers
 
         /// <summary>Gets the product average ratings.</summary>
         /// <returns>
-        ///   Return task of IActionResult.
+        ///   Returns 200 status code wtith list of products with average rating.
         /// </returns>
         public async override Task<IActionResult> GetProductAverageRatings()
         {
             try
             {
+                // resolve services
                 var surveyResultService = this.ServiceProvider.GetRequiredService<ISurveyResultService>();
+
+                // resolve services
                 var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
+
                 var averageRatings = await surveyResultService.GetProductWithAverageRating();
-                var mappedAverageResult = mapper.Map<IEnumerable<Models.ProductAverageRatings>, IEnumerable<DTO.ProductAverageRatings>>(averageRatings);
+                var mappedAverageResult = mapper.Map<IEnumerable<Models.ProductAverageRating>,
+                    IEnumerable<DTO.ProductAverageRating>>(averageRatings);
 
                 return this.Ok(mappedAverageResult);
             }

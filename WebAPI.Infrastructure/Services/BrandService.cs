@@ -16,7 +16,7 @@ namespace WebAPI.Infrastructure.Services
     /// <summary>Brand service class.</summary>
     public class BrandService : IBrandService
     {
-        #region Private fields
+        #region Fields
 
         /// <summary>The service provider.</summary>
         private readonly IServiceProvider serviceProvider;
@@ -38,12 +38,13 @@ namespace WebAPI.Infrastructure.Services
 
         /// <summary>Gets the brands.</summary>
         /// <returns>
-        ///   Return list of brands.
+        ///   Returns list of brands.
         /// </returns>
         public async Task<IEnumerable<Models.Brand>> GetBrands()
         {
             // resolve services
             var brandRepository = this.serviceProvider.GetRequiredService<IBrandRepository>();
+
             var brands = await brandRepository.GetBrands();
 
             return brands;
@@ -51,11 +52,14 @@ namespace WebAPI.Infrastructure.Services
 
         /// <summary>Creates the specified brand.</summary>
         /// <param name="brand">The brand.</param>
-        /// <returns>Return Task.</returns>
+        /// <returns>
+        ///     Returns task.
+        /// </returns>
         public async Task Create(Models.Brand brand)
         {
             // resolve services
             var brandRepository = this.serviceProvider.GetRequiredService<IBrandRepository>();
+
             await brandRepository.Create(brand.Name);
         }
 

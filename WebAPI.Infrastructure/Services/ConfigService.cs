@@ -17,9 +17,16 @@ namespace WebAPI.Infrastructure.Services
         /// <summary>The service provider.</summary>
         private readonly IServiceProvider serviceProvider;
 
-        /// <summary>Gets or sets the connection string.</summary>
-        /// <value>The connection string.</value>
-        public string ConnectionString { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConfigService"/> class.
+        /// </summary>
+        /// <param name="serviceProvider">The service provider.</param>
+        public ConfigService(IServiceProvider serviceProvider)
+        {
+            this.serviceProvider = serviceProvider;
+        }
+
+        #region Public properties
 
         /// <summary>Gets the connection.</summary>
         /// <value>The connection.</value>
@@ -32,15 +39,19 @@ namespace WebAPI.Infrastructure.Services
             }
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ConfigService"/> class.
-        /// </summary>
-        /// <param name="serviceProvider">The service provider.</param>
-        public ConfigService(IServiceProvider serviceProvider)
+        /// <summary>Gets the connection string.</summary>
+        /// <value>The connection string.</value>
+        public string ConnectionString
         {
-            this.serviceProvider = serviceProvider;
-            var configuration = this.serviceProvider.GetService<IConfiguration>();
-            this.ConnectionString = configuration["ConnectionStrings:DefaultConnection"];
+            get
+            {
+                // resolve services
+                var configuration = this.serviceProvider.GetRequiredService<IConfiguration>();
+                var connString = configuration["ConnectionStrings:DefaultConnection"];
+                return connString;
+            }
         }
+
+        #endregion
     }
 }

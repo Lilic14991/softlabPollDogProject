@@ -15,16 +15,16 @@ namespace WebAPI.Core.Repositories
     {
         /// <summary>Gets the survey result average rating.</summary>
         /// <returns>
-        ///   Return list of ProductAverageRatings.
+        ///   The list of products with average rating.
         /// </returns>
-        Task<IEnumerable<Models.ProductAverageRatings>> GetSurveyResultAverageRating();
+        Task<IEnumerable<Models.ProductAverageRating>> GetSurveyResultAverageRating();
 
         /// <summary>Creates the specified product identifier.</summary>
         /// <param name="productId">The product identifier.</param>
         /// <param name="rating">The rating.</param>
         /// <param name="comment">The comment.</param>
         /// <returns>
-        ///   Return Task.
+        ///   Returns task.
         /// </returns>
         Task Create(Guid productId, int rating, string comment);
     }

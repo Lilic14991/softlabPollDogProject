@@ -32,6 +32,7 @@ namespace WebAPI.Infrastructure.Repositories
         /// <param name="serviceProvider">The service provider.</param>
         public ProductRepository(IServiceProvider serviceProvider)
         {
+            this.serviceProvider = serviceProvider;
         }
 
         #endregion
@@ -41,9 +42,12 @@ namespace WebAPI.Infrastructure.Repositories
         /// <summary>Creates the product.</summary>
         /// <param name="brandId">Brand Id Guid parameter.</param>
         /// <param name="name">string parameter for name of product.</param>
-        /// <returns>Returns task.</returns>
+        /// <returns>
+        ///     Returns task.
+        /// </returns>
         public async Task Create(Guid brandId, string name)
         {
+            // resolve services
             var configService = this.serviceProvider.GetRequiredService<IConfigService>();
 
             using (var connection = configService.Connection)
@@ -60,9 +64,12 @@ namespace WebAPI.Infrastructure.Repositories
         }
 
         /// <summary>Gets the products.</summary>
-        /// <returns>The list of products.</returns>
+        /// <returns>
+        ///     The list of products.
+        /// </returns>
         public async Task<IEnumerable<Models.Product>> GetProducts()
         {
+            // resolve services
             var configService = this.serviceProvider.GetRequiredService<IConfigService>();
 
             using (var connection = configService.Connection)

@@ -1,18 +1,12 @@
 ﻿// -------------------------------------------------------------------------------
-// <copyright file="ProductAverageRatings.cs" company="SoftLab">
+// <copyright file="ProductAverageRating.cs" company="SoftLab">
 // Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
 // -------------------------------------------------------------------------------
 namespace PollDog.API.DTO
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
     /// <summary>Product with average rating.</summary>
-    public class ProductAverageRatings
+    public class ProductAverageRating
     {
         /// <summary>Gets or sets the name of the brand.</summary>
         /// <value>The name of the brand.</value>

@@ -6,7 +6,6 @@
 namespace WebAPI.Infrastructure.DbModels
 {
     using System;
-    using System.Collections.Generic;
 
     /// <summary>Product database model.</summary>
     public class Product
@@ -19,8 +18,8 @@ namespace WebAPI.Infrastructure.DbModels
         /// <value>The name.</value>
         public string Name { get; set; }
 
-        /// <summary>Gets or sets the brands.</summary>
-        /// <value>The brands.</value>
-        public List<Brand> Brands { get; set; } = new List<Brand>();
+        /// <summary>Gets or sets the brand.</summary>
+        /// <value>The brand.</value>
+        public Brand Brand { get; set; }
     }
 }

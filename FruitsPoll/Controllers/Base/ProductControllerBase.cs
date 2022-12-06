@@ -29,7 +29,7 @@ namespace PollDog.API.Controllers.Base
 
         /// <summary>Gets the products.</summary>
         /// <returns>
-        ///   Returns task of IActionResult.
+        ///   Returns the list of products.
         /// </returns>
         [HttpGet]
         [SwaggerOperation(OperationId = "GetProducts", Summary = "Gets list of products")]
@@ -42,7 +42,7 @@ namespace PollDog.API.Controllers.Base
         /// <summary>Creates the products.</summary>
         /// <param name="product"> product object.</param>
         /// <returns>
-        ///   Returns task of IActionResult.
+        ///   Returns task.
         /// </returns>
         [HttpPost]
         [SwaggerOperation(OperationId = "CreateProducts", Summary = "Create a product")]

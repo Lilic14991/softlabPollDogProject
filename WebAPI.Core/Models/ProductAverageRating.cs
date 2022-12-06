@@ -1,12 +1,12 @@
 ﻿// -------------------------------------------------------------------------------
-// <copyright file="ProductAverageRatings.cs" company="SoftLab">
+// <copyright file="ProductAverageRating.cs" company="SoftLab">
 // Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
 // -------------------------------------------------------------------------------
-namespace WebAPI.Infrastructure.DbModels
+namespace WebAPI.Core.Models
 {
-    /// <summary>Product Averrage ratings class.</summary>
-    public class ProductAverageRatings
+    /// <summary>ProductAverageRating response class.</summary>
+    public class ProductAverageRating
     {
         /// <summary>Gets or sets the name of the brand.</summary>
         /// <value>The name of the brand.</value>

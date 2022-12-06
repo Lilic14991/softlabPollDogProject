@@ -23,11 +23,11 @@ namespace PollDog.API.Controllers.Base
 
         /// <summary>Gets the product average ratings.</summary>
         /// <returns>
-        ///   Return task of IActionResult.
+        ///   Returns product with average rating.
         /// </returns>
         [HttpGet]
         [SwaggerOperation(OperationId= "GetProductAverageRatings", Summary="Get products by avarage rating")]
-        [SwaggerResponse(statusCode: 200, type: typeof(ProductAverageRatings), description: "Success")]
+        [SwaggerResponse(statusCode: 200, type: typeof(List<ProductAverageRating>), description: "Success")]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]
@@ -36,7 +36,7 @@ namespace PollDog.API.Controllers.Base
         /// <summary>Creates the survey result.</summary>
         /// <param name="surveyResult">The survey result.</param>
         /// <returns>
-        ///   Returns task of IActionResult.
+        ///   Returns task.
         /// </returns>
         [HttpPost]
         [SwaggerOperation(OperationId="CreateSurveyResult", Summary="Create a survey result")]

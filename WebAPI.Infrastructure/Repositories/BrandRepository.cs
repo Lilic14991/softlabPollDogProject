@@ -31,6 +31,7 @@ namespace WebAPI.Infrastructure.Repositories
         /// resolve services
         public BrandRepository(IServiceProvider serviceProvider)
         {
+            this.serviceProvider = serviceProvider;
         }
 
         #endregion
@@ -38,9 +39,10 @@ namespace WebAPI.Infrastructure.Repositories
         #region Public methods
 
         /// <summary>Gets the brands.</summary>
-        /// <returns>Returns list of brands.</returns>
+        /// <returns>The list of brands.</returns>
         public async Task<IEnumerable<Models.Brand>> GetBrands()
         {
+            // resolve services
             var configService = this.serviceProvider.GetRequiredService<IConfigService>();
 
             using (var connection = configService.Connection)
@@ -61,6 +63,7 @@ namespace WebAPI.Infrastructure.Repositories
         /// <returns>Returns task.</returns>
         public async Task Create(string name)
         {
+            // resolve services
             var configService = this.serviceProvider.GetRequiredService<IConfigService>();
 
             using (var connection = configService.Connection)

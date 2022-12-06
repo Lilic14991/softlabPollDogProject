@@ -12,10 +12,15 @@ namespace PollDog.API.Controllers
     using Models = WebAPI.Core.Models;
 
     /// <summary>Product controller.</summary>
-    [Route("api/[controller]")]
-    [ApiController]
     public class ProductController : ProductControllerBase
     {
+        #region Fields
+
+        /// <summary>The service provider.</summary>
+        private readonly IServiceProvider serviceProvider;
+
+        #endregion
+
         #region Constructors
 
         /// <summary>Initializes a new instance of the <see cref="ProductController" /> class.</summary>
@@ -23,6 +28,7 @@ namespace PollDog.API.Controllers
         public ProductController(IServiceProvider serviceProvider)
             : base(serviceProvider)
         {
+            this.serviceProvider = serviceProvider;
         }
 
         #endregion
@@ -30,14 +36,15 @@ namespace PollDog.API.Controllers
         #region Public methods
 
         /// <summary>Gets the products.</summary>
-        /// <returns>Returns task of IActionResult.<br /></returns>
+        /// <returns>Returns 200 status code.</returns>
         public async override Task<IActionResult> GetProducts()
         {
             try
             {
-                var productsService = this.ServiceProvider.GetRequiredService<IProductService>();
+                // resolve services
+                var productService = this.ServiceProvider.GetRequiredService<IProductService>();
 
-                var products = await productsService.GetProducts();
+                var products = await productService.GetProducts();
 
                 if (products == null)
                 {
@@ -55,14 +62,18 @@ namespace PollDog.API.Controllers
         /// <summary>Creates the products.</summary>
         /// <param name="product">product object.</param>
         /// <returns>
-        ///   Returns task of IActionResult.
+        ///   Returns task.
         /// </returns>
         public async override Task<IActionResult> Create([FromBody] DTO.CreateProduct product)
         {
             try
             {
+                // resolve services
                 var productService = this.ServiceProvider.GetRequiredService<IProductService>();
+
+                // resolve services
                 var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
+
                 var mappedResult = mapper.Map<DTO.CreateProduct, Models.Product>(product);
                 await productService.Create(mappedResult);
 
