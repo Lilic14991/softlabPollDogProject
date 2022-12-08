@@ -6,7 +6,6 @@
 namespace WebAPI.Infrastructure.DbModels
 {
     using System;
-    using System.Collections.Generic;
 
     /// <summary>class SurveyResult.</summary>
     public class SurveyResult
@@ -15,6 +14,10 @@ namespace WebAPI.Infrastructure.DbModels
         /// <value>The identifier.</value>
         public Guid Id { get; set; }
 
+        /// <summary>Gets or sets the product identifier.</summary>
+        /// <value>The product identifier.</value>
+        public Guid ProductId { get; set; }
+
         /// <summary>Gets or sets the stars.</summary>
         /// <value>The stars.</value>
         public int Stars { get; set; }
@@ -22,9 +25,5 @@ namespace WebAPI.Infrastructure.DbModels
         /// <summary>Gets or sets the comment.</summary>
         /// <value>The comment.</value>
         public string Comment { get; set; }
-
-        /// <summary>Gets or sets the products.</summary>
-        /// <value>The products.</value>
-        public List<Product> Products { get; set; } = new List<Product>();
     }
 }

@@ -6,7 +6,6 @@
 namespace PollDog.API.AutoMapper
 {
     using global::AutoMapper;
-    using Microsoft.AspNetCore.Routing.Constraints;
     using DTO = PollDog.API.DTO;
     using Models = WebAPI.Core.Models;
 

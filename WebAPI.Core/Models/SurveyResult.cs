@@ -15,6 +15,10 @@ namespace WebAPI.Core.Models
         /// <value>The identifier.</value>
         public Guid Id { get; set; }
 
+        /// <summary>Gets or sets the product identifier.</summary>
+        /// <value>The product identifier.</value>
+        public Guid ProductId { get; set; }
+
         /// <summary>Gets or sets the stars.</summary>
         /// <value>The stars.</value>
         public int Stars { get; set; }

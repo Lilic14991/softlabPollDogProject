@@ -45,8 +45,6 @@ namespace PollDog.API.Controllers
             {
                 // resolve services
                 var surveyResultService = this.serviceProvider.GetRequiredService<ISurveyResultService>();
-
-                // resolve services
                 var mapper = this.serviceProvider.GetRequiredService<IMapper>();
 
                 var mappedResult = mapper.Map<DTO.SurveyResultCreate, Models.SurveyResult>(surveyResult);
@@ -56,7 +54,7 @@ namespace PollDog.API.Controllers
             }
             catch (Exception ex)
             {
-                return this.StatusCode(500, ex.Message);
+                return this.InternalServerError(ex);
             }
         }
 
@@ -70,11 +68,15 @@ namespace PollDog.API.Controllers
             {
                 // resolve services
                 var surveyResultService = this.ServiceProvider.GetRequiredService<ISurveyResultService>();
-
-                // resolve services
                 var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
 
                 var averageRatings = await surveyResultService.GetProductWithAverageRating();
+
+                if (averageRatings == null)
+                {
+                    return this.BadRequest(averageRatings);
+                }
+
                 var mappedAverageResult = mapper.Map<IEnumerable<Models.ProductAverageRating>,
                     IEnumerable<DTO.ProductAverageRating>>(averageRatings);
 
@@ -82,7 +84,7 @@ namespace PollDog.API.Controllers
             }
             catch (Exception ex)
             {
-                return this.StatusCode(500, ex.Message);
+                return this.InternalServerError(ex);
             }
         }
     }

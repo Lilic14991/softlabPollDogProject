@@ -5,7 +5,6 @@
 // -------------------------------------------------------------------------------
 namespace WebAPI.Infrastructure.Mapper
 {
-    using System.Linq;
     using DbModels = WebAPI.Infrastructure.DbModels;
     using Models = WebAPI.Core.Models;
 
@@ -31,8 +30,7 @@ namespace WebAPI.Infrastructure.Mapper
                 Id = surveyResult.Id,
                 Stars = surveyResult.Stars,
                 Comment = surveyResult.Comment,
-                Products = surveyResult.Products
-                    .Select(p => new Models.Product() { Id = p.Id, Name = p.Name }).ToList(),
+                ProductId = surveyResult.ProductId,
             };
         }
 

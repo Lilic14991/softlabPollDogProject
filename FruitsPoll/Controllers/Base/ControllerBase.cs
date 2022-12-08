@@ -30,5 +30,26 @@ namespace PollDog.API.Controllers.Base
         }
 
         #endregion
+
+        /// <summary>Internals the server error.</summary>
+        /// <param name="ex">The exception.</param>
+        /// <returns>
+        ///     Returns task.
+        /// </returns>
+        protected IActionResult InternalServerError(Exception? ex = null)
+        {
+            return this.StatusCode(500, ex.Message ?? "INTERNAL_SERVER_ERROR");
+        }
+
+        /// <summary>Bads the request.</summary>
+        /// <param name="ex">The exception.</param>
+        /// <returns>
+        ///     Returns task.
+        /// </returns>
+        protected IActionResult BadRequest(Exception? ex = null)
+        {
+            return this.StatusCode(400, ex.Message ?? "BAD_REQUEST");
+        }
+
     }
 }

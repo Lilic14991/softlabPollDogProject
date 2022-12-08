@@ -17,13 +17,17 @@ namespace WebAPI.Infrastructure.Services
         /// <summary>The service provider.</summary>
         private readonly IServiceProvider serviceProvider;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ConfigService"/> class.
-        /// </summary>
+        /// <summary>The configuration.</summary>
+        private readonly IConfiguration configuration;
+
+        /// <summary>Initializes a new instance of the <see cref="ConfigService" /> class.</summary>
         /// <param name="serviceProvider">The service provider.</param>
-        public ConfigService(IServiceProvider serviceProvider)
+        /// <param name="configuration">The configration.</param>
+        public ConfigService(IServiceProvider serviceProvider, IConfiguration configuration)
         {
             this.serviceProvider = serviceProvider;
+            this.configuration = configuration;
+            this.configuration = this.serviceProvider.GetRequiredService<IConfiguration>();
         }
 
         #region Public properties
@@ -45,10 +49,7 @@ namespace WebAPI.Infrastructure.Services
         {
             get
             {
-                // resolve services
-                var configuration = this.serviceProvider.GetRequiredService<IConfiguration>();
-
-                var connString = configuration["ConnectionStrings:DefaultConnection"];
+                var connString = this.configuration["ConnectionStrings:DefaultConnection"];
                 return connString;
             }
         }

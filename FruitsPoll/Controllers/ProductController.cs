@@ -8,7 +8,6 @@ namespace PollDog.API.Controllers
     using global::AutoMapper;
     using Microsoft.AspNetCore.Mvc;
     using PollDog.API.Controllers.Base;
-    using PollDog.API.Middleware;
     using WebAPI.Core.Services;
     using Models = WebAPI.Core.Models;
 
@@ -53,16 +52,16 @@ namespace PollDog.API.Controllers
 
                 if (products == null)
                 {
-                    throw new PollDogException("BAD_REQUEST", System.Net.HttpStatusCode.BadRequest);
+                    return this.BadRequest(products);
                 }
 
                 var mappedResult = mapper.Map<List<Models.Product>, List<DTO.Product>>(products.ToList());
 
                 return this.Ok(mappedResult);
             }
-            catch (PollDogException)
+            catch (Exception ex)
             {
-                throw new PollDogException("INTERNAL_SERVER_ERROR", System.Net.HttpStatusCode.InternalServerError);
+                return this.InternalServerError(ex);
             }
         }
 
@@ -77,8 +76,6 @@ namespace PollDog.API.Controllers
             {
                 // resolve services
                 var productService = this.ServiceProvider.GetRequiredService<IProductService>();
-
-                // resolve services
                 var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
 
                 var mappedResult = mapper.Map<DTO.ProductCreate, Models.Product>(product);
@@ -88,7 +85,7 @@ namespace PollDog.API.Controllers
             }
             catch (Exception ex)
             {
-                return this.StatusCode(500, ex.Message);
+                return this.InternalServerError(ex);
             }
         }
 

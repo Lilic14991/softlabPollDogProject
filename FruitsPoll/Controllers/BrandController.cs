@@ -39,19 +39,22 @@ namespace PollDog.API.Controllers
             {
                 // resolve services
                 var brandService = this.ServiceProvider.GetRequiredService<IBrandService>();
+                var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
 
                 var brands = await brandService.GetBrands();
 
                 if (brands == null)
                 {
-                    return this.NotFound(brands);
+                    return this.BadRequest(brands);
                 }
 
-                return this.Ok(brands);
+                var mappedResult = mapper.Map<List<Models.Brand>, List<DTO.Brand>>(brands.ToList());
+
+                return this.Ok(mappedResult);
             }
             catch (Exception ex)
             {
-                return this.StatusCode(500, ex.Message);
+                return this.InternalServerError(ex.InnerException);
             }
         }
 
@@ -66,8 +69,6 @@ namespace PollDog.API.Controllers
             {
                 // resolve services
                 var brandService = this.ServiceProvider.GetRequiredService<IBrandService>();
-
-                // resolve services
                 var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
 
                 var mappedResult = mapper.Map<DTO.BrandCreate, Models.Brand>(brand);
@@ -77,7 +78,7 @@ namespace PollDog.API.Controllers
             }
             catch (Exception ex)
             {
-                return this.StatusCode(500, ex.Message);
+                return this.InternalServerError(ex);
             }
         }
 
