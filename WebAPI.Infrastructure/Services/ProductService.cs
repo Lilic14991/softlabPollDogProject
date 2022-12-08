@@ -36,14 +36,15 @@ namespace WebAPI.Infrastructure.Services
 
         #region Public methods
 
-        /// <summary>Gets the products.</summary>
-        /// <returns>The list of products.</returns>
-        public async Task<List<Models.Product>> GetProducts(Guid brandId)
+        /// <summary>gets the list of products by BrandId.</summary>
+        /// <param name="brandId">Brand Id Guid identifier.</param>
+        /// <returns>The list of products by BrandId.</returns>
+        public async Task<List<Models.Product>> GetProductsByBrandId(Guid brandId)
         {
             // resolve services
             var productRepository = this.serviceProvider.GetRequiredService<IProductRepository>();
 
-            var products = await productRepository.GetProducts(brandId);
+            var products = await productRepository.GetProductsByBrandId(brandId);
 
             return products;
         }

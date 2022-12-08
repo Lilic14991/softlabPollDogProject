@@ -28,7 +28,6 @@ namespace WebAPI.Infrastructure.Repositories
 
         /// <summary>Initializes a new instance of the <see cref="BrandRepository" /> class.</summary>
         /// <param name="serviceProvider">The context.</param>
-        /// resolve services
         public BrandRepository(IServiceProvider serviceProvider)
         {
             this.serviceProvider = serviceProvider;
@@ -39,7 +38,9 @@ namespace WebAPI.Infrastructure.Repositories
         #region Public methods
 
         /// <summary>Gets the brands.</summary>
-        /// <returns>The list of brands.</returns>
+        /// <returns>
+        ///     The list of brands.
+        /// </returns>
         public async Task<IEnumerable<Models.Brand>> GetBrands()
         {
             // resolve services

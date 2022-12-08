@@ -8,6 +8,7 @@ namespace PollDog.API.Controllers
     using global::AutoMapper;
     using Microsoft.AspNetCore.Mvc;
     using PollDog.API.Controllers.Base;
+    using PollDog.API.Middleware;
     using WebAPI.Core.Services;
     using Models = WebAPI.Core.Models;
 
@@ -35,33 +36,37 @@ namespace PollDog.API.Controllers
 
         #region Public methods
 
-        /// <summary>Gets the products.</summary>
-        /// <returns>Returns 200 status code.</returns>
-        public async override Task<IActionResult> GetProducts([FromRoute] Guid brandId)
+        /// <summary>Gets the list of products by BrandId.</summary>
+        /// <param name="brandId">Brand Id Guid identifier.</param>
+        /// <returns>Returns 200 status code with list of products by brandId.</returns>
+        public async override Task<IActionResult> GetProductsByBrandId([FromRoute] Guid brandId)
         {
             try
             {
                 // resolve services
                 var productService = this.ServiceProvider.GetRequiredService<IProductService>();
+
+                // resolve services
                 var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
 
-                var products = await productService.GetProducts(brandId);
+                var products = await productService.GetProductsByBrandId(brandId);
 
                 if (products == null)
                 {
-                    return this.NotFound();
+                    throw new PollDogException("BAD_REQUEST", System.Net.HttpStatusCode.BadRequest);
                 }
+
                 var mappedResult = mapper.Map<List<Models.Product>, List<DTO.Product>>(products.ToList());
 
                 return this.Ok(mappedResult);
             }
-            catch (Exception ex)
+            catch (PollDogException)
             {
-                return this.StatusCode(500, ex.Message);
+                throw new PollDogException("INTERNAL_SERVER_ERROR", System.Net.HttpStatusCode.InternalServerError);
             }
         }
 
-        /// <summary>Creates the products.</summary>
+        /// <summary>Creates the product.</summary>
         /// <param name="product">product object.</param>
         /// <returns>
         ///   Returns task.

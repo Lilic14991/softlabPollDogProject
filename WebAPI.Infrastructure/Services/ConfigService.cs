@@ -47,6 +47,7 @@ namespace WebAPI.Infrastructure.Services
             {
                 // resolve services
                 var configuration = this.serviceProvider.GetRequiredService<IConfiguration>();
+
                 var connString = configuration["ConnectionStrings:DefaultConnection"];
                 return connString;
             }

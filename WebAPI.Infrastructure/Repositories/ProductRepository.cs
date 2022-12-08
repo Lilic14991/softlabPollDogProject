@@ -64,10 +64,11 @@ namespace WebAPI.Infrastructure.Repositories
         }
 
         /// <summary>Gets the products.</summary>
+        /// <param name="brandId">Brand Id Guid identifier.</param>
         /// <returns>
-        ///     The list of products.
+        ///     The list of products by brandId.
         /// </returns>
-        public async Task<List<Models.Product>> GetProducts(Guid brandId)
+        public async Task<List<Models.Product>> GetProductsByBrandId(Guid brandId)
         {
             // resolve services
             var configService = this.serviceProvider.GetRequiredService<IConfigService>();

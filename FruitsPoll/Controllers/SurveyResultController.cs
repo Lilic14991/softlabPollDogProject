@@ -17,7 +17,7 @@ namespace PollDog.API.Controllers
     {
         #region Fields
 
-        /// <summary>The service provider</summary>
+        /// <summary>The service provider.</summary>
         private readonly IServiceProvider serviceProvider;
 
         #endregion
@@ -62,7 +62,7 @@ namespace PollDog.API.Controllers
 
         /// <summary>Gets the product average ratings.</summary>
         /// <returns>
-        ///   Returns 200 status code wtith list of products with average rating.
+        ///   Returns 200 status code with list of products with average rating.
         /// </returns>
         public async override Task<IActionResult> GetProductAverageRatings()
         {

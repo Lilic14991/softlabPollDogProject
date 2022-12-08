@@ -13,8 +13,9 @@ namespace WebAPI.Core.Services
     public interface IProductService
     {
         /// <summary>Gets the products.</summary>
-        /// <returns>The list of products.</returns>
-        Task<List<Models.Product>> GetProducts(Guid brandId);
+        /// <param name="brandId">Brand Id Guid identifier.</param>
+        /// <returns>The list of products by BrandId.</returns>
+        Task<List<Models.Product>> GetProductsByBrandId(Guid brandId);
 
         /// <summary>Creates the specified product.</summary>
         /// <param name="product">The product.</param>

@@ -27,17 +27,16 @@ namespace PollDog.API.Controllers.Base
 
         #region Public methods
 
-        /// <summary>Gets the products.</summary>
-        /// <returns>
-        ///   Returns the list of products.
-        /// </returns>
+        /// <summary>Gets the list of products by BrandId.</summary>
+        /// <param name="brandId">Brand Id Guid identifier.</param>
+        /// <returns>The list of products by BrandId.</returns>
         [HttpGet("{brandId}")]
-        [SwaggerOperation(OperationId = "GetProducts", Summary = "Gets list of products")]
+        [SwaggerOperation(OperationId = "GetProductsByBrandId", Summary = "Gets list of products by BrandId")]
         [SwaggerResponse(statusCode: 200, type: typeof(List<Product>), description: "Success")]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]
-        public abstract Task<IActionResult> GetProducts([FromRoute] Guid brandId);
+        public abstract Task<IActionResult> GetProductsByBrandId([FromRoute] Guid brandId);
 
         /// <summary>Creates the products.</summary>
         /// <param name="product"> product object.</param>
@@ -45,7 +44,7 @@ namespace PollDog.API.Controllers.Base
         ///   Returns task.
         /// </returns>
         [HttpPost]
-        [SwaggerOperation(OperationId = "CreateProducts", Summary = "Create a product")]
+        [SwaggerOperation(OperationId = "Create", Summary = "Create a product")]
         [SwaggerResponse(statusCode: 200, type: typeof(ProductCreate), description: "Success")]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]

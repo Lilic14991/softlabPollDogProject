@@ -19,11 +19,17 @@ namespace PollDog.API.AutoMapper
         public AutoMapperProfile()
         {
             this.CreateMap<DTO.SurveyResultCreate, Models.SurveyResult>()
-                .ForMember(dest => dest.Stars, opt => opt.MapFrom(src => src.Rating)).ReverseMap();
+                .ForMember(
+                    dest => dest.Stars,
+                    opt => opt.MapFrom(src => src.Rating))
+                .ForMember(
+                    dest => dest.Products,
+                    opt => opt.MapFrom(src => src.Products))
+                .ReverseMap();
             this.CreateMap<Models.Product, DTO.Product>();
             this.CreateMap<Models.ProductAverageRating, DTO.ProductAverageRating>();
             this.CreateMap<DTO.ProductCreate, Models.Product>();
-            this.CreateMap<DTO.Brand, Models.Brand>();
+            this.CreateMap<Models.Brand, DTO.Brand>();
             this.CreateMap<DTO.BrandCreate, Models.Brand>();
         }
 

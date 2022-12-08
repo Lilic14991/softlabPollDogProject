@@ -5,7 +5,7 @@
 // -------------------------------------------------------------------------------
 namespace PollDog.API.DTO
 {
-    /// <summary>Create brand model class</summary>
+    /// <summary>Create brand model class.</summary>
     public class BrandCreate
     {
         /// <summary>Gets or sets the name of the brand.</summary>

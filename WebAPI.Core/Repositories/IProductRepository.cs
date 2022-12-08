@@ -11,10 +11,9 @@ namespace WebAPI.Core.Repositories
     public interface IProductRepository
     {
         /// <summary>Gets the products.</summary>
-        /// <returns>
-        ///   The list of Products.
-        /// </returns>
-        Task<List<Product>> GetProducts(Guid brandId);
+        /// <param name="brandId">Brand Id Guid parameter.</param>
+        /// <returns>The list of Products by brandId.</returns>
+        Task<List<Product>> GetProductsByBrandId(Guid brandId);
 
         /// <summary>Creates the product.</summary>
         /// <param name="brandId">Brand Id Guid parameter.</param>
