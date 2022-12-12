@@ -1,7 +1,8 @@
-﻿// This file is used by Code Analysis to maintain SuppressMessage
-// attributes that are applied to this project.
-// Project-level suppressions either have no target or are given
-// a specific target and scoped to a namespace, type, member, etc.
+﻿// -------------------------------------------------------------------------------
+// <copyright file="GlobalSuppressions.cs" company="SoftLab">
+// Copyright (c) www.SoftLab.rs. All rights reserved.
+// </copyright>
+// -------------------------------------------------------------------------------
 
 using System.Diagnostics.CodeAnalysis;
 
@@ -26,3 +27,4 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage("Build", "SA1124:Do not use regions", Justification = "<Pending>", Scope = "type", Target = "~T:WebAPI.Infrastructure.Services.BrandService")]
 [assembly: SuppressMessage("Build", "SA1124:Do not use regions", Justification = "<Pending>", Scope = "type", Target = "~T:WebAPI.Infrastructure.Services.ProductService")]
 [assembly: SuppressMessage("Build", "SA1124:Do not use regions", Justification = "<Pending>", Scope = "type", Target = "~T:WebAPI.Infrastructure.Services.SurveyResultService")]
+[assembly: SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1404:Code analysis suppression should have justification", Justification = "<Pending>")]

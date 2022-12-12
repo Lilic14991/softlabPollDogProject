@@ -29,10 +29,9 @@ namespace WebAPI.Infrastructure.Services
         /// <summary>Initializes a new instance of the <see cref="ConfigService" /> class.</summary>
         /// <param name="serviceProvider">The service provider.</param>
         /// <param name="configuration">The configration.</param>
-        public ConfigService(IServiceProvider serviceProvider, IConfiguration configuration)
+        public ConfigService(IServiceProvider serviceProvider)
         {
             this.serviceProvider = serviceProvider;
-            this.configuration = configuration;
             this.configuration = this.serviceProvider.GetRequiredService<IConfiguration>();
         }
 

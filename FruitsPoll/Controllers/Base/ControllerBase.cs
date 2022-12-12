@@ -22,8 +22,9 @@ namespace PollDog.API.Controllers.Base
         #region Constructors
 
         /// <summary>Initializes a new instance of the <see cref="ControllerBase" /> class.</summary>
-        /// <param name="serviceProvider">The service provider.</param>
-        /// resolve services
+        /// <param name="serviceProvider">
+        ///     The service provider.
+        /// </param>
         public ControllerBase(IServiceProvider serviceProvider)
         {
             this.ServiceProvider = serviceProvider;

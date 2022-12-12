@@ -50,6 +50,7 @@ namespace PollDog.API.Controllers.Base
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]
         public abstract Task<IActionResult> Create(DTO.ProductCreate product);
+
         #endregion
     }
 }
