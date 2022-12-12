@@ -5,6 +5,7 @@
 // -------------------------------------------------------------------------------
 namespace PollDog.API.Controllers.Base
 {
+    using System;
     using Microsoft.AspNetCore.Mvc;
 
     /// <summary> The Base Controller.</summary>
@@ -37,7 +38,7 @@ namespace PollDog.API.Controllers.Base
         /// <summary>Internals the server error.</summary>
         /// <param name="ex">The exception.</param>
         /// <returns>
-        ///     Returns task.
+        ///     Returns internal server error or string exception.
         /// </returns>
         protected IActionResult InternalServerError(Exception? ex = null)
         {
@@ -47,7 +48,7 @@ namespace PollDog.API.Controllers.Base
         /// <summary>Bads the request.</summary>
         /// <param name="ex">The exception.</param>
         /// <returns>
-        ///     Returns task.
+        ///     Returns bad requst or string exception.
         /// </returns>
         protected IActionResult BadRequest(Exception? ex = null)
         {

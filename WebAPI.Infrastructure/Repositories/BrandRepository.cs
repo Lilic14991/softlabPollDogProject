@@ -22,6 +22,9 @@ namespace WebAPI.Infrastructure.Repositories
         /// <summary>The context.</summary>
         private readonly IServiceProvider serviceProvider;
 
+        /// <summary>The configuration service.</summary>
+        private readonly IConfigService configService;
+
         #endregion
 
         #region Constructors
@@ -31,6 +34,7 @@ namespace WebAPI.Infrastructure.Repositories
         public BrandRepository(IServiceProvider serviceProvider)
         {
             this.serviceProvider = serviceProvider;
+            this.configService = this.serviceProvider.GetRequiredService<IConfigService>();
         }
 
         #endregion
@@ -43,10 +47,7 @@ namespace WebAPI.Infrastructure.Repositories
         /// </returns>
         public async Task<IEnumerable<Models.Brand>> GetBrands()
         {
-            // resolve services
-            var configService = this.serviceProvider.GetRequiredService<IConfigService>();
-
-            using (var connection = configService.Connection)
+            using (var connection = this.configService.Connection)
             {
                 await connection.OpenAsync();
 
@@ -66,14 +67,14 @@ namespace WebAPI.Infrastructure.Repositories
         /// </returns>
         public async Task Create(string name)
         {
-            // resolve services
-            var configService = this.serviceProvider.GetRequiredService<IConfigService>();
-
-            using (var connection = configService.Connection)
+            using (var connection = this.configService.Connection)
             {
                 await connection.OpenAsync();
 
-                var parameters = new { name };
+                var parameters = new
+                {
+                   Name = name,
+                };
 
                 var query = @"INSERT INTO [Portfolio].[Brand] ([Name]) 
                             VALUES(@Name)";

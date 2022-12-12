@@ -9,9 +9,9 @@ namespace WebAPI.Infrastructure.Services
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Microsoft.Extensions.DependencyInjection;
-    using WebAPI.Core.Repositories;
     using WebAPI.Core.Services;
     using Models = WebAPI.Core.Models;
+    using Repositories = WebAPI.Core.Repositories;
 
     /// <summary>Product service class.</summary>
     public class ProductService : IProductService
@@ -38,11 +38,13 @@ namespace WebAPI.Infrastructure.Services
 
         /// <summary>gets the list of products by BrandId.</summary>
         /// <param name="brandId">Brand Id Guid identifier.</param>
-        /// <returns>The list of products by BrandId.</returns>
+        /// <returns>
+        ///     The list of products by BrandId.
+        /// </returns>
         public async Task<List<Models.Product>> GetProductsByBrandId(Guid brandId)
         {
             // resolve services
-            var productRepository = this.serviceProvider.GetRequiredService<IProductRepository>();
+            var productRepository = this.serviceProvider.GetRequiredService<Repositories.IProductRepository>();
 
             var products = await productRepository.GetProductsByBrandId(brandId);
 
@@ -51,11 +53,13 @@ namespace WebAPI.Infrastructure.Services
 
         /// <summary>Creates the specified product.</summary>
         /// <param name="product">The product.</param>
-        /// <returns>Returns task.</returns>
+        /// <returns>
+        ///     Returns task.
+        /// </returns>
         public async Task Create(Models.Product product)
         {
             // resolve services
-            var productRepository = this.serviceProvider.GetService<IProductRepository>();
+            var productRepository = this.serviceProvider.GetService<Repositories.IProductRepository>();
 
             await productRepository.Create(product.Brand.Id, product.Name);
         }

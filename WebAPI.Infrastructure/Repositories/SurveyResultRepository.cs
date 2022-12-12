@@ -23,6 +23,9 @@ namespace WebAPI.Infrastructure.Repositories
         /// <summary>The service provider.</summary>
         private readonly IServiceProvider serviceProvider;
 
+        /// <summary>The configuration service.</summary>
+        private readonly IConfigService configService;
+
         #endregion
 
         #region Constructors
@@ -32,6 +35,7 @@ namespace WebAPI.Infrastructure.Repositories
         public SurveyResultRepository(IServiceProvider serviceProvider)
         {
             this.serviceProvider = serviceProvider;
+            this.configService = this.serviceProvider.GetRequiredService<IConfigService>();
         }
 
         #endregion
@@ -47,14 +51,16 @@ namespace WebAPI.Infrastructure.Repositories
         /// </returns>
         public async Task Create(Guid productId, int rating, string comment)
         {
-            // resolve services
-            var configService = this.serviceProvider.GetRequiredService<IConfigService>();
-
-            using (var connection = configService.Connection)
+            using (var connection = this.configService.Connection)
             {
                 await connection.OpenAsync();
 
-                var parameters = new { productId, rating, comment };
+                var parameters = new
+                {
+                    ProductId = productId,
+                    Rating = rating,
+                    Comment = comment,
+                };
 
                 var query = @"INSERT INTO [Survey].[SurveyResult] ([ProductId],[Rating],[Comment]) 
                             VALUES (@ProductId, @Rating, @Comment)";
@@ -69,10 +75,7 @@ namespace WebAPI.Infrastructure.Repositories
         /// </returns>
         public async Task<IEnumerable<Models.Product>> GetSurveyResultAverageRating()
         {
-            // resolve services
-            var configService = this.serviceProvider.GetRequiredService<IConfigService>();
-
-            using (var connection = configService.Connection)
+            using (var connection = this.configService.Connection)
             {
                 await connection.OpenAsync();
 

@@ -5,12 +5,17 @@
 // -------------------------------------------------------------------------------
 namespace PollDog.API.Controllers
 {
-    using global::AutoMapper;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.DependencyInjection;
     using PollDog.API.Controllers.Base;
-    using WebAPI.Core.Services;
     using DTO = PollDog.API.DTO;
+    using Mapper = AutoMapper;
     using Models = WebAPI.Core.Models;
+    using Services = WebAPI.Core.Services;
 
     /// <summary>
     ///   <para>Brand Controller.</para>
@@ -40,14 +45,14 @@ namespace PollDog.API.Controllers
             try
             {
                 // resolve services
-                var brandService = this.ServiceProvider.GetRequiredService<IBrandService>();
-                var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
+                var brandService = this.ServiceProvider.GetRequiredService<Services.IBrandService>();
+                var mapper = this.ServiceProvider.GetRequiredService<Mapper.IMapper>();
 
                 var brands = await brandService.GetBrands();
 
                 if (brands == null)
                 {
-                    return this.BadRequest();
+                    return this.NotFound();
                 }
 
                 var mappedResult = mapper.Map<List<Models.Brand>, List<DTO.Brand>>(brands.ToList());
@@ -70,8 +75,8 @@ namespace PollDog.API.Controllers
             try
             {
                 // resolve services
-                var brandService = this.ServiceProvider.GetRequiredService<IBrandService>();
-                var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
+                var brandService = this.ServiceProvider.GetRequiredService<Services.IBrandService>();
+                var mapper = this.ServiceProvider.GetRequiredService<Mapper.IMapper>();
 
                 var mappedResult = mapper.Map<DTO.BrandCreate, Models.Brand>(brand);
                 await brandService.Create(mappedResult);

@@ -3,9 +3,9 @@
 // Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
 // -------------------------------------------------------------------------------
-namespace PollDog.API.AutoMapper
+namespace PollDog.API.Helpers
 {
-    using global::AutoMapper;
+    using AutoMapper;
     using DTO = PollDog.API.DTO;
     using Models = WebAPI.Core.Models;
 

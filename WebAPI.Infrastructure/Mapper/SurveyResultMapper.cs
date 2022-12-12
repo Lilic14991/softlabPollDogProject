@@ -48,9 +48,9 @@ namespace WebAPI.Infrastructure.Mapper
 
             return new Models.Product
             {
-                BrandName = productAverageRating.BrandName,
+                Brand = new Models.Brand { Name = productAverageRating.BrandName },
                 Name = productAverageRating.ProductName,
-                Average = Math.Round(productAverageRating.Average, 2, MidpointRounding.AwayFromZero),
+                Average = productAverageRating.Average,
             };
         }
 

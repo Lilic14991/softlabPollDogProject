@@ -5,6 +5,9 @@
 // -------------------------------------------------------------------------------
 namespace PollDog.API.Controllers.Base
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using Swashbuckle.AspNetCore.Annotations;
     using DTO = PollDog.API.DTO;

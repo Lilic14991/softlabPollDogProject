@@ -5,11 +5,11 @@
 // -------------------------------------------------------------------------------
 namespace PollDog.API.Controllers
 {
-    using global::AutoMapper;
     using Microsoft.AspNetCore.Mvc;
     using PollDog.API.Controllers.Base;
-    using WebAPI.Core.Services;
+    using Mapper = AutoMapper;
     using Models = WebAPI.Core.Models;
+    using Services = WebAPI.Core.Services;
 
     /// <summary>Product controller.</summary>
     public class ProductController : ProductControllerBase
@@ -37,14 +37,14 @@ namespace PollDog.API.Controllers
             try
             {
                 // resolve services
-                var productService = this.ServiceProvider.GetRequiredService<IProductService>();
-                var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
+                var productService = this.ServiceProvider.GetRequiredService<Services.IProductService>();
+                var mapper = this.ServiceProvider.GetRequiredService<Mapper.IMapper>();
 
                 var products = await productService.GetProductsByBrandId(brandId);
 
                 if (products == null)
                 {
-                    return this.BadRequest();
+                    return this.NotFound();
                 }
 
                 var mappedResult = mapper.Map<List<Models.Product>, List<DTO.Product>>(products.ToList());
@@ -67,8 +67,8 @@ namespace PollDog.API.Controllers
             try
             {
                 // resolve services
-                var productService = this.ServiceProvider.GetRequiredService<IProductService>();
-                var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
+                var productService = this.ServiceProvider.GetRequiredService<Services.IProductService>();
+                var mapper = this.ServiceProvider.GetRequiredService<Mapper.IMapper>();
 
                 var mappedResult = mapper.Map<DTO.ProductCreate, Models.Product>(product);
                 await productService.Create(mappedResult);

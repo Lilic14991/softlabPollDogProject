@@ -24,6 +24,9 @@ namespace WebAPI.Infrastructure.Repositories
         /// <summary>The service provider.</summary>
         private readonly IServiceProvider serviceProvider;
 
+        /// <summary>The configuration service.</summary>
+        private readonly IConfigService configService;
+
         #endregion
 
         #region Constructors
@@ -33,6 +36,7 @@ namespace WebAPI.Infrastructure.Repositories
         public ProductRepository(IServiceProvider serviceProvider)
         {
             this.serviceProvider = serviceProvider;
+            this.configService = this.serviceProvider.GetRequiredService<IConfigService>();
         }
 
         #endregion
@@ -47,14 +51,15 @@ namespace WebAPI.Infrastructure.Repositories
         /// </returns>
         public async Task Create(Guid brandId, string name)
         {
-            // resolve services
-            var configService = this.serviceProvider.GetRequiredService<IConfigService>();
-
-            using (var connection = configService.Connection)
+            using (var connection = this.configService.Connection)
             {
                 await connection.OpenAsync();
 
-                var parameters = new { brandId, name };
+                var parameters = new
+                {
+                    Name = name,
+                    BrandId = brandId,
+                };
 
                 var query = @"INSERT INTO [Portfolio].[Product] ([Name], [BrandId])
                             VALUES(@Name, @BrandId)";
@@ -70,14 +75,14 @@ namespace WebAPI.Infrastructure.Repositories
         /// </returns>
         public async Task<List<Models.Product>> GetProductsByBrandId(Guid brandId)
         {
-            // resolve services
-            var configService = this.serviceProvider.GetRequiredService<IConfigService>();
-
-            using (var connection = configService.Connection)
+            using (var connection = this.configService.Connection)
             {
                 await connection.OpenAsync();
 
-                var parameters = new { brandId };
+                var parameters = new
+                {
+                    BrandId = brandId,
+                };
 
                 var query = @"SELECT * FROM [Portfolio].[Product]
                               WHERE [BrandId] = @BrandId";

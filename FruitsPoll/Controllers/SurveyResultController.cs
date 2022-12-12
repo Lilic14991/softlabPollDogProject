@@ -5,12 +5,12 @@
 // -------------------------------------------------------------------------------
 namespace PollDog.API.Controllers
 {
-    using global::AutoMapper;
     using Microsoft.AspNetCore.Mvc;
     using PollDog.API.Controllers.Base;
-    using WebAPI.Core.Services;
     using DTO = PollDog.API.DTO;
+    using Mapper = AutoMapper;
     using Models = WebAPI.Core.Models;
+    using Services = WebAPI.Core.Services;
 
     /// <summary>SurveyResult Controller class.</summary>
     public class SurveyResultController : SurveyResultControllerBase
@@ -38,11 +38,10 @@ namespace PollDog.API.Controllers
             try
             {
                 // resolve services
-                var surveyResultService = this.ServiceProvider.GetRequiredService<ISurveyResultService>();
-                var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
+                var surveyResultService = this.ServiceProvider.GetRequiredService<Services.ISurveyResultService>();
+                var mapper = this.ServiceProvider.GetRequiredService<Mapper.IMapper>();
 
-                var mappedResult = mapper.Map<DTO.SurveyResultCreate,
-                    Models.SurveyResult>(surveyResult);
+                var mappedResult = mapper.Map<DTO.SurveyResultCreate, Models.SurveyResult>(surveyResult);
                 await surveyResultService.Create(mappedResult);
 
                 return this.Ok();
@@ -62,18 +61,17 @@ namespace PollDog.API.Controllers
             try
             {
                 // resolve services
-                var surveyResultService = this.ServiceProvider.GetRequiredService<ISurveyResultService>();
-                var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
+                var surveyResultService = this.ServiceProvider.GetRequiredService<Services.ISurveyResultService>();
+                var mapper = this.ServiceProvider.GetRequiredService<Mapper.IMapper>();
 
                 var averageRatings = await surveyResultService.GetProductWithAverageRating();
 
                 if (averageRatings == null)
                 {
-                    return this.BadRequest();
+                    return this.NotFound();
                 }
 
-                var mappedAverageResult = mapper.Map<List<Models.Product>,
-                    List<DTO.ProductAverageRating>>(averageRatings.ToList());
+                var mappedAverageResult = mapper.Map<List<Models.Product>, List<DTO.ProductAverageRating>>(averageRatings.ToList());
 
                 return this.Ok(mappedAverageResult);
             }

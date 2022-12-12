@@ -8,9 +8,9 @@ namespace WebAPI.Infrastructure.Services
     using System;
     using System.Threading.Tasks;
     using Microsoft.Extensions.DependencyInjection;
-    using WebAPI.Core.Repositories;
     using WebAPI.Core.Services;
     using Models = WebAPI.Core.Models;
+    using Repositories = WebAPI.Core.Repositories;
 
     /// <summary>
     /// SurveyResultService class.
@@ -43,7 +43,7 @@ namespace WebAPI.Infrastructure.Services
         public async Task Create(Models.SurveyResult surveyResult)
         {
             // resolve services
-            var surveyResultRepository = this.serviceProvider.GetRequiredService<ISurveyResultRepository>();
+            var surveyResultRepository = this.serviceProvider.GetRequiredService<Repositories.ISurveyResultRepository>();
 
             await surveyResultRepository.Create(
                 surveyResult.Products
@@ -57,7 +57,7 @@ namespace WebAPI.Infrastructure.Services
         public async Task<IEnumerable<Models.Product>> GetProductWithAverageRating()
         {
             // resolve services
-            var surveyResultRepository = this.serviceProvider.GetRequiredService<ISurveyResultRepository>();
+            var surveyResultRepository = this.serviceProvider.GetRequiredService<Repositories.ISurveyResultRepository>();
 
             var productsWithAverageRating = await surveyResultRepository.GetSurveyResultAverageRating();
 
