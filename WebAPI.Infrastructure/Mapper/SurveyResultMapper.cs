@@ -50,7 +50,7 @@ namespace WebAPI.Infrastructure.Mapper
             {
                 BrandName = productAverageRating.BrandName,
                 Name = productAverageRating.ProductName,
-                Average = productAverageRating.Average,
+                Average = Math.Round(productAverageRating.Average, 2, MidpointRounding.AwayFromZero),
             };
         }
 
