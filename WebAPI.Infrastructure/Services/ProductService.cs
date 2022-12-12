@@ -55,7 +55,7 @@ namespace WebAPI.Infrastructure.Services
         public async Task Create(Models.Product product)
         {
             // resolve services
-            var productRepository = this.serviceProvider.GetRequiredService<IProductRepository>();
+            var productRepository = this.serviceProvider.GetService<IProductRepository>();
 
             await productRepository.Create(product.Brand.Id, product.Name);
         }

@@ -21,7 +21,7 @@ namespace WebAPI.Core.Services
 
         /// <summary>Gets the product with average rating.</summary>
         /// <returns>
-        ///   Returns list of ProductAverageRatings.
+        ///   Returns list of ProductAverageRating.
         /// </returns>
         Task<IEnumerable<Models.ProductAverageRating>> GetProductWithAverageRating();
     }

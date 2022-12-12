@@ -11,7 +11,7 @@ namespace WebAPI.Infrastructure.Mapper
     /// <summary>SurveyResult mapper static class.</summary>
     public static class SurveyResultMapper
     {
-        #region Extension Methods
+        #region Extension methods
 
         /// <summary>Databases the survey result to model survey result.</summary>
         /// <param name="surveyResult">The survey result.</param>

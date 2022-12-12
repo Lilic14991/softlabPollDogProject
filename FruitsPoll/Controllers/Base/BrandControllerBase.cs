@@ -6,8 +6,8 @@
 namespace PollDog.API.Controllers.Base
 {
     using Microsoft.AspNetCore.Mvc;
-    using PollDog.API.DTO;
     using Swashbuckle.AspNetCore.Annotations;
+    using DTO = PollDog.API.DTO;
 
     /// <summary>Controlelr base class for brand controller.</summary>
     [Route("api/[controller]")]
@@ -25,7 +25,7 @@ namespace PollDog.API.Controllers.Base
 
         #endregion
 
-        #region Public Methods
+        #region Public methods
 
         /// <summary>Gets the brands.</summary>
         /// <returns>
@@ -33,7 +33,7 @@ namespace PollDog.API.Controllers.Base
         /// </returns>
         [HttpGet]
         [SwaggerOperation(OperationId = "GetBrands", Summary = "Gets the list of brands.")]
-        [SwaggerResponse(statusCode: 200, type: typeof(List<Brand>), description: "Success")]
+        [SwaggerResponse(statusCode: 200, type: typeof(List<DTO.Brand>), description: "Success")]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]
@@ -50,7 +50,7 @@ namespace PollDog.API.Controllers.Base
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]
-        public abstract Task<IActionResult> Create(BrandCreate brand);
+        public abstract Task<IActionResult> Create(DTO.BrandCreate brand);
 
         #endregion
     }

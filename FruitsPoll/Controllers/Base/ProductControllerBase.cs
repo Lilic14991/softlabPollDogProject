@@ -6,8 +6,8 @@
 namespace PollDog.API.Controllers.Base
 {
     using Microsoft.AspNetCore.Mvc;
-    using PollDog.API.DTO;
     using Swashbuckle.AspNetCore.Annotations;
+    using DTO = PollDog.API.DTO;
 
     /// <summary>Base controller for Product.</summary>
     [Route("api/[controller]")]
@@ -32,7 +32,7 @@ namespace PollDog.API.Controllers.Base
         /// <returns>The list of products by BrandId.</returns>
         [HttpGet("{brandId}")]
         [SwaggerOperation(OperationId = "GetProductsByBrandId", Summary = "Gets list of products by BrandId")]
-        [SwaggerResponse(statusCode: 200, type: typeof(List<Product>), description: "Success")]
+        [SwaggerResponse(statusCode: 200, type: typeof(List<DTO.Product>), description: "Success")]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]

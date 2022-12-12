@@ -29,10 +29,12 @@ namespace PollDog.API.Controllers
 
         #endregion
 
-        #region Public Methods
+        #region Public methods
 
         /// <summary>Gets the brands.</summary>
-        /// <returns>Returns 200 status code.</returns>
+        /// <returns>
+        ///     Returns 200 status code with list of brands.
+        /// </returns>
         public async override Task<IActionResult> GetBrands()
         {
             try
@@ -61,7 +63,7 @@ namespace PollDog.API.Controllers
         /// <summary>Creates the specified brand.</summary>
         /// <param name="brand">The brand.</param>
         /// <returns>
-        ///   Returns task.
+        ///     Returns task.
         /// </returns>
         public override async Task<IActionResult> Create([FromBody] DTO.BrandCreate brand)
         {

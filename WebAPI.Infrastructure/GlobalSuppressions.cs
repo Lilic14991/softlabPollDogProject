@@ -28,3 +28,5 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage("Build", "SA1124:Do not use regions", Justification = "<Pending>", Scope = "type", Target = "~T:WebAPI.Infrastructure.Services.ProductService")]
 [assembly: SuppressMessage("Build", "SA1124:Do not use regions", Justification = "<Pending>", Scope = "type", Target = "~T:WebAPI.Infrastructure.Services.SurveyResultService")]
 [assembly: SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1404:Code analysis suppression should have justification", Justification = "<Pending>")]
+[assembly: SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1124:Do not use regions", Justification = "<Pending>", Scope = "type", Target = "~T:WebAPI.Infrastructure.Services.ConfigService")]
+[assembly: SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1124:Do not use regions", Justification = "<Pending>", Scope = "type", Target = "~T:WebAPI.Infrastructure.Repositories.SurveyResultRepository")]

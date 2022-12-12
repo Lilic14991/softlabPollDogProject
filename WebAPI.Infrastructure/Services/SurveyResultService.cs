@@ -15,7 +15,6 @@ namespace WebAPI.Infrastructure.Services
     /// <summary>
     /// SurveyResultService class.
     /// </summary>
-    /// <seealso cref="WebAPI.Core.Services.ISurveyResultService" />
     public class SurveyResultService : ISurveyResultService
     {
         #region Fields

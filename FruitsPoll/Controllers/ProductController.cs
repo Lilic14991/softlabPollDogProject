@@ -14,13 +14,6 @@ namespace PollDog.API.Controllers
     /// <summary>Product controller.</summary>
     public class ProductController : ProductControllerBase
     {
-        #region Fields
-
-        /// <summary>The service provider.</summary>
-        private readonly IServiceProvider serviceProvider;
-
-        #endregion
-
         #region Constructors
 
         /// <summary>Initializes a new instance of the <see cref="ProductController" /> class.</summary>
@@ -28,7 +21,6 @@ namespace PollDog.API.Controllers
         public ProductController(IServiceProvider serviceProvider)
             : base(serviceProvider)
         {
-            this.serviceProvider = serviceProvider;
         }
 
         #endregion
@@ -37,7 +29,9 @@ namespace PollDog.API.Controllers
 
         /// <summary>Gets the list of products by BrandId.</summary>
         /// <param name="brandId">Brand Id Guid identifier.</param>
-        /// <returns>Returns 200 status code with list of products by brandId.</returns>
+        /// <returns>
+        ///     Returns 200 status code with list of products by brandId.
+        /// </returns>
         public async override Task<IActionResult> GetProductsByBrandId([FromRoute] Guid brandId)
         {
             try

@@ -5,6 +5,7 @@
 // -------------------------------------------------------------------------------
 namespace WebAPI.Infrastructure.Mapper
 {
+    using Azure.Core;
     using DbModels = WebAPI.Infrastructure.DbModels;
     using Models = WebAPI.Core.Models;
 

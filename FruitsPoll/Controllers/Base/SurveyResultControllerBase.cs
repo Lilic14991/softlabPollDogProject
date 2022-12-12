@@ -6,14 +6,16 @@
 namespace PollDog.API.Controllers.Base
 {
     using Microsoft.AspNetCore.Mvc;
-    using PollDog.API.DTO;
     using Swashbuckle.AspNetCore.Annotations;
+    using DTO = PollDog.API.DTO;
 
     /// <summary>SurveyResult Controller base abstract class.</summary>
     [Route("api/[controller]")]
     [ApiController]
     public abstract class SurveyResultControllerBase : ControllerBase
     {
+        #region Constructors
+
         /// <summary>Initializes a new instance of the <see cref="SurveyResultControllerBase" /> class.</summary>
         /// <param name="serviceProvider">The service provider.</param>
         public SurveyResultControllerBase(IServiceProvider serviceProvider)
@@ -21,13 +23,17 @@ namespace PollDog.API.Controllers.Base
         {
         }
 
+        #endregion
+
+        #region Public methods
+
         /// <summary>Gets the product average ratings.</summary>
         /// <returns>
-        ///   Returns product with average rating.
+        ///   The list of products with average rating.
         /// </returns>
         [HttpGet]
         [SwaggerOperation(OperationId= "GetProductAverageRatings", Summary="Get products by avarage rating")]
-        [SwaggerResponse(statusCode: 200, type: typeof(List<ProductAverageRating>), description: "Success")]
+        [SwaggerResponse(statusCode: 200, type: typeof(List<DTO.ProductAverageRating>), description: "Success")]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]
@@ -44,6 +50,8 @@ namespace PollDog.API.Controllers.Base
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]
-        public abstract Task<IActionResult> Create(SurveyResultCreate surveyResult);
+        public abstract Task<IActionResult> Create(DTO.SurveyResultCreate surveyResult);
+
+        #endregion
     }
 }

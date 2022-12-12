@@ -75,10 +75,10 @@ namespace WebAPI.Infrastructure.Repositories
 
                 var parameters = new { name };
 
-                var sql = @"INSERT INTO [Portfolio].[Brand] ([Name]) 
+                var query = @"INSERT INTO [Portfolio].[Brand] ([Name]) 
                             VALUES(@Name)";
 
-                await connection.QueryAsync(sql, parameters);
+                await connection.QueryAsync(query, parameters);
             }
         }
 

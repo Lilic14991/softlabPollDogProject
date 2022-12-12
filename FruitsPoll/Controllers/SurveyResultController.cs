@@ -15,13 +15,6 @@ namespace PollDog.API.Controllers
     /// <summary>SurveyResult Controller class.</summary>
     public class SurveyResultController : SurveyResultControllerBase
     {
-        #region Fields
-
-        /// <summary>The service provider.</summary>
-        private readonly IServiceProvider serviceProvider;
-
-        #endregion
-
         #region Constructors
 
         /// <summary>Initializes a new instance of the <see cref="SurveyResultController" /> class.</summary>
@@ -29,10 +22,11 @@ namespace PollDog.API.Controllers
         public SurveyResultController(IServiceProvider serviceProvider)
             : base(serviceProvider)
         {
-            this.serviceProvider = serviceProvider;
         }
 
         #endregion
+
+        #region Public methods
 
         /// <summary>Creates the survey result.</summary>
         /// <param name="surveyResult">The survey result.</param>
@@ -44,8 +38,8 @@ namespace PollDog.API.Controllers
             try
             {
                 // resolve services
-                var surveyResultService = this.serviceProvider.GetRequiredService<ISurveyResultService>();
-                var mapper = this.serviceProvider.GetRequiredService<IMapper>();
+                var surveyResultService = this.ServiceProvider.GetRequiredService<ISurveyResultService>();
+                var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
 
                 var mappedResult = mapper.Map<DTO.SurveyResultCreate,
                     Models.SurveyResult>(surveyResult);
@@ -88,5 +82,7 @@ namespace PollDog.API.Controllers
                 return this.InternalServerError(ex);
             }
         }
+
+        #endregion
     }
 }

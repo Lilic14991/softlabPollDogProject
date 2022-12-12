@@ -32,6 +32,8 @@ namespace PollDog.API.Controllers.Base
 
         #endregion
 
+        #region Protected methods
+
         /// <summary>Internals the server error.</summary>
         /// <param name="ex">The exception.</param>
         /// <returns>
@@ -51,5 +53,7 @@ namespace PollDog.API.Controllers.Base
         {
             return this.StatusCode(400, ex?.Message ?? "BAD_REQUEST");
         }
+
+        #endregion
     }
 }
