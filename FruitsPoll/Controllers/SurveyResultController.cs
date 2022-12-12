@@ -47,7 +47,8 @@ namespace PollDog.API.Controllers
                 var surveyResultService = this.serviceProvider.GetRequiredService<ISurveyResultService>();
                 var mapper = this.serviceProvider.GetRequiredService<IMapper>();
 
-                var mappedResult = mapper.Map<DTO.SurveyResultCreate, Models.SurveyResult>(surveyResult);
+                var mappedResult = mapper.Map<DTO.SurveyResultCreate,
+                    Models.SurveyResult>(surveyResult);
                 await surveyResultService.Create(mappedResult);
 
                 return this.Ok();
@@ -74,11 +75,11 @@ namespace PollDog.API.Controllers
 
                 if (averageRatings == null)
                 {
-                    return this.BadRequest(averageRatings);
+                    return this.BadRequest();
                 }
 
-                var mappedAverageResult = mapper.Map<IEnumerable<Models.ProductAverageRating>,
-                    IEnumerable<DTO.ProductAverageRating>>(averageRatings);
+                var mappedAverageResult = mapper.Map<List<Models.ProductAverageRating>,
+                    List<DTO.ProductAverageRating>>(averageRatings.ToList());
 
                 return this.Ok(mappedAverageResult);
             }

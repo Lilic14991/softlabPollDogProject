@@ -19,7 +19,7 @@ namespace WebAPI.Infrastructure.Repositories
     /// <summary>Product repository class.</summary>
     public class ProductRepository : IProductRepository
     {
-        #region Private fields
+        #region Fields
 
         /// <summary>The service provider.</summary>
         private readonly IServiceProvider serviceProvider;

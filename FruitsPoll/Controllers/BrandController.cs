@@ -45,7 +45,7 @@ namespace PollDog.API.Controllers
 
                 if (brands == null)
                 {
-                    return this.BadRequest(brands);
+                    return this.BadRequest();
                 }
 
                 var mappedResult = mapper.Map<List<Models.Brand>, List<DTO.Brand>>(brands.ToList());
@@ -54,7 +54,7 @@ namespace PollDog.API.Controllers
             }
             catch (Exception ex)
             {
-                return this.InternalServerError(ex.InnerException);
+                return this.InternalServerError(ex);
             }
         }
 

@@ -44,15 +44,13 @@ namespace PollDog.API.Controllers
             {
                 // resolve services
                 var productService = this.ServiceProvider.GetRequiredService<IProductService>();
-
-                // resolve services
                 var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
 
                 var products = await productService.GetProductsByBrandId(brandId);
 
                 if (products == null)
                 {
-                    return this.BadRequest(products);
+                    return this.BadRequest();
                 }
 
                 var mappedResult = mapper.Map<List<Models.Product>, List<DTO.Product>>(products.ToList());

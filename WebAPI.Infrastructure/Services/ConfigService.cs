@@ -14,11 +14,17 @@ namespace WebAPI.Infrastructure.Services
     /// <summary>Configuration service for connection  string.</summary>
     public class ConfigService : IConfigService
     {
+        #region Fields
+
         /// <summary>The service provider.</summary>
         private readonly IServiceProvider serviceProvider;
 
         /// <summary>The configuration.</summary>
         private readonly IConfiguration configuration;
+
+        #endregion
+
+        #region Constructors
 
         /// <summary>Initializes a new instance of the <see cref="ConfigService" /> class.</summary>
         /// <param name="serviceProvider">The service provider.</param>
@@ -29,6 +35,8 @@ namespace WebAPI.Infrastructure.Services
             this.configuration = configuration;
             this.configuration = this.serviceProvider.GetRequiredService<IConfiguration>();
         }
+
+        #endregion
 
         #region Public properties
 

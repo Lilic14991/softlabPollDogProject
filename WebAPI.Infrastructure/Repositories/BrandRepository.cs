@@ -61,7 +61,9 @@ namespace WebAPI.Infrastructure.Repositories
 
         /// <summary>Creates the specified name.</summary>
         /// <param name="name">The name.</param>
-        /// <returns>Returns task.</returns>
+        /// <returns>
+        ///     Returns task.
+        /// </returns>
         public async Task Create(string name)
         {
             // resolve services

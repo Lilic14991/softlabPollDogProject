@@ -18,10 +18,10 @@ namespace WebAPI.Infrastructure.Repositories
     /// <summary>SurveyResult repository class.</summary>
     public class SurveyResultRepository : ISurveyResultRepository
     {
+        #region Fields
+
         /// <summary>The service provider.</summary>
         private readonly IServiceProvider serviceProvider;
-
-        #region Fields
 
         #endregion
 
