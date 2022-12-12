@@ -23,6 +23,6 @@ namespace WebAPI.Core.Services
         /// <returns>
         ///   Returns list of ProductAverageRating.
         /// </returns>
-        Task<IEnumerable<Models.ProductAverageRating>> GetProductWithAverageRating();
+        Task<IEnumerable<Models.Product>> GetProductWithAverageRating();
     }
 }

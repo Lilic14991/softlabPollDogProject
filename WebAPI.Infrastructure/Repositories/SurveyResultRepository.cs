@@ -67,7 +67,7 @@ namespace WebAPI.Infrastructure.Repositories
         /// <returns>
         ///   The list of products with average rating.
         /// </returns>
-        public async Task<IEnumerable<Models.ProductAverageRating>> GetSurveyResultAverageRating()
+        public async Task<IEnumerable<Models.Product>> GetSurveyResultAverageRating()
         {
             // resolve services
             var configService = this.serviceProvider.GetRequiredService<IConfigService>();

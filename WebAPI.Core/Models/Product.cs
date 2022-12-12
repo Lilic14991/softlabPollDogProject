@@ -18,6 +18,14 @@ namespace WebAPI.Core.Models
         /// <value>The name of the product.</value>
         public string Name { get; set; }
 
+        /// <summary>Gets or sets the name of the brand.</summary>
+        /// <value>The name of the brand.</value>
+        public string BrandName { get; set; }
+
+        /// <summary>Gets or sets the average.</summary>
+        /// <value>The average.</value>
+        public double Average { get; set; }
+
         /// <summary>Gets or sets the brand.</summary>
         /// <value>The brand.</value>
         public Brand Brand { get; set; }

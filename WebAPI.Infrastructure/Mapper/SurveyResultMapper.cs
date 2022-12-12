@@ -39,17 +39,17 @@ namespace WebAPI.Infrastructure.Mapper
         /// <returns>
         ///   The new instance of ProductAverageRating model.
         /// </returns>
-        public static Models.ProductAverageRating DatabaseProductAverageRatingToModel(this DbModels.ProductAverageRating productAverageRating)
+        public static Models.Product DatabaseProductAverageRatingToModel(this DbModels.ProductAverageRating productAverageRating)
         {
             if (productAverageRating == null)
             {
                 return null;
             }
 
-            return new Models.ProductAverageRating
+            return new Models.Product
             {
-                ProductName = productAverageRating.ProductName,
                 BrandName = productAverageRating.BrandName,
+                Name = productAverageRating.ProductName,
                 Average = productAverageRating.Average,
             };
         }

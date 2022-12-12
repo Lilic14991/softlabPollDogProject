@@ -72,7 +72,7 @@ namespace PollDog.API.Controllers
                     return this.BadRequest();
                 }
 
-                var mappedAverageResult = mapper.Map<List<Models.ProductAverageRating>,
+                var mappedAverageResult = mapper.Map<List<Models.Product>,
                     List<DTO.ProductAverageRating>>(averageRatings.ToList());
 
                 return this.Ok(mappedAverageResult);

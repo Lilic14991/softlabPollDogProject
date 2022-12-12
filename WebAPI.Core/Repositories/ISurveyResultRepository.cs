@@ -17,7 +17,7 @@ namespace WebAPI.Core.Repositories
         /// <returns>
         ///   The list of products with average rating.
         /// </returns>
-        Task<IEnumerable<Models.ProductAverageRating>> GetSurveyResultAverageRating();
+        Task<IEnumerable<Models.Product>> GetSurveyResultAverageRating();
 
         /// <summary>Creates the specified product identifier.</summary>
         /// <param name="productId">The product identifier.</param>
