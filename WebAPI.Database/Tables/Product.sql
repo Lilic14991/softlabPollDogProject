@@ -4,6 +4,6 @@
     [Name]    NVARCHAR(MAX)     NOT NULL,
 	[BrandId] UNIQUEIDENTIFIER	NOT NULL,
 
-	CONSTRAINT [PK_Product] PRIMARY KEY ([Id]),
+	CONSTRAINT [PK_Product]       PRIMARY KEY ([Id]),
 	CONSTRAINT [FK_Product_Brand] FOREIGN KEY ([BrandId]) REFERENCES [Portfolio].[Brand] ([Id])
 );

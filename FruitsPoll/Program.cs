@@ -3,7 +3,7 @@
 // Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
 // -------------------------------------------------------------------------------
-using PollDog.API.AutoMapper;
+using PollDog.API.Helpers;
 using WebAPI.Core.Repositories;
 using WebAPI.Core.Services;
 using WebAPI.Infrastructure.Repositories;
