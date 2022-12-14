@@ -7,7 +7,6 @@ namespace PollDog.API.Controllers.Base
 {
     using System;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Data.SqlClient;
 
     /// <summary> The Base Controller.</summary>
     [Route("api/[controller]")]
@@ -38,10 +37,9 @@ namespace PollDog.API.Controllers.Base
 
         /// <summary>Internals the server error.</summary>
         /// <param name="ex">The exception.</param>
-        /// <returns>
-        ///     Returns internal server error or string exception.
-        /// </returns>
-        protected IActionResult InternalServerError(Exception? ex = null)
+        /// <param name="message">The message.</param>
+        /// <returns>Returns internal server error or string exception.</returns>
+        protected IActionResult InternalServerError(Exception? ex = null, string? message = null)
         {
             return this.StatusCode(500, ex?.Message ?? "INTERNAL_SERVER_ERROR");
         }

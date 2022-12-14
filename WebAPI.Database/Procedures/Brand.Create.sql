@@ -12,6 +12,6 @@ BEGIN
 	END TRY
 	BEGIN CATCH
 		IF ISNULL(@Name, '') = ''
-			THROW 50001, 'Brand Name cannot be null or empty string.', 1
+			THROW 50001, 'BRAND_NAME_NOT_SPECIFIED', 1
 	END CATCH
 END;

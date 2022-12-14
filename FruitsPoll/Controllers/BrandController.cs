@@ -85,10 +85,12 @@ namespace PollDog.API.Controllers
 
                 return this.Ok();
             }
-            catch (SqlException ex)
+            catch (SqlException sex)
             {
-                ExceptionValidator.Validator(brand);
-
+                return this.InternalServerError(sex, ErrorMessages.GetExceptionMessage(sex.Message));
+            }
+            catch (Exception ex)
+            {
                 return this.InternalServerError(ex);
             }
         }

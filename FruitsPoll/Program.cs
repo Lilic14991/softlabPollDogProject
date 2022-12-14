@@ -3,10 +3,7 @@
 // Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
 // -------------------------------------------------------------------------------
-
 using PollDog.API.Helpers;
-using PollDog.API.Middlewares;
-using Serilog;
 using WebAPI.Core.Repositories;
 using WebAPI.Core.Services;
 using WebAPI.Infrastructure.Repositories;
@@ -45,11 +42,10 @@ var app = builder.Build();
     // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
     {
+        app.UseDeveloperExceptionPage();
         app.UseSwagger();
         app.UseSwaggerUI();
     }
-
-app.UseExceptionMiddleware();
 
 app.UseHttpsRedirection();
 
