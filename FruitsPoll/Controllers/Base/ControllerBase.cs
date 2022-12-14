@@ -7,6 +7,7 @@ namespace PollDog.API.Controllers.Base
 {
     using System;
     using Microsoft.AspNetCore.Mvc;
+    using PollDog.API.Exceptions;
 
     /// <summary> The Base Controller.</summary>
     [Route("api/[controller]")]
@@ -37,11 +38,10 @@ namespace PollDog.API.Controllers.Base
 
         /// <summary>Internals the server error.</summary>
         /// <param name="ex">The exception.</param>
-        /// <param name="message">The message.</param>
         /// <returns>Returns internal server error or string exception.</returns>
-        protected IActionResult InternalServerError(Exception? ex = null, string? message = null)
+        protected IActionResult InternalServerError(Exception? ex = null)
         {
-            return this.StatusCode(500, message ?? "INTERNAL_SERVER_ERROR");
+            return this.StatusCode(500, ErrorMessages.GetExceptionMessage(ex.Message) ?? "INTERNAL_SERVER_ERROR");
         }
 
         /// <summary>Bads the request.</summary>
