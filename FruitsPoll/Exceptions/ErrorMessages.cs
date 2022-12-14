@@ -3,7 +3,7 @@
 // Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
 // -------------------------------------------------------------------------------
-namespace PollDog.API.SqlExceptions
+namespace PollDog.API.Exceptions
 {
     public static class ErrorMessages
     {
@@ -13,7 +13,7 @@ namespace PollDog.API.SqlExceptions
             { "BRAND_NAME_NOT_SPECIFIED", "Brand Name cannot be null or empty string." },
         };
 
-        /// <summary>Gets the exception status code.</summary>
+        /// <summary>Gets the exception message.</summary>
         /// <param name="message">string representing sql exception message.</param>
         /// <returns>Returns string message.</returns>
         public static string GetExceptionMessage(string message)

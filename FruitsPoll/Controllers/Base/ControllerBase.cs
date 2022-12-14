@@ -41,7 +41,7 @@ namespace PollDog.API.Controllers.Base
         /// <returns>Returns internal server error or string exception.</returns>
         protected IActionResult InternalServerError(Exception? ex = null, string? message = null)
         {
-            return this.StatusCode(500, ex?.Message ?? "INTERNAL_SERVER_ERROR");
+            return this.StatusCode(500, message ?? "INTERNAL_SERVER_ERROR");
         }
 
         /// <summary>Bads the request.</summary>

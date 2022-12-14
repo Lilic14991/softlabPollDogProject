@@ -13,7 +13,7 @@ namespace PollDog.API.Controllers
     using Microsoft.Data.SqlClient;
     using Microsoft.Extensions.DependencyInjection;
     using PollDog.API.Controllers.Base;
-    using PollDog.API.SqlExceptions;
+    using PollDog.API.Exceptions;
     using DTO = PollDog.API.DTO;
     using Mapper = AutoMapper;
     using Models = WebAPI.Core.Models;
@@ -85,7 +85,7 @@ namespace PollDog.API.Controllers
 
                 return this.Ok();
             }
-            catch (SqlException sex)
+            catch (SqlException sex) when (sex.Number == 50001)
             {
                 return this.InternalServerError(sex, ErrorMessages.GetExceptionMessage(sex.Message));
             }
