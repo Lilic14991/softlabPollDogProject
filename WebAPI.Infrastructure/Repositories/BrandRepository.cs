@@ -5,6 +5,7 @@
 // -------------------------------------------------------------------------------
 namespace WebAPI.Infrastructure.Repositories
 {
+    using System.Data;
     using System.Linq;
     using Dapper;
     using Microsoft.Extensions.DependencyInjection;
@@ -71,15 +72,14 @@ namespace WebAPI.Infrastructure.Repositories
             {
                 await connection.OpenAsync();
 
+                var procedure = "[Portfolio].[Brand.Create]";
+
                 var parameters = new
                 {
                    Name = name,
                 };
 
-                var query = @"INSERT INTO [Portfolio].[Brand] ([Name]) 
-                            VALUES(@Name)";
-
-                await connection.QueryAsync(query, parameters);
+                await connection.QueryAsync(procedure, parameters, commandType: CommandType.StoredProcedure);
             }
         }
 

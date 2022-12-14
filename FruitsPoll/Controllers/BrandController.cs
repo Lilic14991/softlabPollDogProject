@@ -10,8 +10,10 @@ namespace PollDog.API.Controllers
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Data.SqlClient;
     using Microsoft.Extensions.DependencyInjection;
     using PollDog.API.Controllers.Base;
+    using PollDog.API.SqlExceptions;
     using DTO = PollDog.API.DTO;
     using Mapper = AutoMapper;
     using Models = WebAPI.Core.Models;
@@ -83,8 +85,10 @@ namespace PollDog.API.Controllers
 
                 return this.Ok();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
+                ExceptionValidator.Validator(brand);
+
                 return this.InternalServerError(ex);
             }
         }

@@ -7,6 +7,7 @@ namespace PollDog.API.Controllers.Base
 {
     using System;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Data.SqlClient;
 
     /// <summary> The Base Controller.</summary>
     [Route("api/[controller]")]

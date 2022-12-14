@@ -59,6 +59,7 @@
     <Folder Include="Tables" />
     <Folder Include="Views" />
     <Folder Include="Schemas" />
+    <Folder Include="Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Product.sql" />
@@ -67,6 +68,9 @@
     <Build Include="Tables\SurveyResult.sql" />
     <Build Include="Schemas\Portfolio.sql" />
     <Build Include="Schemas\Survey.sql" />
+    <Build Include="Procedures\Product.Create.sql" />
+    <Build Include="Procedures\Product.GetProductsByBrandId.sql" />
+    <Build Include="Procedures\Brand.Create.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PollDog.Database.publish.xml" />
