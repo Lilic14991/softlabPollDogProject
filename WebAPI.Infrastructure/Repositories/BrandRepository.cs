@@ -68,22 +68,22 @@ namespace WebAPI.Infrastructure.Repositories
         /// <returns>
         ///     Returns task.
         /// </returns>
-        public async Task Create(string name)
-        {
-            using (var connection = this.configService.Connection)
-            {
-                await connection.OpenAsync();
+        //public async Task Create(string name)
+        //{
+        //    using (var connection = this.configService.Connection)
+        //    {
+        //        await connection.OpenAsync();
 
-                var procedure = "[Portfolio].[Brand.Create]";
+        //        var procedure = "[Portfolio].[Brand.Create]";
 
-                var parameters = new
-                {
-                   Name = name,
-                };
+        //        var parameters = new
+        //        {
+        //           Name = name,
+        //        };
 
-                await connection.QueryAsync(procedure, parameters, commandType: CommandType.StoredProcedure);
-            }
-        }
+        //        await connection.QueryAsync(procedure, parameters, commandType: CommandType.StoredProcedure);
+        //    }
+        //}
 
         #endregion
     }
