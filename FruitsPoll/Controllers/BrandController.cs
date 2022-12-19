@@ -70,34 +70,6 @@ namespace PollDog.API.Controllers
             }
         }
 
-        /// <summary>Creates the specified brand.</summary>
-        /// <param name="brand">The brand.</param>
-        /// <returns>
-        ///     Returns task.
-        /// </returns>
-        public override async Task<IActionResult> Create([FromBody] DTO.BrandCreate brand)
-        {
-            try
-            {
-                // resolve services
-                var brandService = this.ServiceProvider.GetRequiredService<Services.IBrandService>();
-                var mapper = this.ServiceProvider.GetRequiredService<Mapper.IMapper>();
-
-                var mappedResult = mapper.Map<DTO.BrandCreate, Models.Brand>(brand);
-                await brandService.Create(mappedResult);
-
-                return this.Ok();
-            }
-            catch (SqlException sex)
-            {
-                return this.InternalServerError(sex);
-            }
-            catch (Exception ex)
-            {
-                return this.InternalServerError(ex);
-            }
-        }
-
         #endregion
     }
 }

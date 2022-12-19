@@ -51,19 +51,6 @@ namespace WebAPI.Infrastructure.Services
             return products;
         }
 
-        /// <summary>Creates the specified product.</summary>
-        /// <param name="product">The product.</param>
-        /// <returns>
-        ///     Returns task.
-        /// </returns>
-        public async Task Create(Models.Product product)
-        {
-            // resolve services
-            var productRepository = this.serviceProvider.GetService<Repositories.IProductRepository>();
-
-            await productRepository.Create(product.Brand.Id, product.Name);
-        }
-
         #endregion
     }
 }

@@ -15,12 +15,5 @@ namespace WebAPI.Core.Repositories
         ///     The list of Brands.
         /// </returns>
         Task<IEnumerable<Brand>> GetBrands();
-
-        /// <summary>Creates the specified name.</summary>
-        /// <param name="name">The name.</param>
-        /// <returns>
-        ///   Returns task.
-        /// </returns>
-        Task Create(string name);
     }
 }

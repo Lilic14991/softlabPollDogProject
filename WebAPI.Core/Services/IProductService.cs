@@ -16,12 +16,5 @@ namespace WebAPI.Core.Services
         /// <param name="brandId">Brand Id Guid identifier.</param>
         /// <returns>The list of products by BrandId.</returns>
         Task<List<Models.Product>> GetProductsByBrandId(Guid brandId);
-
-        /// <summary>Creates the specified product.</summary>
-        /// <param name="product">The product.</param>
-        /// <returns>
-        ///   Returns task.
-        /// </returns>
-        Task Create(Models.Product product);
     }
 }

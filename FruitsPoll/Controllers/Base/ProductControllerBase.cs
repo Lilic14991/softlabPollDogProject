@@ -38,19 +38,6 @@ namespace PollDog.API.Controllers.Base
         [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]
         public abstract Task<IActionResult> GetProductsByBrandId([FromRoute] Guid brandId);
 
-        /// <summary>Creates the products.</summary>
-        /// <param name="product"> product object.</param>
-        /// <returns>
-        ///   Returns task.
-        /// </returns>
-        [HttpPost]
-        [SwaggerOperation(OperationId = "Create", Summary = "Create a product")]
-        [SwaggerResponse(statusCode: 200, description: "Success")]
-        [SwaggerResponse(statusCode: 400, description: "Bad Request")]
-        [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
-        [SwaggerResponse(statusCode: 500, description: "Internal Server Error")]
-        public abstract Task<IActionResult> Create(DTO.ProductCreate product);
-
         #endregion
     }
 }

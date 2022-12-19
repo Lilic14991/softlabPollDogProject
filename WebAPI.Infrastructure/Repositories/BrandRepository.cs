@@ -63,28 +63,6 @@ namespace WebAPI.Infrastructure.Repositories
             }
         }
 
-        /// <summary>Creates the specified name.</summary>
-        /// <param name="name">The name.</param>
-        /// <returns>
-        ///     Returns task.
-        /// </returns>
-        //public async Task Create(string name)
-        //{
-        //    using (var connection = this.configService.Connection)
-        //    {
-        //        await connection.OpenAsync();
-
-        //        var procedure = "[Portfolio].[Brand.Create]";
-
-        //        var parameters = new
-        //        {
-        //           Name = name,
-        //        };
-
-        //        await connection.QueryAsync(procedure, parameters, commandType: CommandType.StoredProcedure);
-        //    }
-        //}
-
         #endregion
     }
 }

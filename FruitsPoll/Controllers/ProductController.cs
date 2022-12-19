@@ -62,34 +62,6 @@ namespace PollDog.API.Controllers
             }
         }
 
-        /// <summary>Creates the product.</summary>
-        /// <param name="product">product object.</param>
-        /// <returns>
-        ///   Returns task.
-        /// </returns>
-        public async override Task<IActionResult> Create([FromBody] DTO.ProductCreate product)
-        {
-            try
-            {
-                // resolve services
-                var productService = this.ServiceProvider.GetRequiredService<Services.IProductService>();
-                var mapper = this.ServiceProvider.GetRequiredService<Mapper.IMapper>();
-
-                var mappedResult = mapper.Map<DTO.ProductCreate, Models.Product>(product);
-                await productService.Create(mappedResult);
-
-                return this.Ok();
-            }
-            catch (SqlException sex)
-            {
-                return this.InternalServerError(sex);
-            }
-            catch (Exception ex)
-            {
-                return this.InternalServerError(ex);
-            }
-        }
-
         #endregion
     }
 }

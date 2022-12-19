@@ -68,9 +68,7 @@
     <Build Include="Tables\SurveyResult.sql" />
     <Build Include="Schemas\Portfolio.sql" />
     <Build Include="Schemas\Survey.sql" />
-    <Build Include="Procedures\Product.Create.sql" />
     <Build Include="Procedures\Product.GetProductsByBrandId.sql" />
-    <Build Include="Procedures\Brand.Create.sql" />
     <Build Include="Procedures\Brand.GetBrands.sql" />
     <Build Include="Procedures\SurveyResult.Create.sql" />
   </ItemGroup>

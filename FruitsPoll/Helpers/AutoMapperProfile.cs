@@ -27,9 +27,7 @@ namespace PollDog.API.Helpers
                 .ForMember(
                     dest => dest.ProductName,
                     opt => opt.MapFrom(src => src.Name));
-            this.CreateMap<DTO.ProductCreate, Models.Product>();
             this.CreateMap<Models.Brand, DTO.Brand>().ReverseMap();
-            this.CreateMap<DTO.BrandCreate, Models.Brand>();
         }
 
         #endregion

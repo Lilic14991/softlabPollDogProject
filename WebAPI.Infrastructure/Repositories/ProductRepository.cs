@@ -44,30 +44,6 @@ namespace WebAPI.Infrastructure.Repositories
 
         #region Public methods
 
-        /// <summary>Creates the product.</summary>
-        /// <param name="brandId">Brand Id Guid parameter.</param>
-        /// <param name="name">string parameter for name of product.</param>
-        /// <returns>
-        ///     Returns task.
-        /// </returns>
-        public async Task Create(Guid brandId, string name)
-        {
-            using (var connection = this.configService.Connection)
-            {
-                await connection.OpenAsync();
-
-                var procedure = "[Portfolio].[Product.Create]";
-
-                var parameters = new
-                {
-                    Name = name,
-                    BrandId = brandId,
-                };
-
-                await connection.ExecuteAsync(procedure, parameters, commandType: CommandType.StoredProcedure);
-            }
-        }
-
         /// <summary>Gets the products.</summary>
         /// <param name="brandId">Brand Id Guid identifier.</param>
         /// <returns>

@@ -50,19 +50,6 @@ namespace WebAPI.Infrastructure.Services
             return brands;
         }
 
-        /// <summary>Creates the specified brand.</summary>
-        /// <param name="brand">The brand.</param>
-        /// <returns>
-        ///     Returns task.
-        /// </returns>
-        public async Task Create(Models.Brand brand)
-        {
-            // resolve services
-            var brandRepository = this.serviceProvider.GetRequiredService<Repositories.IBrandRepository>();
-
-            await brandRepository.Create(brand.Name);
-        }
-
         #endregion
     }
 }
