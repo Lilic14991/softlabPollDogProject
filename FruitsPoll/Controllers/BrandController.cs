@@ -53,7 +53,7 @@ namespace PollDog.API.Controllers
 
                 if (brands == null)
                 {
-                    return this.NotFound();
+                    return this.BadRequest();
                 }
 
                 var mappedResult = mapper.Map<List<Models.Brand>, List<DTO.Brand>>(brands.ToList());

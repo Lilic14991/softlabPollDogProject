@@ -56,7 +56,7 @@ namespace WebAPI.Infrastructure.Repositories
             {
                 await connection.OpenAsync();
 
-                var procedure = "[Survey].[SurveyResult.Create]";
+                var query = "[Survey].[SurveyResult.Create]";
 
                 var parameters = new
                 {
@@ -65,7 +65,10 @@ namespace WebAPI.Infrastructure.Repositories
                     Comment = comment,
                 };
 
-                await connection.ExecuteAsync(procedure, parameters, commandType: CommandType.StoredProcedure);
+                await connection.ExecuteAsync(
+                    sql: query,
+                    param: parameters,
+                    commandType: CommandType.StoredProcedure);
             }
         }
 

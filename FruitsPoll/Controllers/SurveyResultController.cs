@@ -73,12 +73,16 @@ namespace PollDog.API.Controllers
 
                 if (averageRatings == null)
                 {
-                    return this.NotFound();
+                    return this.BadRequest();
                 }
 
                 var mappedAverageResult = mapper.Map<List<Models.Product>, List<DTO.ProductAverageRating>>(averageRatings.ToList());
 
                 return this.Ok(mappedAverageResult);
+            }
+            catch (SqlException sex)
+            {
+                return this.InternalServerError(sex);
             }
             catch (Exception ex)
             {

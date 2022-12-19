@@ -5,7 +5,8 @@ BEGIN
 	IF @BrandId IS NULL
 		SELECT @BrandId = NULL
 	BEGIN TRY 
-		SELECT * FROM [Portfolio].[Product]
+		SELECT * 
+		FROM [Portfolio].[Product]
         WHERE [BrandId] = @BrandId;
 	END TRY
 	BEGIN CATCH

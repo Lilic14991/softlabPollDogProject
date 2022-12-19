@@ -55,7 +55,7 @@ namespace WebAPI.Infrastructure.Repositories
             {
                 await connection.OpenAsync();
 
-                var procedure = "[Portfolio].[Product.GetProductsByBrandId]";
+                var query = "[Portfolio].[Product.GetProductsByBrandId]";
 
                 var parameters = new
                 {
@@ -63,8 +63,8 @@ namespace WebAPI.Infrastructure.Repositories
                 };
 
                 var products = await connection.QueryAsync<DbModels.Product>(
-                    procedure,
-                    parameters,
+                    sql: query,
+                    param: parameters,
                     commandType: CommandType.StoredProcedure);
                 var mappedProducts = products.Select(p => p.DatabaseProductToModelProduct()).ToList();
 
