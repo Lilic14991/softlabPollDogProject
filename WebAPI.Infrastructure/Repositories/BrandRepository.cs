@@ -52,9 +52,11 @@ namespace WebAPI.Infrastructure.Repositories
             {
                 await connection.OpenAsync();
 
-                var query = "SELECT * FROM [Portfolio].[Brand]";
+                var procedure = "[Portfolio].[Brand.GetBrands]";
 
-                var brands = await connection.QueryAsync<DbModels.Brand>(query);
+                var brands = await connection.QueryAsync<DbModels.Brand>(
+                    procedure,
+                    commandType: CommandType.StoredProcedure);
                 var mappedBrands = brands.Select(b => b.DatabaseBrandToModelBrand()).ToList();
 
                 return mappedBrands;

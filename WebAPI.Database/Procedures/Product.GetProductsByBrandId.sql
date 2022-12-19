@@ -2,21 +2,14 @@
 	@BrandId UNIQUEIDENTIFIER
 AS
 BEGIN 
-	IF (@BrandId IS NULL)
-	BEGIN
-		;THROW 5000, 'BrandId is not valid.', 1
-	END
+	IF @BrandId IS NULL
+		SELECT @BrandId = NULL
 	BEGIN TRY 
 		SELECT * FROM [Portfolio].[Product]
         WHERE [BrandId] = @BrandId;
 	END TRY
 	BEGIN CATCH
 		IF @BrandId IS NULL
-		(
-			SELECT 
-				ERROR_NUMBER() AS ErrorNumber,
-				ERROR_PROCEDURE() AS ErrorProcedure,
-				ERROR_MESSAGE() AS ErrorMessage
-		);
+			THROW 50000, 'BRAND_ID_IS_NOT_VALID.', 1
 	END CATCH
 END;

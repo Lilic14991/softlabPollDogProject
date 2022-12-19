@@ -7,6 +7,7 @@ namespace WebAPI.Infrastructure.Repositories
 {
     using System;
     using System.Collections.Generic;
+    using System.Data;
     using System.Threading.Tasks;
     using Dapper;
     using Microsoft.Extensions.DependencyInjection;
@@ -55,16 +56,15 @@ namespace WebAPI.Infrastructure.Repositories
             {
                 await connection.OpenAsync();
 
+                var procedure = "[Portfolio].[Product.Create]";
+
                 var parameters = new
                 {
                     Name = name,
                     BrandId = brandId,
                 };
 
-                var query = @"INSERT INTO [Portfolio].[Product] ([Name], [BrandId])
-                            VALUES(@Name, @BrandId)";
-
-                await connection.ExecuteAsync(query, parameters);
+                await connection.ExecuteAsync(procedure, parameters, commandType: CommandType.StoredProcedure);
             }
         }
 
@@ -79,15 +79,17 @@ namespace WebAPI.Infrastructure.Repositories
             {
                 await connection.OpenAsync();
 
+                var procedure = "[Portfolio].[Product.GetProductsByBrandId]";
+
                 var parameters = new
                 {
                     BrandId = brandId,
                 };
 
-                var query = @"SELECT * FROM [Portfolio].[Product]
-                              WHERE [BrandId] = @BrandId";
-
-                var products = await connection.QueryAsync<DbModels.Product>(query, parameters);
+                var products = await connection.QueryAsync<DbModels.Product>(
+                    procedure,
+                    parameters,
+                    commandType: CommandType.StoredProcedure);
                 var mappedProducts = products.Select(p => p.DatabaseProductToModelProduct()).ToList();
 
                 return mappedProducts;

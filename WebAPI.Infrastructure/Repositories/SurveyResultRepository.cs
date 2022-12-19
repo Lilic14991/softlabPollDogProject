@@ -7,6 +7,7 @@ namespace WebAPI.Infrastructure.Repositories
 {
     using System;
     using System.Collections.Generic;
+    using System.Data;
     using System.Threading.Tasks;
     using Dapper;
     using Microsoft.Extensions.DependencyInjection;
@@ -55,6 +56,8 @@ namespace WebAPI.Infrastructure.Repositories
             {
                 await connection.OpenAsync();
 
+                var procedure = "[Survey].[SurveyResult.Create]";
+
                 var parameters = new
                 {
                     ProductId = productId,
@@ -62,10 +65,7 @@ namespace WebAPI.Infrastructure.Repositories
                     Comment = comment,
                 };
 
-                var query = @"INSERT INTO [Survey].[SurveyResult] ([ProductId],[Rating],[Comment]) 
-                            VALUES (@ProductId, @Rating, @Comment)";
-
-                await connection.ExecuteAsync(query, parameters);
+                await connection.ExecuteAsync(procedure, parameters, commandType: CommandType.StoredProcedure);
             }
         }
 

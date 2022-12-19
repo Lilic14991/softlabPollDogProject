@@ -60,6 +60,10 @@ namespace PollDog.API.Controllers
 
                 return this.Ok(mappedResult);
             }
+            catch (SqlException sex)
+            {
+                return this.InternalServerError(sex);
+            }
             catch (Exception ex)
             {
                 return this.InternalServerError(ex);

@@ -71,6 +71,8 @@
     <Build Include="Procedures\Product.Create.sql" />
     <Build Include="Procedures\Product.GetProductsByBrandId.sql" />
     <Build Include="Procedures\Brand.Create.sql" />
+    <Build Include="Procedures\Brand.GetBrands.sql" />
+    <Build Include="Procedures\SurveyResult.Create.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PollDog.Database.publish.xml" />

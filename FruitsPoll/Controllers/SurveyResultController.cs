@@ -6,6 +6,7 @@
 namespace PollDog.API.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Data.SqlClient;
     using PollDog.API.Controllers.Base;
     using DTO = PollDog.API.DTO;
     using Mapper = AutoMapper;
@@ -45,6 +46,10 @@ namespace PollDog.API.Controllers
                 await surveyResultService.Create(mappedResult);
 
                 return this.Ok();
+            }
+            catch (SqlException sex)
+            {
+                return this.InternalServerError(sex);
             }
             catch (Exception ex)
             {

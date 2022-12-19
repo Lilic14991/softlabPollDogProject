@@ -3,21 +3,18 @@
 	@BrandId UNIQUEIDENTIFIER
 AS
 BEGIN 
-	IF (@Name IS NULL) 
-		THROW 50001, 'Product Name cannot be null', 1
-	IF (@BrandId IS NULL)
-		THROW 50000, 'BrandId is not valid.', 1
+	IF @Name = '' OR @Name IS NULL
+		SELECT @Name = NULL
+	IF @BrandId IS NULL
+		SELECT @BrandId = NULL
 	BEGIN TRY
 		INSERT INTO [Portfolio].[Product] ([Name], [BrandId])
         VALUES(@Name, @BrandId);
 	END TRY
 	BEGIN CATCH
 		IF @BrandId IS NULL
-		(
-			SELECT
-				ERROR_NUMBER() AS ErrorNumber,
-				ERROR_PROCEDURE() AS ErrorProcedure,
-				ERROR_MESSAGE() AS ErrorMessage
-		);
+			THROW 50000, 'BRAND_ID_IS_NOT_VALID', 1
+		IF @Name IS NULL
+			THROW 50001, 'PRODUCT_NAME_NOT_SPECIFIED', 1
 	END CATCH
 END;
