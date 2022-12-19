@@ -51,7 +51,7 @@ namespace PollDog.API.Controllers.Base
         /// </returns>
         protected IActionResult BadRequest(Exception? ex = null)
         {
-            return this.StatusCode(400, ex?.Message ?? "BAD_REQUEST");
+            return this.StatusCode(400, ErrorMessages.GetExceptionMessage(ex.Message) ?? "BAD_REQUEST");
         }
 
         #endregion
