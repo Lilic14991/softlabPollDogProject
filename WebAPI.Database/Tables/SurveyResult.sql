@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [Survey].[SurveyResult]
 (
 	[Id]        UNIQUEIDENTIFIER NOT NULL CONSTRAINT [DF_SurveyResult_Id] DEFAULT NEWID(),
-	[ProductId] UNIQUEIDENTIFIER NOT NULL,
+	[ProductId] UNIQUEIDENTIFIER NOT NULL UNIQUE INDEX [IX_SurveyResult_ProductId] NONCLUSTERED,
 	[Rating]    INT              NOT NULL,
 	[Comment]   NVARCHAR(MAX)    NULL,
 

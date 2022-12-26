@@ -1,10 +1,10 @@
 ﻿CREATE VIEW [Survey].[vSurveyResult]
 AS 
 SELECT 
-P.[Id]                                    AS [ProductId],
-P.[Name]                                  AS [ProductName], 
-P.[BrandId]                               AS [BrandId], 
-B.[Name]                                  AS [BrandName],
+    P.[Id]                                    AS [ProductId],
+    P.[Name]                                  AS [ProductName], 
+    P.[BrandId]                               AS [BrandId], 
+    B.[Name]                                  AS [BrandName],
 ROUND(AVG(CAST(SR.[Rating] AS Float)), 2) AS [Average]
 FROM [Survey].[SurveyResult] AS SR
 JOIN [Portfolio].[Product]   AS P  ON P.[Id] = SR.[ProductId]

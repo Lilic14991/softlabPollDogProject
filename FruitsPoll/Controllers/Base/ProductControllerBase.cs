@@ -33,7 +33,7 @@ namespace PollDog.API.Controllers.Base
         ///     The list of products by BrandId.
         /// </returns>
         [HttpGet("{brandId}")]
-        [SwaggerOperation(OperationId = "GetProductsByBrandId", Summary = "Gets list of products by BrandId")]
+        [SwaggerOperation(OperationId = "GetProductsByBrandId", Summary = "Gets list of products by Brand identifier")]
         [SwaggerResponse(statusCode: 200, type: typeof(List<DTO.ProductResponse>), description: "Success")]
         [SwaggerResponse(statusCode: 400, description: "Bad Request")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]

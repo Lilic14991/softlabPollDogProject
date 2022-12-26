@@ -34,7 +34,7 @@ namespace PollDog.API.Controllers
         /// <returns>
         ///   Returns task.
         /// </returns>
-        public async override Task<IActionResult> Create([FromBody] DTO.SurveyResultCreate surveyResult)
+        public async override Task<IActionResult> CreateSurvey([FromBody] DTO.SurveyResultCreate surveyResult)
         {
             try
             {

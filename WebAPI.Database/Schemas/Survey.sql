@@ -1,1 +1,1 @@
-﻿CREATE SCHEMA [Survey]
+﻿CREATE SCHEMA [Survey] AUTHORIZATION [dbo]

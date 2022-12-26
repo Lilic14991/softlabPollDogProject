@@ -3,6 +3,7 @@
 // Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
 // -------------------------------------------------------------------------------
+using PollDog.API.Exceptions;
 using PollDog.API.Helpers;
 using WebAPI.Core.Repositories;
 using WebAPI.Core.Services;
