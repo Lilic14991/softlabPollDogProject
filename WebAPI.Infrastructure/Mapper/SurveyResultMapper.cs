@@ -8,7 +8,7 @@ namespace WebAPI.Infrastructure.Mapper
     using DbModels = WebAPI.Infrastructure.DbModels;
     using Models = WebAPI.Core.Models;
 
-    /// <summary>SurveyResult mapper static class.</summary>
+    /// <summary>Static class SurveyResult mapper.</summary>
     public static class SurveyResultMapper
     {
         #region Extension methods

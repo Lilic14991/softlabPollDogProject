@@ -6,7 +6,7 @@ BEGIN
     /*----- VALIDATION -----*/
 	IF @BrandId IS NULL
 	BEGIN
-        ;THROW 50000, 'BRAND_ID_IS_NOT_VALID.', 1
+        ;THROW 50000, 'BRAND_IDENTIFIER_IS_NOT_VALID.', 1
     END
 
 	/*----- DATA -----*/

@@ -14,7 +14,9 @@ namespace WebAPI.Core.Services
     {
         /// <summary>Gets the products.</summary>
         /// <param name="brandId">Brand Id Guid identifier.</param>
-        /// <returns>The list of products by BrandId.</returns>
+        /// <returns>
+        ///     The list of products by BrandId.
+        /// </returns>
         Task<List<Models.Product>> GetProductsByBrandId(Guid brandId);
     }
 }

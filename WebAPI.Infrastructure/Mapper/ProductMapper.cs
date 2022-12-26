@@ -8,7 +8,7 @@ namespace WebAPI.Infrastructure.Mapper
     using DbModels = WebAPI.Infrastructure.DbModels;
     using Models = WebAPI.Core.Models;
 
-    /// <summary>Product mapper class.</summary>
+    /// <summary>Static class Product mapper.</summary>
     public static class ProductMapper
     {
         #region Extension methods

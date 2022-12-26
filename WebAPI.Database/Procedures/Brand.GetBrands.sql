@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [Portfolio].[Brand.GetBrands]
 AS
-BEGIN
+BEGIN	
 	SELECT * 
 	FROM [Portfolio].[Brand]
 END;

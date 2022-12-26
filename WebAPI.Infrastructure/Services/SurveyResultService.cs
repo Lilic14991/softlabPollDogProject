@@ -52,7 +52,9 @@ namespace WebAPI.Infrastructure.Services
         }
 
         /// <summary>Gets the product with average rating.</summary>
-        /// <returns>The list of products with average rating.</returns>
+        /// <returns>
+        ///     The list of products with average rating.
+        /// </returns>
         public async Task<IEnumerable<Models.Product>> GetProductWithAverageRating()
         {
             // resolve services

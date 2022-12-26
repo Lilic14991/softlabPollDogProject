@@ -9,7 +9,7 @@ namespace PollDog.API.Controllers.Base
     using Swashbuckle.AspNetCore.Annotations;
     using DTO = PollDog.API.DTO;
 
-    /// <summary>Base controller for Product.</summary>
+    /// <summary>Product controller base abstract class.</summary>
     [Route("api/[controller]")]
     [ApiController]
     public abstract class ProductControllerBase : ControllerBase
@@ -29,7 +29,9 @@ namespace PollDog.API.Controllers.Base
 
         /// <summary>Gets the list of products by BrandId.</summary>
         /// <param name="brandId">Brand Id Guid identifier.</param>
-        /// <returns>The list of products by BrandId.</returns>
+        /// <returns>
+        ///     The list of products by BrandId.
+        /// </returns>
         [HttpGet("{brandId}")]
         [SwaggerOperation(OperationId = "GetProductsByBrandId", Summary = "Gets list of products by BrandId")]
         [SwaggerResponse(statusCode: 200, type: typeof(List<DTO.ProductResponse>), description: "Success")]

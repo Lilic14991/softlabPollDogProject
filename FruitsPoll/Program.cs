@@ -11,12 +11,6 @@ using WebAPI.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//// Logger
-//Log.Logger = new LoggerConfiguration()
-//    .WriteTo.Console(outputTemplate:
-//    "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}")
-//    .CreateBootstrapLogger();
-
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
@@ -28,11 +22,11 @@ builder.Services.AddScoped<ISurveyResultRepository, SurveyResultRepository>();
 builder.Services.AddScoped<ISurveyResultService, SurveyResultService>();
 builder.Services.AddScoped<IConfigService, ConfigService>();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
-var AllowWebClient = "allowWebClient";
+var allowWebClient = "allowWebClient";
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(
-        name: AllowWebClient,
+        name: allowWebClient,
         policy =>
     {
         policy.WithOrigins("http://localhost:3000/")
@@ -61,7 +55,7 @@ if (app.Environment.IsDevelopment())
         app.UseSwaggerUI();
     }
 
-app.UseCors(AllowWebClient);
+app.UseCors(allowWebClient);
 
 app.UseHttpsRedirection();
 

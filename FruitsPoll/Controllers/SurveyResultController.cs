@@ -13,7 +13,7 @@ namespace PollDog.API.Controllers
     using Models = WebAPI.Core.Models;
     using Services = WebAPI.Core.Services;
 
-    /// <summary>SurveyResult Controller class.</summary>
+    /// <summary>SurveyResult controller class.</summary>
     public class SurveyResultController : SurveyResultControllerBase
     {
         #region Constructors

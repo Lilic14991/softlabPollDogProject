@@ -46,7 +46,7 @@ namespace WebAPI.Infrastructure.Repositories
         /// <returns>
         ///     The list of brands.
         /// </returns>
-        public async Task<IEnumerable<Models.Brand>> GetBrands()
+        public async Task<List<Models.Brand>> GetBrands()
         {
             using (var connection = this.configService.Connection)
             {

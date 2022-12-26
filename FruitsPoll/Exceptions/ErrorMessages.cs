@@ -12,9 +12,10 @@ namespace PollDog.API.Exceptions
         private static Dictionary<string, string> errorMessagesDict = new Dictionary<string, string>()
         {
             { "BRAND_NAME_NOT_SPECIFIED", "Brand Name cannot be null or empty string." },
-            { "BRAND_ID_IS_NOT_VALID", "Brand IDENTIFIER is not valid Guid." },
+            { "BRAND_IDENTIFIER_IS_NOT_VALID", "Brand identifier cannto be null or empty string" },
             { "PRODUCT_NAME_NOT_SPECIFIED", "Product Name cannot be null or empty string." },
-            { "PRODUCT_ID_IS_NOT_VALID", "Product IDENTIFIER cannot be null or invalid guid." },
+            { "PRODUCT_IDENTIFIER_IS_NOT_VALID", "Product identifier cannot be null or invalid guid." },
+            { "RATING_CANNOT_BE_NULL", "Rating cannot have null value or less then 0." },
         };
 
         /// <summary>Gets the exception message.</summary>

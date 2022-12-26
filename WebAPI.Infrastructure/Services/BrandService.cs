@@ -40,7 +40,7 @@ namespace WebAPI.Infrastructure.Services
         /// <returns>
         ///   Returns list of brands.
         /// </returns>
-        public async Task<IEnumerable<Models.Brand>> GetBrands()
+        public async Task<List<Models.Brand>> GetBrands()
         {
             // resolve services
             var brandRepository = this.serviceProvider.GetRequiredService<Repositories.IBrandRepository>();

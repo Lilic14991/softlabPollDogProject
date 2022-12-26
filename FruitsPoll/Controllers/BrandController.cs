@@ -27,7 +27,6 @@ namespace PollDog.API.Controllers
 
         /// <summary>Initializes a new instance of the <see cref="BrandController" /> class.</summary>
         /// <param name="serviceProvider">The service provider.</param>
-        /// resolve services
         public BrandController(IServiceProvider serviceProvider)
             : base(serviceProvider)
         {

@@ -12,7 +12,7 @@ namespace PollDog.API.Controllers.Base
     using Swashbuckle.AspNetCore.Annotations;
     using DTO = PollDog.API.DTO;
 
-    /// <summary>Controlelr base class for brand controller.</summary>
+    /// <summary>Controller base class for brand controller.</summary>
     [Route("api/[controller]")]
     [ApiController]
     public abstract class BrandControllerBase : ControllerBase

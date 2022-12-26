@@ -18,6 +18,6 @@ namespace PollDog.API.DTO
 
         /// <summary>Gets or sets the product.</summary>
         /// <value>The product.</value>
-        public ProductRequest Product { get; set; }
+        public ProductRequest? Product { get; set; }
     }
 }

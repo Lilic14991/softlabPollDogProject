@@ -16,6 +16,6 @@ namespace WebAPI.Core.Services
         /// <returns>
         ///   The list of Brands.
         /// </returns>
-        Task<IEnumerable<Brand>> GetBrands();
+        Task<List<Brand>> GetBrands();
     }
 }
