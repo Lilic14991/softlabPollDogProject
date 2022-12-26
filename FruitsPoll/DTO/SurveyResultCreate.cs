@@ -16,8 +16,8 @@ namespace PollDog.API.DTO
         /// <value>The comment.</value>
         public string? Comment { get; set; }
 
-        /// <summary>Gets or sets the products.</summary>
-        /// <value>The products.</value>
-        public List<Product> Products { get; set; } = new List<Product>();
+        /// <summary>Gets or sets the product.</summary>
+        /// <value>The product.</value>
+        public Product? Product { get; set; }
     }
 }

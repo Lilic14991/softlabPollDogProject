@@ -28,6 +28,20 @@ builder.Services.AddScoped<ISurveyResultRepository, SurveyResultRepository>();
 builder.Services.AddScoped<ISurveyResultService, SurveyResultService>();
 builder.Services.AddScoped<IConfigService, ConfigService>();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
+var AllowWebClient = "allowWebClient";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(
+        name: AllowWebClient,
+        policy =>
+    {
+        policy.WithOrigins("http://localhost:3000/")
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowAnyOrigin();
+    });
+});
+
 // builder.Host.UseSerilog();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -46,6 +60,8 @@ if (app.Environment.IsDevelopment())
         app.UseSwagger();
         app.UseSwaggerUI();
     }
+
+app.UseCors(AllowWebClient);
 
 app.UseHttpsRedirection();
 

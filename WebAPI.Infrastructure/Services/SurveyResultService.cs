@@ -46,8 +46,7 @@ namespace WebAPI.Infrastructure.Services
             var surveyResultRepository = this.serviceProvider.GetRequiredService<Repositories.ISurveyResultRepository>();
 
             await surveyResultRepository.Create(
-                surveyResult.Products
-                .Select(x => x.Id).FirstOrDefault(),
+                surveyResult.Product.Id,
                 surveyResult.Stars,
                 surveyResult.Comment);
         }
