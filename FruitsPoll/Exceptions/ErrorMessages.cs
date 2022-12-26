@@ -14,6 +14,7 @@ namespace PollDog.API.Exceptions
             { "BRAND_NAME_NOT_SPECIFIED", "Brand Name cannot be null or empty string." },
             { "BRAND_ID_IS_NOT_VALID", "BrandId is not valid Guid." },
             { "PRODUCT_NAME_NOT_SPECIFIED", "Product Name cannot be null or empty string." },
+            { "PRODUCT_ID_IS_NOT_VALID", "ProductId cannot be null or invalid guid." },
         };
 
         /// <summary>Gets the exception message.</summary>

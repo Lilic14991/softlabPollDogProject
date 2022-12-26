@@ -26,6 +26,6 @@ namespace WebAPI.Core.Repositories
         /// <returns>
         ///   Returns task.
         /// </returns>
-        Task Create(Guid productId, int rating, string comment);
+        Task Create(Guid? productId, int rating, string comment);
     }
 }

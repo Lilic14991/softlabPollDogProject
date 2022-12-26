@@ -12,7 +12,7 @@ namespace WebAPI.Core.Models
     {
         /// <summary>Gets or sets the identifier.</summary>
         /// <value>The identifier.</value>
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
 
         /// <summary>Gets or sets the name of the product.</summary>
         /// <value>The name of the product.</value>

@@ -10,7 +10,7 @@ namespace PollDog.API.DTO
     {
         /// <summary>Gets or sets the rating.</summary>
         /// <value>The rating.</value>
-        public float Rating { get; set; }
+        public float? Rating { get; set; }
 
         /// <summary>Gets or sets the comment.</summary>
         /// <value>The comment.</value>
@@ -18,6 +18,6 @@ namespace PollDog.API.DTO
 
         /// <summary>Gets or sets the product.</summary>
         /// <value>The product.</value>
-        public Product? Product { get; set; }
+        public ProductRequest Product { get; set; }
     }
 }

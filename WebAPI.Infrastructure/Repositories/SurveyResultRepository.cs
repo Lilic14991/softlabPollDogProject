@@ -50,7 +50,7 @@ namespace WebAPI.Infrastructure.Repositories
         /// <returns>
         ///     Returns task.
         /// </returns>
-        public async Task Create(Guid productId, int rating, string comment)
+        public async Task Create(Guid? productId, int rating, string comment)
         {
             using (var connection = this.configService.Connection)
             {

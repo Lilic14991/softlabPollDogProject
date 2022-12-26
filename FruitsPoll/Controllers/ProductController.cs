@@ -48,7 +48,7 @@ namespace PollDog.API.Controllers
                     return this.BadRequest();
                 }
 
-                var mappedResult = mapper.Map<List<Models.Product>, List<DTO.Product>>(products.ToList());
+                var mappedResult = mapper.Map<List<Models.Product>, List<DTO.ProductResponse>>(products.ToList());
 
                 return this.Ok(mappedResult);
             }

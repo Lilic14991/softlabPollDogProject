@@ -21,8 +21,12 @@ namespace PollDog.API.Helpers
                 .ForMember(
                     dest => dest.Stars,
                     opt => opt.MapFrom(src => src.Rating))
-                .ReverseMap();
-            this.CreateMap<Models.Product, DTO.Product>().ReverseMap();
+                .ForMember(
+                    dest => dest.Product,
+                    opt => opt.MapFrom(src => new Models.Product() { Id = src.Product.Id }));
+            this.CreateMap<Models.Product, DTO.ProductResponse>();
+            this.CreateMap<DTO.ProductResponse, Models.Product>();
+            this.CreateMap<DTO.ProductRequest, Models.Product>();
             this.CreateMap<Models.Product, DTO.ProductAverageRating>()
                 .ForMember(
                     dest => dest.ProductName,

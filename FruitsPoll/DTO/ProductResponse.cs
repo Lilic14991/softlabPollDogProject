@@ -1,12 +1,12 @@
 ﻿// -------------------------------------------------------------------------------
-// <copyright file="Product.cs" company="SoftLab">
+// <copyright file="ProductResponse.cs" company="SoftLab">
 // Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
 // -------------------------------------------------------------------------------
 namespace PollDog.API.DTO
 {
-    /// <summary> <see cref="Product"/> class DTO.</summary>
-    public class Product
+    /// <summary> <see cref="ProductResponse"/> class DTO.</summary>
+    public class ProductResponse
     {
         /// <summary>Gets or sets the identifier.</summary>
         /// <value>The identifier.</value>

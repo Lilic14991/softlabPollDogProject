@@ -30,7 +30,7 @@ namespace WebAPI.Infrastructure.Mapper
                 Id = surveyResult.Id,
                 Stars = surveyResult.Stars,
                 Comment = surveyResult.Comment,
-                ProductId = surveyResult.ProductId,
+                Product = new Models.Product { Id = surveyResult.ProductId },
             };
         }
 

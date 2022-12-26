@@ -6,7 +6,6 @@
 namespace WebAPI.Core.Models
 {
     using System;
-    using System.Collections.Generic;
 
     /// <summary>class SurveyResult.</summary>
     public class SurveyResult
@@ -14,10 +13,6 @@ namespace WebAPI.Core.Models
         /// <summary>Gets or sets the identifier.</summary>
         /// <value>The identifier.</value>
         public Guid Id { get; set; }
-
-        /// <summary>Gets or sets the product identifier.</summary>
-        /// <value>The product identifier.</value>
-        public Guid ProductId { get; set; }
 
         /// <summary>Gets or sets the stars.</summary>
         /// <value>The stars.</value>
