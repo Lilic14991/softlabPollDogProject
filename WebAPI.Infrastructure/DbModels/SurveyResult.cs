@@ -8,22 +8,22 @@ namespace WebAPI.Infrastructure.DbModels
     using System;
 
     /// <summary>class SurveyResult.</summary>
-    public class SurveyResult
+    public record SurveyResult
     {
-        /// <summary>Gets or sets the identifier.</summary>
+        /// <summary>Gets the identifier.</summary>
         /// <value>The identifier.</value>
-        public Guid Id { get; set; }
+        public Guid Id { get; init; }
 
-        /// <summary>Gets or sets the product identifier.</summary>
+        /// <summary>Gets the product identifier.</summary>
         /// <value>The product identifier.</value>
-        public Guid ProductId { get; set; }
+        public Guid ProductId { get; init; }
 
-        /// <summary>Gets or sets the stars.</summary>
+        /// <summary>Gets the stars.</summary>
         /// <value>The stars.</value>
-        public int Stars { get; set; }
+        public int Stars { get; init; }
 
-        /// <summary>Gets or sets the comment.</summary>
+        /// <summary>Gets the comment.</summary>
         /// <value>The comment.</value>
-        public string Comment { get; set; }
+        public string Comment { get; init; }
     }
 }

@@ -8,22 +8,22 @@ namespace WebAPI.Core.Models
     using System;
 
     /// <summary>Product class.</summary>
-    public class Product
+    public record Product
     {
-        /// <summary>Gets or sets the identifier.</summary>
+        /// <summary>Gets the identifier.</summary>
         /// <value>The identifier.</value>
-        public Guid? Id { get; set; }
+        public Guid? Id { get; init; }
 
-        /// <summary>Gets or sets the name of the product.</summary>
-        /// <value>The name of the product.</value>
-        public string Name { get; set; }
+        /// <summary>Gets the name.</summary>
+        /// <value>The name.</value>
+        public string Name { get; init; }
 
-        /// <summary>Gets or sets the average.</summary>
+        /// <summary>Gets the average.</summary>
         /// <value>The average.</value>
-        public double Average { get; set; }
+        public double Average { get; init; }
 
-        /// <summary>Gets or sets the brand.</summary>
+        /// <summary>Gets the brand.</summary>
         /// <value>The brand.</value>
-        public Brand Brand { get; set; }
+        public Brand Brand { get; init; }
     }
 }

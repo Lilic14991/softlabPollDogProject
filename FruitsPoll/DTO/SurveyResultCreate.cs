@@ -6,30 +6,18 @@
 namespace PollDog.API.DTO
 {
     /// <summary>SurveyResult DTO.</summary>
-    public record class SurveyResultCreate
+    public record SurveyResultCreate
     {
-        /// <summary>
-        /// Gets the rating.
-        /// </summary>
-        /// <value>
-        /// The rating.
-        /// </value>
+        /// <summary>Gets the rating.</summary>
+        /// <value>The rating.</value>
         public float? Rating { get; init; }
 
-        /// <summary>
-        /// Gets the comment.
-        /// </summary>
-        /// <value>
-        /// The comment.
-        /// </value>
+        /// <summary>Gets the comment.</summary>
+        /// <value>The comment.</value>
         public string? Comment { get; init; }
 
-        /// <summary>
-        /// Gets the product.
-        /// </summary>
-        /// <value>
-        /// The product.
-        /// </value>
+        /// <summary>Gets the product.</summary>
+        /// <value>The product.</value>
         public ProductRequest? Product { get; init; }
     }
 }

@@ -8,14 +8,14 @@ namespace WebAPI.Infrastructure.DbModels
     using System;
 
     /// <summary>class Entity Brand.</summary>
-    public class Brand
+    public record Brand
     {
-        /// <summary>Gets or sets the identifier.</summary>
+        /// <summary>Gets the identifier.</summary>
         /// <value>The identifier.</value>
-        public Guid Id { get; set; }
+        public Guid Id { get; init; }
 
-        /// <summary>Gets or sets the name of the brand.</summary>
-        /// <value>The name of the brand.</value>
-        public string Name { get; set; }
+        /// <summary>Gets the name.</summary>
+        /// <value>The name.</value>
+        public string Name { get; init; }
     }
 }

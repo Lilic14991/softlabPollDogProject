@@ -11,23 +11,25 @@ namespace PollDog.API.Exceptions
     /// <summary>ErrorMessage class.</summary>
     public static class ErrorMessages
     {
-        //private static IOptions<ErrorMessages> options;
+        //private static IOptions<ErrorMessages> _options;
 
-        ///// <summary>The SQL error dictionary.</summary>
+        //public static string MyConfigurationOption { get; set; }
 
         //public ErrorMessages(IOptions<ErrorMessages> options)
         //{
-
+        //    _options = options;
+        //    MyConfigurationOption = _options.Value.MyConfigurationOption;
         //}
 
-        public static Dictionary<string, string> errorMessagesDict = new Dictionary<string, string>()
-        {
-            { "BRAND_NAME_NOT_SPECIFIED", "Brand Name cannot be null or empty string." },
-            { "BRAND_IDENTIFIER_IS_NOT_VALID", "Brand identifier cannto be null or empty string" },
-            { "PRODUCT_NAME_NOT_SPECIFIED", "Product Name cannot be null or empty string." },
-            { "PRODUCT_IDENTIFIER_IS_NOT_VALID", "Product identifier cannot be null or invalid guid." },
-            { "RATING_CANNOT_BE_NULL", "Rating cannot have null value or less then 0." },
-        };
+        /// <summary>The SQL error dictionary.</summary>
+        public static Dictionary<string, string> errorMessagesDict = new Dictionary<string, string>();
+        //{
+        //    { "BRAND_NAME_NOT_SPECIFIED", "Brand Name cannot be null or empty string." },
+        //    { "BRAND_IDENTIFIER_IS_NOT_VALID", "Brand identifier cannto be null or empty string" },
+        //    { "PRODUCT_NAME_NOT_SPECIFIED", "Product Name cannot be null or empty string." },
+        //    { "PRODUCT_IDENTIFIER_IS_NOT_VALID", "Product identifier cannot be null or invalid guid." },
+        //    { "RATING_CANNOT_BE_NULL", "Rating cannot have null value or less then 0." },
+        //};
 
     /// <summary>Gets the exception message.</summary>
     /// <param name="message">string representing sql exception message.</param>

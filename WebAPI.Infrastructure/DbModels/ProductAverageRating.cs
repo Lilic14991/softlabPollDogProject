@@ -8,16 +8,16 @@ namespace WebAPI.Infrastructure.DbModels
     /// <summary>Product Average rating class.</summary>
     public class ProductAverageRating
     {
-        /// <summary>Gets or sets the name of the brand.</summary>
+        /// <summary>Gets the name of the brand.</summary>
         /// <value>The name of the brand.</value>
-        public string BrandName { get; set; }
+        public string BrandName { get; init; }
 
-        /// <summary>Gets or sets the name of the product.</summary>
+        /// <summary>Gets the name of the product.</summary>
         /// <value>The name of the product.</value>
-        public string ProductName { get; set; }
+        public string ProductName { get; init; }
 
-        /// <summary>Gets or sets the average.</summary>
+        /// <summary>Gets the average.</summary>
         /// <value>The average.</value>
-        public double Average { get; set; }
+        public double Average { get; init; }
     }
 }

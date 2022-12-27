@@ -6,30 +6,18 @@
 namespace PollDog.API.DTO
 {
     /// <summary> <see cref="ProductResponse"/> class DTO.</summary>
-    public record class ProductResponse
+    public record ProductResponse
     {
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
+        /// <summary>Gets the identifier.</summary>
+        /// <value>The identifier.</value>
         public Guid? Id { get; init; }
 
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
+        /// <summary>Gets the name.</summary>
+        /// <value>The name.</value>
         public string? Name { get; init; }
 
-        /// <summary>
-        /// Gets the brand identifier.
-        /// </summary>
-        /// <value>
-        /// The brand identifier.
-        /// </value>
+        /// <summary>Gets the brand identifier.</summary>
+        /// <value>The brand identifier.</value>
         public Guid? BrandId { get; init; }
     }
 }
