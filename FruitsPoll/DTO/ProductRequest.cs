@@ -6,14 +6,22 @@
 namespace PollDog.API.DTO
 {
     /// <summary>ProductRquest model class.</summary>
-    public class ProductRequest
+    public record class ProductRequest
     {
-        /// <summary>Gets or sets the product identifier.</summary>
-        /// <value>The product identifier.</value>
-        public Guid? Id { get; set; }
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
+        public Guid? Id { get; init; }
 
-        /// <summary>Gets or sets the brand identifier.</summary>
-        /// <value>The brand identifier.</value>
-        public Guid? BrandId { get; set; }
+        /// <summary>
+        /// Gets the brand identifier.
+        /// </summary>
+        /// <value>
+        /// The brand identifier.
+        /// </value>
+        public Guid? BrandId { get; init; }
     }
 }

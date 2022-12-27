@@ -6,18 +6,30 @@
 namespace PollDog.API.DTO
 {
     /// <summary>Product with average rating.</summary>
-    public class ProductAverageRating
+    public record class ProductAverageRating
     {
-        /// <summary>Gets or sets the name of the brand.</summary>
-        /// <value>The name of the brand.</value>
-        public string? BrandName { get; set; }
+        /// <summary>
+        /// Gets the name of the brand.
+        /// </summary>
+        /// <value>
+        /// The name of the brand.
+        /// </value>
+        public string? BrandName { get; init; }
 
-        /// <summary>Gets or sets the name of the product.</summary>
-        /// <value>The name of the product.</value>
-        public string? ProductName { get; set; }
+        /// <summary>
+        /// Gets the name of the product.
+        /// </summary>
+        /// <value>
+        /// The name of the product.
+        /// </value>
+        public string? ProductName { get; init; }
 
-        /// <summary>Gets or sets the average.</summary>
-        /// <value>The average.</value>
-        public double? Average { get; set; }
+        /// <summary>
+        /// Gets the average.
+        /// </summary>
+        /// <value>
+        /// The average.
+        /// </value>
+        public double? Average { get; init; }
     }
 }

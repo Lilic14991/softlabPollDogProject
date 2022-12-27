@@ -23,6 +23,18 @@ builder.Services.AddScoped<ISurveyResultRepository, SurveyResultRepository>();
 builder.Services.AddScoped<ISurveyResultService, SurveyResultService>();
 builder.Services.AddScoped<IConfigService, ConfigService>();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
+
+IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+    .ConfigureAppConfiguration((hostingContext, config) =>
+    {
+        config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+    })
+    .ConfigureWebHostDefaults(webBuilder =>
+    {
+        webBuilder.UseStartup<Program>();
+    });
+
 var allowWebClient = "allowWebClient";
 builder.Services.AddCors(options =>
 {
