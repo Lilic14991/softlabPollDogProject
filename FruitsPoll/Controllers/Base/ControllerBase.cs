@@ -43,7 +43,7 @@ namespace PollDog.API.Controllers.Base
         /// </returns>
         protected IActionResult InternalServerError(Exception? ex = null)
         {
-            return this.StatusCode(500, ErrorMessages.GetExceptionMessage(ex.Message) ?? "INTERNAL_SERVER_ERROR");
+            return this.StatusCode(500, ErrorMessages.GetExceptionMessage(ex?.Message) ?? "INTERNAL_SERVER_ERROR");
         }
 
         /// <summary>Bads the request.</summary>
@@ -53,7 +53,7 @@ namespace PollDog.API.Controllers.Base
         /// </returns>
         protected IActionResult BadRequest(Exception? ex = null)
         {
-            return this.StatusCode(400, ErrorMessages.GetExceptionMessage(ex.Message) ?? "BAD_REQUEST");
+            return this.StatusCode(400, ErrorMessages.GetExceptionMessage(ex?.Message) ?? "BAD_REQUEST");
         }
 
         #endregion

@@ -3,7 +3,6 @@
 // Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
 // -------------------------------------------------------------------------------
-using Microsoft.Extensions.Configuration;
 using PollDog.API.Exceptions;
 using PollDog.API.Helpers;
 using WebAPI.Core.Repositories;
@@ -23,8 +22,10 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ISurveyResultRepository, SurveyResultRepository>();
 builder.Services.AddScoped<ISurveyResultService, SurveyResultService>();
 builder.Services.AddScoped<IConfigService, ConfigService>();
-
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
+
+var configurationSection = builder.Configuration.GetSection("ErrorMessages");
+ErrorMessages.ConfigurationSection = configurationSection;
 
 var allowWebClient = "allowWebClient";
 builder.Services.AddCors(options =>
@@ -39,8 +40,6 @@ builder.Services.AddCors(options =>
         .AllowAnyOrigin();
     });
 });
-
-// builder.Host.UseSerilog();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

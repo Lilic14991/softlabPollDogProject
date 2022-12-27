@@ -3,27 +3,37 @@
 // Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
 // -------------------------------------------------------------------------------
+using System.Runtime.CompilerServices;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
+
 namespace PollDog.API.Exceptions
 {
     /// <summary>ErrorMessage class.</summary>
     public static class ErrorMessages
     {
+        /// <summary>Gets or sets the configuration section.</summary>
+        /// <value>The configuration section.</value>
+        public static IConfigurationSection? ConfigurationSection { get; set; }
+
     /// <summary>Gets the exception message.</summary>
     /// <param name="message">string representing sql exception message.</param>
     /// <returns>Returns string message.</returns>
-        public static string GetExceptionMessage(string message)
+        public static string? GetExceptionMessage(string? message)
         {
-            var errorMessageKeys = AppSettingsConfig.Configuration.GetSection("ErrorMessages").Get<Dictionary<string, string>>();
+            var errorMessageKeys = ErrorMessages.ConfigurationSection;
 
-            if (errorMessageKeys.ContainsKey(message))
+            if (errorMessageKeys == null)
             {
-                message = errorMessageKeys[message];
-            }
-            else
-            {
-                message = "Database error";
+                return message;
             }
 
+            if (message == null)
+            {
+                return null;
+            }
+
+            message = errorMessageKeys[message];
             return message;
         }
     }
