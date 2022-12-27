@@ -23,6 +23,7 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ISurveyResultRepository, SurveyResultRepository>();
 builder.Services.AddScoped<ISurveyResultService, SurveyResultService>();
 builder.Services.AddScoped<IConfigService, ConfigService>();
+
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
 var allowWebClient = "allowWebClient";

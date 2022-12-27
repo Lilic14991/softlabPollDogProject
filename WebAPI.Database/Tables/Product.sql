@@ -5,6 +5,7 @@
     [BrandId] UNIQUEIDENTIFIER	NOT NULL
 
     CONSTRAINT [PK_Product]       PRIMARY KEY ([Id]),
-    CONSTRAINT [FK_Product_Brand] FOREIGN KEY ([BrandId]) REFERENCES [Portfolio].[Brand] ([Id]),
-    /*CREATE INDEX [IX_Product_BrandId] ON [Portfolio].[Product] ([BrandId]) WITH (DROP_EXISTING = OFF)*/
+    CONSTRAINT [FK_Product_Brand] FOREIGN KEY ([BrandId]) REFERENCES [Portfolio].[Brand] ([Id])
 );
+    GO
+    CREATE NONCLUSTERED INDEX [IX_Product_BrandId] ON [Portfolio].[Product] ([BrandId]);

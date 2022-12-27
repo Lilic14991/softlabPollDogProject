@@ -7,5 +7,6 @@
 
     CONSTRAINT [PK_SurveyResult]         PRIMARY KEY ([Id]),
     CONSTRAINT [FK_SurveyResult_Product] FOREIGN KEY ([ProductId]) REFERENCES [Portfolio].[Product] ([Id]),
-    CONSTRAINT [IX_SurveyResult_ProductId] UNIQUE ([ProductId])
 );
+    GO
+    CREATE NONCLUSTERED INDEX [IX_SurveyResult_ProductId] ON [Survey].[SurveyResult] ([ProductId]);
