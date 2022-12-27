@@ -6,5 +6,5 @@
 
     CONSTRAINT [PK_Product]       PRIMARY KEY ([Id]),
     CONSTRAINT [FK_Product_Brand] FOREIGN KEY ([BrandId]) REFERENCES [Portfolio].[Brand] ([Id]),
-    CONSTRAINT [IX_Product_BrandId] UNIQUE (BrandId)
+    /*CREATE INDEX [IX_Product_BrandId] ON [Portfolio].[Product] ([BrandId]) WITH (DROP_EXISTING = OFF)*/
 );
