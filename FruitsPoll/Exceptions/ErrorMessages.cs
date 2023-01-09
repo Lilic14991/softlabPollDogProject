@@ -3,10 +3,6 @@
 // Copyright (c) www.SoftLab.rs. All rights reserved.
 // </copyright>
 // -------------------------------------------------------------------------------
-using System.Runtime.CompilerServices;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Identity.Client;
-
 namespace PollDog.API.Exceptions
 {
     /// <summary>ErrorMessage class.</summary>
