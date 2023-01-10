@@ -21,6 +21,12 @@ csharp_indent_labels = one_less_than_current
 # CS8602: Dereference of a possibly null reference.
 dotnet_diagnostic.CS8602.severity = silent
 
+# CA1051: Do not declare visible instance fields
+dotnet_diagnostic.CA1051.severity = none
+
+# SA1401: Fields should be private
+dotnet_diagnostic.SA1401.severity = silent
+
 [*.{cs,vb}]
 #### Naming styles ####
 

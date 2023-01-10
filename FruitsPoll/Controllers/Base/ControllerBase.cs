@@ -49,7 +49,7 @@ namespace PollDog.API.Controllers.Base
         /// <summary>Bads the request.</summary>
         /// <param name="ex">The exception.</param>
         /// <returns>
-        ///     Returns bad requst or string exception.
+        ///     Returns bad request or string exception.
         /// </returns>
         protected IActionResult BadRequest(Exception? ex = null)
         {
